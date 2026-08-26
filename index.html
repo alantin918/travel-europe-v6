@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1020">
+<meta name="description" content="2026 英倫與冰島 12 天 · 第六版：中文三日團・不含愛丁堡（11/11–11/22）">
+<title>2026 英倫與冰島 12 天｜第六版</title>
+<style>
+:root{
+  --bg:#0b1020; --bg2:#101830; --card:rgba(255,255,255,.055); --card-solid:#141d38;
+  --border:rgba(255,255,255,.11); --border-strong:rgba(255,255,255,.2);
+  --text:#eef2ff; --muted:#a3b0d4; --dim:#7c89ad;
+  --accent:#6ea8ff; --accent2:#8be9c0; --warn:#ffd166; --hot:#ff8fa3;
+  --shadow:0 18px 50px rgba(0,0,0,.45);
+  --glow:radial-gradient(1200px 600px at 15% -10%, rgba(110,168,255,.22), transparent 60%),
+         radial-gradient(900px 500px at 95% 0%, rgba(139,233,192,.15), transparent 55%);
+}
+html[data-theme="light"]{
+  --bg:#f5f7fc; --bg2:#ffffff; --card:rgba(255,255,255,.78); --card-solid:#ffffff;
+  --border:rgba(15,30,70,.12); --border-strong:rgba(15,30,70,.22);
+  --text:#131a2e; --muted:#4a5878; --dim:#6b7794;
+  --accent:#2563eb; --accent2:#0f9b73; --warn:#b06f00; --hot:#c0264a;
+  --shadow:0 14px 38px rgba(20,40,90,.13);
+  --glow:radial-gradient(1100px 560px at 12% -12%, rgba(37,99,235,.13), transparent 60%),
+         radial-gradient(900px 500px at 96% 0%, rgba(15,155,115,.12), transparent 55%);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;color:var(--text);background:var(--bg);background-image:var(--glow);
+  background-attachment:fixed;
+  font-family:"PingFang TC","Noto Sans TC","Hiragino Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  line-height:1.75;letter-spacing:.01em;transition:background-color .35s ease,color .35s ease;
+}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+a{color:var(--accent)}
+
+/* 頂部列 */
+.topbar{border-bottom:1px solid var(--border)}
+.topbar-in{display:flex;align-items:center;gap:12px;height:54px}
+.brand{font-weight:800;font-size:15px;white-space:nowrap}
+.brand small{display:block;font-weight:500;font-size:11px;color:var(--dim);letter-spacing:.08em}
+.tb-dates{margin-left:auto;font-size:12.5px;color:var(--dim);white-space:nowrap;font-variant-numeric:tabular-nums}
+.tb-dates b{color:var(--accent2)}
+@media(max-width:540px){.tb-dates{display:none}}
+#themeBtn{
+  flex:0 0 auto;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:17px;line-height:1;
+  background:var(--card);border:1px solid var(--border);color:var(--text);transition:.2s
+}
+#themeBtn:hover{border-color:var(--border-strong);transform:translateY(-1px)}
+
+/* 標籤列：外層滿版、內層對齊內容 */
+.tabbar{position:sticky;top:0;z-index:55;background:var(--bg);border-bottom:1px solid var(--border)}
+.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+@media(min-width:900px){.tabs{overflow:visible}}
+.tab{
+  flex:0 0 auto;padding:14px 13px 12px;border:0;background:none;
+  font-size:14.5px;line-height:1.4;color:var(--dim);cursor:pointer;font-family:inherit;
+  white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-1px;
+  transition:color .18s,border-color .18s
+}
+.tab:hover{color:var(--text)}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+
+/* 面板 */
+.panel{display:none}
+.panel.on{display:block;animation:fadein .28s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+section{padding:clamp(20px,3.5vw,30px) 0}
+
+/* Hero */
+.hero{padding:clamp(18px,3.5vw,32px) 0 clamp(22px,4vw,36px)}
+.ver{
+  display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.12em;
+  padding:6px 14px;border-radius:999px;border:1px solid var(--border-strong);
+  background:var(--card);color:var(--accent2);font-weight:700
+}
+h1{font-size:clamp(28px,6.5vw,52px);line-height:1.18;margin:18px 0 10px;letter-spacing:-.02em}
+h1 em{font-style:normal;background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--muted);font-size:clamp(14px,2.4vw,17px);max-width:58ch;margin:0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(126px,1fr));gap:12px;margin-top:26px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:15px 17px;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:clamp(19px,4vw,26px);letter-spacing:-.01em}
+.stat span{font-size:12px;color:var(--dim)}
+
+/* 標題與卡片 */
+.h2{display:flex;align-items:center;gap:11px;margin:0 0 6px;font-size:clamp(20px,4vw,28px);letter-spacing:-.01em}
+.lead{color:var(--muted);margin:0 0 22px;font-size:14.5px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:clamp(16px,3vw,24px);box-shadow:var(--shadow)}
+.core{border-left:3px solid var(--accent2)}
+.core p{margin:0 0 14px}
+.core p:last-child{margin:0}
+.tag{
+  display:inline-block;padding:3px 10px;margin:3px 6px 3px 0;border-radius:8px;font-size:12.5px;
+  background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent);
+  border:1px solid color-mix(in srgb,var(--accent) 32%,transparent);font-weight:600
+}
+
+/* 大交通 */
+.legs{display:grid;gap:12px}
+.leg{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;
+  background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px 18px;transition:.2s}
+.leg:hover{border-color:var(--border-strong);transform:translateY(-2px)}
+.leg .ico{font-size:22px}
+.leg .rt{font-weight:700;font-size:15px}
+.leg .rt i{font-style:normal;color:var(--dim);margin:0 6px}
+.leg .meta{font-size:12.5px;color:var(--muted);margin-top:2px}
+.leg .legday{text-align:right;font-size:12px;color:var(--dim);white-space:nowrap;font-variant-numeric:tabular-nums}
+.leg .legday b{display:block;font-size:14px;color:var(--text)}
+@media(max-width:600px){
+  .leg{grid-template-columns:auto 1fr;row-gap:6px}
+  .leg .legday{grid-column:2;text-align:left}
+}
+
+/* 時間軸 */
+.tl{position:relative;padding-left:24px}
+.tl::before{content:"";position:absolute;left:8px;top:4px;bottom:4px;width:2px;
+  background:linear-gradient(var(--accent),var(--accent2),transparent)}
+.seg{position:relative;display:flex;align-items:center;gap:10px;margin:16px 0 9px;font-size:12.5px}
+.seg:first-child{margin-top:2px}
+.seg b{font-weight:800;letter-spacing:.05em;font-size:13.5px;color:var(--text);white-space:nowrap}
+.seg em{font-style:normal;color:var(--dim);letter-spacing:0;white-space:nowrap;font-size:12px}
+.seg i{flex:1 1 auto;height:1px;background:var(--border);min-width:8px}
+.seg::before{content:"";position:absolute;left:-24px;top:50%;transform:translateY(-50%);
+  width:18px;height:18px;border-radius:6px;background:var(--bg);
+  border:2px solid var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 12%,transparent)}
+.seg.ice::before{border-color:var(--accent2);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent2) 12%,transparent)}
+.seg.home::before{border-color:var(--dim);box-shadow:0 0 0 4px color-mix(in srgb,var(--dim) 12%,transparent)}
+.day{position:relative;margin-bottom:8px;transition:opacity .5s ease,transform .5s ease}
+#tl.anim article.day{opacity:0;transform:translateY(12px)}
+#tl.anim article.day.in{opacity:1;transform:none}
+.day::before{content:"";position:absolute;left:-21px;top:20px;width:12px;height:12px;border-radius:50%;
+  background:var(--bg);border:2.5px solid var(--accent);
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 18%,transparent)}
+.day.ice::before{border-color:var(--accent2);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent2) 18%,transparent)}
+.day.move::before{border-color:var(--warn);box-shadow:0 0 0 4px color-mix(in srgb,var(--warn) 20%,transparent)}
+.dhead{width:100%;display:flex;align-items:center;gap:11px;text-align:left;cursor:pointer;
+  background:var(--card);border:1px solid var(--border);border-radius:15px;padding:11px 14px;
+  color:var(--text);font-family:inherit;font-size:15px;transition:.2s}
+.dhead:hover{border-color:var(--border-strong)}
+.dnum{flex:0 0 auto;display:grid;place-items:center;width:40px;height:40px;border-radius:12px;
+  background:color-mix(in srgb,var(--accent) 15%,transparent);border:1px solid var(--border);
+  font-weight:800;font-size:12px;line-height:1.15;text-align:center}
+.dnum span{display:block;font-size:10px;font-weight:600;color:var(--dim)}
+.dttl{flex:1 1 auto;min-width:0}
+.dttl b{display:block;font-size:15.5px;letter-spacing:-.01em}
+.dttl em{font-style:normal;font-size:12.5px;color:var(--muted)}
+.chev{flex:0 0 auto;color:var(--dim);transition:transform .28s;font-size:13px}
+.day.open .chev{transform:rotate(180deg)}
+.dbody{overflow:hidden;max-height:0;transition:max-height .38s ease;margin:0 0 0 8px;
+  border-left:1px dashed var(--border-strong)}
+.day.open .dbody{max-height:2400px}
+.dbody ul{margin:8px 0;padding:0 6px 0 20px}
+.dbody li{margin:5px 0;font-size:14.2px;color:var(--muted);line-height:1.7}
+.dbody li b{color:var(--text);font-weight:600}
+.stay{display:inline-flex;align-items:center;gap:7px;margin:0 0 10px 20px;padding:5px 12px;
+  border-radius:9px;font-size:12.5px;background:color-mix(in srgb,var(--accent2) 14%,transparent);
+  color:var(--accent2);border:1px solid color-mix(in srgb,var(--accent2) 30%,transparent);font-weight:600}
+.stay.none{background:color-mix(in srgb,var(--hot) 13%,transparent);color:var(--hot);
+  border-color:color-mix(in srgb,var(--hot) 28%,transparent)}
+.ctrl{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.ctrl button{padding:8px 15px;border-radius:11px;font-size:13px;cursor:pointer;font-family:inherit;
+  background:var(--card);border:1px solid var(--border);color:var(--muted);transition:.2s}
+.ctrl button:hover{color:var(--text);border-color:var(--border-strong)}
+
+/* 住宿 */
+.beds{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px}
+.bed{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:15px 17px}
+.bed b{display:block;font-size:15px;margin-bottom:4px}
+.bed .n{font-size:12.5px;color:var(--dim);line-height:1.7}
+.bar{height:6px;border-radius:99px;background:var(--border);margin-top:11px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.tag-k{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:6px;
+  background:color-mix(in srgb,var(--accent2) 18%,transparent);color:var(--accent2)}
+.tag-x{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:6px;
+  background:color-mix(in srgb,var(--hot) 18%,transparent);color:var(--hot)}
+
+/* 清單卡片 */
+.prep{display:grid;gap:11px}
+.pi{display:grid;grid-template-columns:auto 1fr;gap:13px;background:var(--card);
+  border:1px solid var(--border);border-left:3px solid var(--dim);border-radius:14px;padding:14px 17px}
+.pi.now{border-left-color:var(--hot)}
+.pi.soon{border-left-color:var(--warn)}
+.pi.later{border-left-color:var(--accent)}
+.pi.done{border-left-color:var(--accent2)}
+.pi.done b{color:var(--accent2)}
+.pi .k{font-size:19px}
+.pi b{display:block;font-size:14.5px;margin-bottom:3px}
+.pi p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.72}
+.pi .lv{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.05em;
+  padding:2px 8px;border-radius:6px;margin-left:8px;vertical-align:2px}
+.pi.now .lv{background:color-mix(in srgb,var(--hot) 18%,transparent);color:var(--hot)}
+.pi.soon .lv{background:color-mix(in srgb,var(--warn) 20%,transparent);color:var(--warn)}
+.pi.later .lv{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent)}
+.pi.done .lv{background:color-mix(in srgb,var(--accent2) 18%,transparent);color:var(--accent2)}
+.pi .quote{border-left:2px solid var(--border-strong);color:var(--text);
+  background:color-mix(in srgb,var(--card-solid) 40%,transparent);border-radius:0 8px 8px 0;padding:9px 12px}
+
+/* 表格 */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:16px;border-radius:14px;border:1px solid var(--border)}
+table{border-collapse:collapse;width:100%;min-width:540px;font-size:13.5px;background:var(--card)}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;color:var(--dim);font-weight:700;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td{color:var(--muted)}
+td b{color:var(--text)}
+.dl-hot{background:color-mix(in srgb,var(--hot) 12%,transparent)}
+.dl-hot td{color:var(--text)}
+.wx td:first-child{white-space:nowrap;font-variant-numeric:tabular-nums}
+.wx .ice{background:color-mix(in srgb,var(--accent2) 8%,transparent)}
+
+/* 電話 */
+.tel{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:11px}
+.tel a{display:block;background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:13px 16px;transition:.2s;color:var(--text);text-decoration:none}
+.tel a:hover{border-color:var(--border-strong);transform:translateY(-2px)}
+.tel b{display:block;font-size:14px;margin-bottom:3px}
+.tel span{font-size:15px;color:var(--accent);font-variant-numeric:tabular-nums}
+.tel em{display:block;font-style:normal;font-size:12px;color:var(--dim);margin-top:3px}
+
+/* 打包 */
+.pk{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.pk-col{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:15px 17px}
+.pk-col.must{border-left:3px solid var(--hot)}
+.pk-col.rec{border-left:3px solid var(--warn)}
+.pk-col.opt{border-left:3px solid var(--accent)}
+.pk-col.no{border-left:3px solid var(--dim);opacity:.78}
+.pk-col h4{margin:0 0 10px;font-size:14px;letter-spacing:.02em}
+.pk-col ul{margin:0;padding-left:18px}
+.pk-col li{font-size:13.2px;color:var(--muted);margin:5px 0;line-height:1.65}
+.pk-col li b{color:var(--text)}
+
+footer{border-top:1px solid var(--border);margin-top:30px;padding:26px 0 44px;
+  color:var(--dim);font-size:12.5px;text-align:center}
+#top{position:fixed;right:18px;bottom:18px;z-index:60;width:44px;height:44px;border-radius:14px;
+  background:var(--card-solid);border:1px solid var(--border-strong);color:var(--text);cursor:pointer;
+  box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s;font-size:16px}
+#top.show{opacity:1;pointer-events:auto}
+
+@media(max-width:600px){
+  .topbar-in{height:52px}
+  .brand small{display:none}
+  .tl{padding-left:18px}
+  .tl::before{left:6px}
+  .day::before{left:-17px;top:18px}
+  .seg::before{left:-19px;width:16px;height:16px}
+  .seg{gap:8px;margin:14px 0 10px}
+  .dnum{width:38px;height:38px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+@media print{
+  .topbar,.tabbar,#top,.ctrl,#themeBtn{display:none}
+  .panel{display:block!important}
+  .dbody{max-height:none!important}
+  body{background:#fff;color:#000}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap topbar-in">
+    <div class="brand">🏔️ 英倫 × 冰島<small>2026 / 第六版</small></div>
+    <div class="tb-dates"><b>11/11</b> – <b>11/22</b>　12 天</div>
+    <button id="themeBtn" type="button" aria-label="切換日／夜間模式" title="切換日／夜間模式">🌙</button>
+  </div>
+</div>
+
+<div class="tabbar">
+  <nav class="tabs wrap" id="tabs" aria-label="區塊導覽">
+    <button class="tab" type="button" data-p="core">核心</button>
+    <button class="tab" type="button" data-p="days">每日行程</button>
+    <button class="tab" type="button" data-p="trans">大交通</button>
+    <button class="tab" type="button" data-p="stay">住宿</button>
+    <button class="tab" type="button" data-p="prep">行前必辦</button>
+    <button class="tab" type="button" data-p="deadline">取消期限</button>
+    <button class="tab" type="button" data-p="plan-b">備援方案</button>
+    <button class="tab" type="button" data-p="pack">天氣與打包</button>
+    <button class="tab" type="button" data-p="tel">聯絡電話</button>
+  </nav>
+</div>
+
+<div class="wrap">
+<div class="panels" id="panels">
+
+<section id="core" class="panel">
+<header class="hero">
+  <span class="ver">◆ 第六版　中文三日團 × 不含愛丁堡</span>
+  <h1>2026 <em>英倫與冰島</em><br>12 天</h1>
+  <p class="sub"><b>11/11（三）～ 11/22（日）</b>。改用<b>中文三日團</b>（僅週三、日出發），放棄愛丁堡以移除全程最脆弱的航班，倫敦與雷克雅維克都拿到完整的城市時間。</p>
+  <div class="stats">
+    <div class="stat"><b>12</b><span>天／10 晚住宿</span></div>
+    <div class="stat"><b>3</b><span>座城市據點</span></div>
+    <div class="stat"><b>2</b><span>國家（英國・冰島）</span></div>
+    <div class="stat"><b>4</b><span>段核心大交通</span></div>
+  </div>
+</header>
+
+  <h2 class="h2"><span>💡</span>與第五版的差異</h2>
+  <p class="lead">三個結構性改動，各自解決一個明確的問題。</p>
+  <div class="card core">
+    <p><b>① 改用中文三日團（11/15 週日出發）</b><br>
+    價格、行程、09:00 出發、1:18 導遊比與英文團<b>完全相同</b>，只差語言。冰島的看點大半是地質故事 —— 板塊怎麼撕開、冰川怎麼退、火山灰怎麼變黑沙 —— 聽得懂是「玩得懂」與「看風景」的差別。<b>中文團僅週三、日出發</b>，11/15 剛好對上。</p>
+    <p><b>② 放棄愛丁堡</b><br>
+    原本 11/17 的 easyJet KEF→愛丁堡<b>每週只有 2 班</b>，而 <b>11/18 三家航空全都不飛</b> —— 那是全程唯一「錯過就無法當天補救」的一段。改成 KEF→倫敦（每日多班）後，這個風險消失，同時省下 Forth House 兩晚與 LNER 車票。</p>
+    <p><b>③ 雷克雅維克從 2 小時變成 3 天</b><br>
+    第一到第五版都把雷克雅維克當成「睡覺的基地」—— 白天實際只有約 <b>2 小時</b>。第六版把 <b>11/14（週六）</b>整天留給市區：教堂登塔、Kolaportið 跳蚤市場（週末限定）、Sky Lagoon、晚上極光團。</p>
+    <div>
+      <span class="tag">中文導遊</span>
+      <span class="tag">不含愛丁堡</span>
+      <span class="tag">雷克雅維克整天</span>
+      <span class="tag">升等免候補</span>
+      <span class="tag">伯明罕德式市集</span>
+      <span class="tag">四個週末市集</span>
+    </div>
+  </div>
+
+  <h2 class="h2" style="margin-top:26px"><span>🎯</span>時間上的四個巧合</h2>
+  <div class="prep">
+    <div class="pi done"><span class="k">📅</span><div><b>11/15 是星期日 → 中文團出團日</b>
+      <p>中文團 10/11 起<b>僅每週三、日出發</b>。11/11–22 區間內只有 11/15（日）與 11/18（三）—— 而 11/18 出團會撞到回程，所以 <b>11/15 是唯一可行的日子</b>。</p></div></div>
+    <div class="pi done"><span class="k">🗓️</span><div><b>兩個星期四 → 兩個限定市集都拿到</b>
+      <p><b>11/12</b> → Old Spitalfields <b>古董市集</b>（週四 8:00–18:00 限定）<br>
+      <b>11/19</b> → 康登<b>週四夜市</b>（攤商開到 21:00，離住處步行 5 分）</p></div></div>
+    <div class="pi done"><span class="k">🛍️</span><div><b>11/14 與 11/21 都是星期六</b>
+      <p><b>11/14（六）</b>→ 雷克雅維克 <b>Kolaportið 跳蚤市場</b>（僅週末營業）<br>
+      <b>11/21（六）</b>→ 倫敦 <b>波多貝羅全市集</b>（9:00–19:00，古董最盛）</p></div></div>
+    <div class="pi done"><span class="k">💺</span><div><b>11/21 回程升等免候補</b>
+      <p>11/21（六）的 CI82 <b>商務艙升等免候補</b>，而 11/23（一）要候補 —— 週六商務客少、艙位釋出多。維持 11/11–22 的日期，35,000 哩就確定用得到。</p></div></div>
+  </div>
+</section>
+
+<section id="days" class="panel">
+  <h2 class="h2"><span>📅</span>每日行程</h2>
+  <p class="lead">點任一天展開細節。左側軸線依所在城市分段；圓點顏色：藍＝英國、綠＝冰島、黃＝移動轉場日。</p>
+  <div class="ctrl">
+    <button type="button" id="openAll">全部展開</button>
+    <button type="button" id="closeAll">全部收合</button>
+  </div>
+  <div class="tl" id="tl">
+
+    <div class="seg"><b>🇬🇧 倫敦（前段）</b><em>11/11–11/12 · 2 晚 · 調時差</em><i></i></div>
+
+    <article class="day move">
+      <button class="dhead" type="button"><span class="dnum">D1<span>11/11</span></span>
+        <span class="dttl"><b>【啟程】飛抵倫敦</b><em>11/11（三）· 台北 → 倫敦</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li><b>09:15</b> 華航 <b>CI81</b> 直飛（<b>已確認 11/11 有飛</b>），飛行約 13.5 小時。</li>
+          <li><b>16:55</b> 抵達 LHR → 出關提行李 → <b>Piccadilly 線直達</b> King's Cross St Pancras（約 50 分，£5.90，不用換車）。</li>
+          <li>步行 10 分到住處（<b>63 Chalton Street, NW1 1HY</b>），約 <b>18:30 進房</b>。</li>
+          <li>晚餐走 12 分到 <b>Coal Drops Yard／Granary Square</b> 一帶（King's Cross 後方，餐廳很多）。</li>
+          <li>💡 <b>晚上 21:00 就睡</b>，完美切換英國時間 —— 別 19:00 就倒下，那會導致凌晨 2 點醒來。</li>
+        </ul>
+        <div class="stay">🏨 倫敦 Airbnb（63 Chalton Street）</div>
+      </div>
+    </article>
+
+    <article class="day">
+      <button class="dhead" type="button"><span class="dnum">D2<span>11/12</span></span>
+        <span class="dttl"><b>【倫敦】東區市集 ＋ 倫敦塔 ＋ 音樂劇</b><em>11/12（四）· 倫敦</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li><b>08:00–12:00</b>　<b>Old Spitalfields 古董市集</b> —— ⭐ <b>週四限定</b>（8:00–18:00），古董愛好者要早去。</li>
+          <li>順道走到 <b>Brick Lane</b>，必吃 <b>Beigel Bake</b> 的鹹牛肉貝果（<b>24 小時營業</b>）。</li>
+          <li><b>13:00–16:30</b>　<b>倫敦塔</b>（£34）—— 皇冠珠寶、白塔「列王線」盔甲、血腥塔、渡鴉，別錯過<b>免費的 Yeoman Warder 導覽</b>。<br>⚠️ 11 月<b>16:30 就關門</b>，比一般印象早很多。</li>
+          <li>接著走 <b>倫敦塔橋</b>（外觀免費）。</li>
+          <li><b>19:30</b>　<b>西區音樂劇</b> —— Spitalfields／倫敦塔都在東區，看完塔往西進劇院區剛好。</li>
+        </ul>
+        <div class="stay">🏨 倫敦 Airbnb</div>
+      </div>
+    </article>
+
+    <div class="seg ice"><b>🇮🇸 冰島</b><em>11/13–11/17 · 5 晚 · 雷克雅維克＋中文三日團</em><i></i></div>
+
+    <article class="day move">
+      <button class="dhead" type="button"><span class="dnum">D3<span>11/13</span></span>
+        <span class="dttl"><b>【極地開局】飛往冰島</b><em>11/13（五）· 倫敦 → 雷克雅維克</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li><b>09:30–11:00</b>　<b>大英博物館</b>（步行 15 分、<b>免費</b>）—— 時間有限，鎖定羅塞塔石碑、埃及廳、帕德嫩神廟雕刻。</li>
+          <li><b>11:30</b> 出發 → 步行 8 分到 <b>St Pancras</b> → <b>Thameslink 直達 LGW</b>（44–50 分，一小時 6–8 班）→ 約 12:25 抵達。</li>
+          <li><b>14:25</b> easyJet 起飛（<b>阿聯酋哩程兌換</b>），飛行約 3 小時 15 分，英冰同為 GMT <b>無時差</b>。</li>
+          <li><b>17:40</b> 抵達 KEF → <b>Flybus Plus</b> 進市區（<b>依班機抵達發車</b>，落地後 35–45 分開車、車程 45 分），約 <b>19:05 抵達</b>，ALVA Hotel 下車步行 4 分。</li>
+          <li>🏨 ASKA Holt 是<b>自助入住</b>，門禁碼於抵達當天 08:00 email 寄出 —— <b>務必事先完成線上 check-in</b>。</li>
+          <li>晚上在 Laugavegur 主街吃飯（商店多已關，餐廳酒吧更晚）。</li>
+        </ul>
+        <div class="stay">🏨 雷克雅維克 ASKA Holt（Skipholt 29A）</div>
+      </div>
+    </article>
+
+    <article class="day ice">
+      <button class="dhead" type="button"><span class="dnum">D4<span>11/14</span></span>
+        <span class="dttl"><b>【雷克雅維克】整天慢遊 ＋ 極光</b><em>11/14（六）· 雷克雅維克</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li>⭐ <b>這是第六版新增的一天</b> —— 前五版的雷克雅維克白天只有約 2 小時。日照 09:45–16:25。</li>
+          <li><b>10:00</b>　<b>哈爾格林姆教堂</b> ＋ <b>登塔</b>看全城彩色屋頂。</li>
+          <li><b>11:30</b>　<b>Kolaportið 跳蚤市場</b> —— ⭐ <b>僅週末營業</b>，11/14 是週六剛好。</li>
+          <li>午餐：<b>Bæjarins Beztu 羊肉熱狗堡</b>（名店）或 <b>Braud & Co</b> 肉桂捲。</li>
+          <li><b>13:00</b>　Laugavegur 主街買伴手禮（週六商店營業最久）→ <b>太陽航行者</b>雕塑 → <b>哈帕音樂廳</b>（內部免費）。</li>
+          <li><b>15:00</b>　<b>Sky Lagoon</b> —— 比藍湖新、離市區近，<b>七步溫泉儀式</b>（熱池→冷水→三溫暖→蒸氣→沖洗→鹽磨砂→回熱池）。</li>
+          <li><b>20:00–00:30</b>　🌌 <b>極光團</b> —— 會開車離開市區到暗空處，多數業者<b>沒看到可免費再參加一次</b>。</li>
+          <li>💡 或改為 <b>Perlan</b>（觀景台＋天文館＋室內人造冰洞）／<b>冰島國家博物館</b>／市民溫泉池（比藍湖便宜很多）。</li>
+        </ul>
+        <div class="stay">🏨 雷克雅維克 ASKA Holt</div>
+      </div>
+    </article>
+
+    <article class="day ice">
+      <button class="dhead" type="button"><span class="dnum">D5<span>11/15</span></span>
+        <span class="dttl"><b>【中文團 · 第 1 天】黃金圈</b><em>11/15（日）· 冰島南岸</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li><b>09:00 出發</b>（中文導遊、小巴、1:18 導遊比）。上車點請向旅行社確認 —— ASKA Holt 附近為 <b>ALVA Hotel（Brautarholt 22，步行 4 分）</b>。</li>
+          <li>把 <b>28 吋大行李</b>丟上導遊拖車（每人 1 件 20kg、三邊之和 ≤158cm）。</li>
+          <li><b>辛格韋德利國家公園</b> —— 世界遺產，走在北美與歐亞板塊之間，法律岩、阿爾辛議會遺址（西元 930 年）。</li>
+          <li><b>蓋歇爾地熱區</b> —— <b>斯托克間歇泉</b>定時噴發，高達 25 公尺。</li>
+          <li><b>黃金瀑布</b> —— 冰島訪問量最高的瀑布，Hvítá 白河衝入峽谷。</li>
+          <li><b>塞里雅蘭瀑布</b> —— ⚠️ <b>可以走到瀑布後方</b>，一定會被水霧噴濕，防水外套褲要穿好。</li>
+          <li>天氣好的話，途中可見<b>赫克拉火山</b>。</li>
+        </ul>
+        <div class="stay">🏨 冰島南岸鄉村飯店（團費含）</div>
+      </div>
+    </article>
+
+    <article class="day ice">
+      <button class="dhead" type="button"><span class="dnum">D6<span>11/16</span></span>
+        <span class="dttl"><b>【中文團 · 第 2 天】冰河湖 ＋ 冰川健行 ＋ 藍冰洞</b><em>11/16（一）· 冰島南岸</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li>🔴 <b>全程最耗體力的一天。</b></li>
+          <li><b>傑古沙龍冰河湖</b> —— 各種形狀的浮冰緩緩流向大西洋，冰塊因壓縮呈現不同藍調。</li>
+          <li><b>鑽石沙灘</b> —— 冰塊被沖上黑沙，像鑽石般閃爍。海鳥多，運氣好能看到海豹。</li>
+          <li><b>斯卡夫塔山自然保護區</b> → <b>瓦特納冰川</b>：由<b>持證冰川導遊</b>帶領，穿冰爪走上冰川，進入<b>天然藍冰洞</b>。</li>
+          <li>⏱️ 官方說明：<b>在冰上探索約 2 小時</b>，適合能輕鬆在戶外地形步行 2 小時的遊客。<b>不使用繩索或攀登技術。</b></li>
+          <li>🧊 <b>冰洞內遠低於零度</b>，務必穿夠。冰爪、安全帽等安全裝備<b>團費已含</b>。</li>
+          <li>🌌 今晚住 <b>Adventure Hotel Geirland</b>（含早餐）—— <b>光害極低，這是全程極光機會最好的一晚</b>。睡前查 vedur.is，別早早拉上窗簾。</li>
+        </ul>
+        <div class="stay">🏨 Adventure Hotel Geirland（團費含）</div>
+      </div>
+    </article>
+
+    <article class="day ice">
+      <button class="dhead" type="button"><span class="dnum">D7<span>11/17</span></span>
+        <span class="dttl"><b>【中文團 · 第 3 天】史詩瀑布與黑沙灘</b><em>11/17（二）· 返回雷克雅維克</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li>享用早餐後緩緩返回，途中多次停留。</li>
+          <li><b>羽毛峽谷（Fjaðrárgljúfur）</b> —— 若道路狀況良好會繞道前往。</li>
+          <li><b>埃爾德赫勞恩熔岩原</b> —— 苔蘚覆蓋的火山熔岩地貌。</li>
+          <li><b>雷尼斯黑沙灘</b> ＋ <b>雷尼斯岩柱</b> —— ⚠️ <b>這裡的海浪極不可預測，務必遵循導遊指示</b>，每年都有觀光客被瘋狗浪捲走。別為了拍照走近水邊。</li>
+          <li><b>斯科加瀑布</b> —— 落差 60 公尺，<b>527 級台階</b>可登頂（陡但值得，晴天可遠望埃亞菲亞德拉冰蓋火山）。</li>
+          <li><b>16:00–19:00 之間</b>回到雷克雅維克（官方說法，依天氣路況而定），領回大行李。</li>
+        </ul>
+        <div class="stay">🏨 雷克雅維克 ASKA Holt</div>
+      </div>
+    </article>
+
+    <div class="seg"><b>🇬🇧 倫敦（後段）</b><em>11/18–11/20 · 3 晚 · 聖誕季</em><i></i></div>
+
+    <article class="day move">
+      <button class="dhead" type="button"><span class="dnum">D8<span>11/18</span></span>
+        <span class="dttl"><b>【藍湖 ➔ 倫敦】順路泡湯轉場</b><em>11/18（三）· 雷克雅維克 → 倫敦</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li><b>10:00–11:00</b>　市區補逛、買剩下的伴手禮。</li>
+          <li><b>11:00</b>　退房，<b>行李寄放在 ASKA Holt</b>（可放到 20:00），再逛一下、吃午餐。</li>
+          <li><b>12:00</b>　取行李 → <b>12:15 巴士往藍湖</b>（市區發車每小時一班，車程約 50 分）。</li>
+          <li><b>13:00 入場</b> ♨️ <b>藍湖 Comfort</b>（約 13,490 ISK），行李寄現場付費櫃。官方時段<b>起算有效 5 小時</b>。</li>
+          <li><b>16:15 日落</b> 🌌 在黑暗中泡火山溫泉 —— 有機會看到極光。</li>
+          <li><b>17:15</b>　<b>事先預約的計程車</b>直送 KEF（20–25 分）→ 傍晚飛倫敦。</li>
+          <li>⚠️ 藍湖→KEF <b>最後一班巴士是 16:00</b>（那時剛日落）—— 要泡到天黑就<b>必須預約計程車</b>。冰島沒有 Uber、藍湖不會有排班車。</li>
+          <li>🔑 <b>待確認</b>：11/18 傍晚有沒有 KEF→倫敦的班機？若只有上午／午間班次，藍湖要改到 11/14 或放棄。</li>
+        </ul>
+        <div class="stay">🏨 倫敦（後段住宿・待訂）</div>
+      </div>
+    </article>
+
+    <article class="day">
+      <button class="dhead" type="button"><span class="dnum">D9<span>11/19</span></span>
+        <span class="dttl"><b>【倫敦】聖保羅 ＋ 康登週四夜市</b><em>11/19（四）· 倫敦</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li><b>上午</b>　<b>聖保羅大教堂</b>（圓頂可登頂）→ 走 <b>千禧橋</b> → <b>泰特現代</b>（<b>免費</b>）。</li>
+          <li><b>下午</b>　<b>柯芬園</b> ＋ <b>柯芬園聖誕市集</b>（巨型聖誕球裝飾，11/11–1/2）。</li>
+          <li><b>傍晚–21:00</b>　<b>康登市集 ＋ 週四夜市</b> —— ⭐ <b>週四攤商開到 21:00</b>，離住處僅 5 分鐘（Northern line 2 站）。</li>
+          <li>三個區域：<b>Stables Market</b>（原馬廄，<b>有頂棚，雨天也能逛</b>）、<b>Camden Lock</b>（古著、黑膠）、<b>Hawley Wharf</b>（運河旁餐廳）。</li>
+          <li>🍜 康登的<b>街頭美食是倫敦選擇最多的</b>，晚餐就在這裡解決。</li>
+        </ul>
+        <div class="stay">🏨 倫敦</div>
+      </div>
+    </article>
+
+    <article class="day move">
+      <button class="dhead" type="button"><span class="dnum">D10<span>11/20</span></span>
+        <span class="dttl"><b>【伯明罕】德式聖誕市集</b><em>11/20（五）· 倫敦 → 伯明罕 → 倫敦</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li><b>上午</b>　<b>波羅市場</b>（早餐＋午餐都在這吃）→ 沿南岸走 15 分到 <b>Southbank Winter Market</b>（Hungerford 橋下的阿爾卑斯小屋群，11/3–1/4）。</li>
+          <li><b>13:00</b>　<b>Euston 步行 5 分</b> → 伯明罕（最快 <b>1h16</b>，每小時 4 班）。</li>
+          <li><b>14:30–19:00</b>　🎄 <b>法蘭克福聖誕市集</b> —— <b>德國、奧地利以外最大的德式聖誕市集</b>，年訪客 500 萬，就在 Victoria Square／New Street（車站旁）。</li>
+          <li>💡 <b>天黑早反而是優勢</b> —— 16:00 之後燈飾亮起才是最美的時候，市集開到晚上。</li>
+          <li>順道：<b>伯明罕博物館與美術館</b>（拉斐爾前派收藏）、運河區。</li>
+          <li><b>19:30</b> 搭車 → 約 <b>21:00</b> 回到倫敦。</li>
+        </ul>
+        <div class="stay">🏨 倫敦</div>
+      </div>
+    </article>
+
+    <article class="day move">
+      <button class="dhead" type="button"><span class="dnum">D11<span>11/21</span></span>
+        <span class="dttl"><b>【滿載而歸】波多貝羅 ＋ 返程</b><em>11/21（六）· 倫敦 → 台北</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li><b>09:00</b>　⭐ <b>波多貝羅市集</b>（諾丁丘）—— <b>週六是全市集日</b>（9:00–19:00），古董最盛，早去人少。</li>
+          <li><b>下午</b>　<b>Leicester Square 聖誕市集 ＋ 溜冰場</b>（繞著莎士比亞雕像，11/1–1/4，10:00–22:00）。</li>
+          <li>🧳 這天已退房，<b>行李要先安排寄放</b> —— 問住處可否寄放，或用 Stasher／Bounce 市區寄物服務。</li>
+          <li><b>17:30</b> 出市區 → <b>Piccadilly 線直達 LHR</b>（約 50 分）→ 19:00 前到機場。</li>
+          <li><b>21:15</b>　華航 <b>CI82</b> 直飛回台（<b>商務艙升等免候補</b>）。</li>
+        </ul>
+        <div class="stay none">✈️ 夜宿機上</div>
+      </div>
+    </article>
+
+    <div class="seg home"><b>🇹🇼 返抵台灣</b><em>11/22 · 傍晚落地桃園</em><i></i></div>
+
+    <article class="day">
+      <button class="dhead" type="button"><span class="dnum">D12<span>11/22</span></span>
+        <span class="dttl"><b>抵達台灣</b><em>11/22（日）· 台北</em></span><span class="chev">▾</span></button>
+      <div class="dbody">
+        <ul>
+          <li>推算 <b>18:00–19:00 之間</b>抵達桃園（飛行約 13.5 小時、時差 +8），實際時刻以華航訂位為準。</li>
+          <li>⚠️ <b>溫差 20 度以上</b>（倫敦 4–10°C → 台北約 25°C）—— 把一件薄長袖放在隨身包，下機前換掉厚衣服。</li>
+          <li>帶著滿滿回憶回到家，<b>還有星期日晚上可以休息，11/23（一）上班</b>。</li>
+        </ul>
+        <div class="stay">🏠 回到溫暖的家</div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="trans" class="panel">
+  <h2 class="h2"><span>✈️</span>核心大交通</h2>
+  <p class="lead">四段骨幹。比第五版少一段 —— 拿掉了 KEF→愛丁堡與 LNER 火車。</p>
+  <div class="legs">
+    <div class="leg">
+      <div class="ico">🛫</div>
+      <div>
+        <div class="rt">台北 TPE <i>➔</i> 倫敦 LHR</div>
+        <div class="meta">華航 CI81 · 09:15 → 16:55　<b style="color:var(--accent2)">✓ 已確認有飛</b></div>
+      </div>
+      <div class="legday"><b>11/11（三）</b>Day 1</div>
+    </div>
+    <div class="leg">
+      <div class="ico">🧊</div>
+      <div>
+        <div class="rt">倫敦 LGW <i>➔</i> 冰島 KEF</div>
+        <div class="meta">easyJet · 14:25 → 17:40 · 阿聯酋哩程兌換（<b>行李要在訂位時一起加</b>）</div>
+      </div>
+      <div class="legday"><b>11/13（五）</b>Day 3</div>
+    </div>
+    <div class="leg">
+      <div class="ico">🛬</div>
+      <div>
+        <div class="rt">冰島 KEF <i>➔</i> 倫敦</div>
+        <div class="meta">傍晚班次 · <b style="color:var(--warn)">待確認</b> —— Icelandair 每週 24 班、BA 每日 1–2、easyJet 每週約 7</div>
+      </div>
+      <div class="legday"><b>11/18（三）</b>Day 8</div>
+    </div>
+    <div class="leg">
+      <div class="ico">✈️</div>
+      <div>
+        <div class="rt">倫敦 LHR <i>➔</i> 台北 TPE</div>
+        <div class="meta">華航 CI82 · 21:15 起飛　<b style="color:var(--accent2)">✓ 商務艙升等免候補</b></div>
+      </div>
+      <div class="legday"><b>11/21（六）</b>Day 11</div>
+    </div>
+  </div>
+
+  <h2 class="h2" style="margin-top:26px"><span>🚇</span>市內與接駁</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>日期</th><th>路段</th><th>方式</th><th>時間／費用</th></tr></thead>
+      <tbody>
+        <tr><td><b>11/11</b></td><td>LHR → 住處</td><td><b>Piccadilly 線直達</b> King's Cross St Pancras ＋ 步行 10 分</td><td>約 60 分／£5.90</td></tr>
+        <tr><td><b>11/13</b></td><td>住處 → LGW</td><td>步行 8 分到 <b>St Pancras</b> → <b>Thameslink 直達</b></td><td>44–50 分／£14.80<br>一小時 6–8 班</td></tr>
+        <tr><td><b>11/13</b></td><td>KEF → 雷克雅維克</td><td><b>Flybus Plus</b>（依班機抵達發車，班機延誤車會等）</td><td>約 45 分<br>下車 ALVA Hotel 步行 4 分</td></tr>
+        <tr><td><b>11/15</b></td><td>上車點</td><td>中文團接送 —— <b>ALVA Hotel（Brautarholt 22）</b>步行 4 分</td><td>09:00 出發<br>⚠️ 需向旅行社確認</td></tr>
+        <tr><td><b>11/18</b></td><td>市區 → 藍湖</td><td>巴士（<b>每小時一班</b> 07:00–18:00）</td><td>約 50 分／4,395 ISK</td></tr>
+        <tr class="dl-hot"><td><b>11/18</b></td><td>藍湖 → KEF</td><td>🔴 <b>預約計程車</b>（Hreyfill）—— 最後一班巴士 16:00</td><td>20–25 分<br>ISK 8,600–11,488（兩人分攤）</td></tr>
+        <tr><td><b>11/20</b></td><td>倫敦 → 伯明罕</td><td><b>Euston 步行 5 分</b> → 火車</td><td>最快 1h16<br>每小時 4 班</td></tr>
+        <tr><td><b>11/21</b></td><td>住處 → LHR</td><td><b>Piccadilly 線直達</b></td><td>約 50 分／£5.90</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prep" style="margin-top:18px">
+    <div class="pi done"><span class="k">📍</span><div><b>住處位置是這一版的隱形優勢</b>
+      <p><b>63 Chalton Street, NW1 1HY</b>（Somers Town）—— 走 <b>5 分到 Euston</b>（伯明罕）、<b>8 分到 St Pancras</b>（Thameslink 去 LGW）、<b>10 分到 King's Cross</b>（Piccadilly 線直達兩座機場）。四段交通全部直達，不用換車。</p></div></div>
+    <div class="pi done"><span class="k">🚌</span><div><b>Flybus 沒有固定時刻表</b>
+      <p>KEF→雷克雅維克是<b>每架飛機降落後 35–45 分發車</b>，而且<b>班機延誤車也會等</b>。所以 11/13 那段不必挑班次，票先買好就行。</p></div></div>
+  </div>
+</section>
+
+<section id="stay" class="panel">
+  <h2 class="h2"><span>🏨</span>住宿分佈</h2>
+  <p class="lead">共 10 晚落地住宿 ＋ 1 夜紅眼航班（11/21 機上）。<b>倫敦後段 3 晚尚未訂。</b></p>
+  <div class="beds">
+    <div class="bed"><b>倫敦前段 · Airbnb <span class="tag-k">已訂</span></b><span class="n">2 晚 · 11/11–11/12<br>63 Chalton Street, NW1 1HY<br>⚠️ 要問有無電梯（2 個 28 吋行李）</span><div class="bar"><i style="width:100%"></i></div></div>
+    <div class="bed" style="border-color:color-mix(in srgb,var(--warn) 40%,transparent)"><b>雷克雅維克 · ASKA Holt <span class="tag-x">需改期</span></b><span class="n">3 晚 · 11/13、11/14、11/17<br>Skipholt 29A · 自助入住<br>原訂 11/13、11/16 → <b>要改</b></span><div class="bar"><i style="width:100%"></i></div></div>
+    <div class="bed"><b>冰島南岸 · Adventure Hotel Geirland <span class="tag-k">團費含</span></b><span class="n">2 晚 · 11/15–11/16<br>同一間，含第 2、3 天早餐<br>🌌 光害極低 → 極光最好機會</span><div class="bar"><i style="width:100%"></i></div></div>
+    <div class="bed" style="border-color:color-mix(in srgb,var(--hot) 40%,transparent)"><b>倫敦後段 <span class="tag-x">未訂</span></b><span class="n">3 晚 · 11/18–11/20<br><b>建議同一間、靠 King's Cross</b><br>11/18 從冰島傍晚抵達</span><div class="bar"><i style="width:0%"></i></div></div>
+  </div>
+
+  <div class="prep" style="margin-top:18px">
+    <div class="pi now"><span class="k">🏨</span><div><b>倫敦後段選址建議<span class="lv">還沒訂</span></b>
+      <p>建議找 <b>King's Cross／Somers Town／Bloomsbury 一帶</b>，理由跟前段一樣：<b>11/20 去伯明罕（Euston 走 5 分）、11/21 去 LHR（Piccadilly 線直達）、11/19 康登市集（Northern line 2 站）</b> —— 全部直達。</p>
+      <p style="margin-top:7px">💡 最省事的做法：<b>問前段那個 Airbnb 房東 11/18–21 有沒有空</b>。同一個地址、環境熟悉，而且 11/13 飛冰島時可能能寄放行李。</p></div></div>
+    <div class="pi soon"><span class="k">🔑</span><div><b>ASKA Holt 三晚要改期<span class="lv">11/8 前免費</span></b>
+      <p>原訂 <b>11/13–14</b> 與 <b>11/16–17</b>，新版需要 <b>11/13、11/14、11/17</b> 三晚。等於：第一筆延長一晚、第二筆改到 11/17。</p>
+      <p style="margin-top:7px">⚠️ 三筆都是<b>自助入住</b>，門禁碼在抵達當天 08:00 email 寄出，<b>前提是已完成線上 check-in</b> —— 每一筆都要各做一次。</p></div></div>
+  </div>
+</section>
+
+<section id="prep" class="panel">
+  <h2 class="h2"><span>🚨</span>行前必辦</h2>
+  <p class="lead">第六版改動大，訂單要重排 —— 但全部都還在免費取消期限內。</p>
+  <div class="prep">
+    <div class="pi now"><span class="k">🇨🇳</span><div><b>訂中文三日團 11/15（日）＋ 問 10% 折扣<span class="lv">最急</span></b>
+      <p>中文團<b>僅每週三、日出發</b>，密度低、位子可能緊。同時要問兩件事：<b>① 11/15 是否確定出團、有位</b>　<b>② 之前談到的 10% 多團折扣能否用在中文團</b>（那是針對英文團談的，116,991 ISK）。</p>
+      <p style="margin-top:7px">🔴 <b>如果 11/15 已滿，整個第六版就要重排</b> —— 所以這一題最先問。</p></div></div>
+    <div class="pi now"><span class="k">❌</span><div><b>取消英文團（原 11/14 出發）<span class="lv">現在全額退</span></b>
+      <p>出發前 24 小時以上取消可<b>全額退費</b>。現在取消完全沒有損失。⚠️ 但<b>先確認中文團有位再取消</b>，別兩頭空。</p></div></div>
+    <div class="pi now"><span class="k">🇬🇧</span><div><b>申請英國 ETA 電子旅行憑證<span class="lv">沒有上不了飛機</span></b>
+      <p>2026/2/25 起台灣護照免簽入境英國<b>一律須先取得 ETA</b>。<b>£20</b>、線上或 App 申請、效期 2 年可多次入境 —— 這趟 11/11 與 11/18 兩次入境同一份涵蓋。換發新護照要重新申請。</p></div></div>
+    <div class="pi now"><span class="k">🏨</span><div><b>住宿三件事<span class="lv">連鎖調整</span></b>
+      <p>① <b>ASKA Holt</b> 改成 11/13、11/14、11/17 三晚（11/8 前免費）<br>
+      ② <b>倫敦後段 11/18–21（3 晚）</b>要新訂<br>
+      ③ <b>Airbnb 前段</b>維持 11/11–13 不變（10/3 前免費取消）</p></div></div>
+    <div class="pi soon"><span class="k">🗑️</span><div><b>要取消的三筆<span class="lv">別忘記</span></b>
+      <p>① <b>Forth House</b>（愛丁堡 11/17–19）—— 不去愛丁堡了，11/12 前免費<br>
+      ② <b>格域機場飯店</b>（11/14）—— 一直都是多餘訂單，11/10 前免費<br>
+      ③ ~~LNER 車票~~ —— <b>還沒訂，正好省下</b></p></div></div>
+    <div class="pi soon"><span class="k">🎒</span><div><b>easyJet 行李要在訂位那一刻一起加<span class="lv">錯過就付現</span></b>
+      <p>easyJet 基本票<b>只含隨身行李</b>，28 吋須加購。阿聯酋 Skywards <b>可用哩程一起換托運行李</b>，但條款規定<b>加購項目只能在初次訂位時一併選入</b> —— 之後只能付現向 easyJet 補買（機場最貴）。</p>
+      <p style="margin-top:7px">💡 這一版只有 <b>11/13 一段</b>需要哩程兌換（11/18 KEF→倫敦另訂）。另外<b>務必線上 check-in</b> —— 在機場櫃檯辦要收行政手續費，且不能用哩程支付。</p></div></div>
+    <div class="pi soon"><span class="k">♨️</span><div><b>藍湖 11/18 13:00 ＋ 預約計程車<span class="lv">常 1–2 週前額滿</span></b>
+      <p>藍湖<b>不接受現場購票</b>。11/18 訂 <b>13:00 時段</b>，配上 5 小時效期剛好泡到 16:15 日落後。<b>入場前 24 小時以上可免費改期或退款</b>，先訂鎖價零風險。</p>
+      <p style="margin-top:7px">🚕 同時預約 <b>藍湖 → KEF 計程車 17:15</b>（Hreyfill：hreyfill@hreyfill.is／+354 588 5522）—— 最後一班巴士 16:00，要泡到天黑只能靠計程車。</p></div></div>
+    <div class="pi soon"><span class="k">🌌</span><div><b>Sky Lagoon ＋ 極光團（11/14）<span class="lv">新增的一天</span></b>
+      <p><b>Sky Lagoon</b>（11/14 下午）—— 比藍湖新、離市區近，七步溫泉儀式。<b>極光團</b>（11/14 晚 20:00–00:30）—— 會開車到暗空處，多數業者沒看到可免費再參加。</p>
+      <p style="margin-top:7px">💡 你的暗空夜晚是 <b>11/16（南岸，最好）</b>；11/13、11/14、11/17 都在雷克雅維克市區、光害重 —— 所以 11/14 的極光要靠<b>團</b>開車出城才有機會。</p></div></div>
+    <div class="pi soon"><span class="k">🛡️</span><div><b>保險：申根方案 ＋ <u>冰川活動要書面確認</u><span class="lv">投保前必問</span></b>
+      <p><b>新安東京申根豪華型</b>（12 天）：身故失能 1,200 萬＋傷害醫療 120 萬＋<b>海外突發疾病 150 萬</b>＋緊急救援 150 萬，<b>1,494 元／人</b>，隨電子保單附申根憑證。</p>
+      <p style="margin-top:7px">🔴 <b>投保前務必書面確認</b>：行程含「持證導遊帶領、穿冰爪的冰川健行」與「平面步行進入天然冰洞」，<b>兩者都不使用繩索或攀登技術</b> —— 是否承保？台灣旅平險常把登山攀岩列為除外，<b>客服口頭說「有保」在理賠時無效，一定要 email 書面</b>。</p>
+      <p style="margin-top:7px">⚠️ 另兩點：緊急救援 150 萬<b>低於旅行社建議的 USD 200,000（約 636 萬）</b>；<b>班機取消導致無法參團的團費損失，台灣旅平險大概不賠</b>（「旅程取消」事由不含天氣）。</p></div></div>
+    <div class="pi later"><span class="k">📄</span><div><b>旅行社原始條款（給保險公司看）<span class="lv">參考</span></b>
+      <p>把這段<b>官方行程原文</b>直接給保險公司，最能證明這不是登山攀岩：</p>
+      <p style="margin-top:7px" class="quote">「10 月至次年 4 月：我們將在<b>持證冰川向導</b>的帶領下，走進瓦特納冰川。在冰川徒步中，我們將<b>進入一座天然小冰洞</b>，留出時間探索和拍照。無論是冰洞還是冰川徒步，我們將<b>在冰上探索約 2 小時</b>。本次行程<b>適合能輕鬆在戶外地形上步行約 2 小時的遊客</b>。」</p>
+      <p style="margin-top:7px">關鍵是<b>通篇沒有繩索、冰斧、垂降或攀登技術</b>，體能門檻只是「能步行 2 小時」。另條款明訂<b>團費不含任何保險</b>。11 月南岸可能因暴風雪或封路變更路線，旅行社保留調整權。</p></div></div>
+    <div class="pi later"><span class="k">🎫</span><div><b>要提早訂的項目<span class="lv">越晚越貴／越可能滿</span></b>
+      <p><b>西區音樂劇</b>（11/12 晚）、<b>伯明罕來回車票</b>（11/20，早鳥約 £15–25 單程）、<b>藍湖 11/18 時段</b>、<b>Sky Lagoon 11/14</b>、<b>極光團 11/14</b>。</p></div></div>
+    <div class="pi later"><span class="k">🚕</span><div><b>在台灣先註冊 Hreyfill App 並綁卡<span class="lv">冰島沒有 Uber</span></b>
+      <p>冰島<b>沒有 Uber、Lyft 或任何共乘 App</b>（牌照法規＋人口只有 39 萬）。現在就在台灣註冊（用台灣號碼收驗證碼，到冰島後 eSIM 是外國號碼會麻煩），<b>外國 Visa／Mastercard 都可綁</b>。</p>
+      <p style="margin-top:7px">💡 <b>App 內付款會直接以 ISK 扣款，自動避開 DCC 陷阱</b> —— 比在車上刷卡機付更划算。</p></div></div>
+    <div class="pi later"><span class="k">📏</span><div><b>行李三邊之和不得超過 158cm<span class="lv">出發前量一次</span></b>
+      <p>三日團規定每人 <b>1 個 20kg 行李箱（三邊之和 ≤158cm）＋ 1 個小背包</b>，可上導遊拖車。典型 28 吋約 157cm，<b>剛好在邊緣</b> —— 拿捲尺量（含輪子拉桿、不擴充）。超標要付 2,500 ISK 寄放旅行社總部，而<b>寄放的行李三天拿不到</b>。</p></div></div>
+    <div class="pi later"><span class="k">📱</span><div><b>eSIM 與插座<span class="lv">出發前</span></b>
+      <p><b>Orange 歐洲 eSIM（含通話）1,259 元</b> —— 英國與冰島都涵蓋，30 天 50GB。⚠️ 確認<b>效期是安裝後起算還是首次連網起算</b>；若是前者，等 11/8–11/10 再安裝。</p>
+      <p style="margin-top:7px">🔌 <b>英國 Type G ＋ 冰島 Type F 兩種轉接頭都要帶</b> —— 很容易只帶英規就出門。</p></div></div>
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>什麼時候</th><th>要訂／要辦什麼</th></tr></thead>
+      <tbody>
+        <tr class="dl-hot"><td><b>現在（最急）</b></td><td>🔴 <b>問中文團 11/15 有位嗎 ＋ 10% 折扣</b>　🔴 <b>英國 ETA</b>　🔴 取消格域機場飯店</td></tr>
+        <tr><td><b>中文團確認後</b></td><td>取消英文團、ASKA Holt 改期、訂倫敦後段 11/18–21、取消 Forth House</td></tr>
+        <tr><td><b>9 月</b></td><td>11/13 easyJet 開票（<b>同時加行李</b>）、11/18 KEF→倫敦班機、西區音樂劇、藍湖 11/18 時段</td></tr>
+        <tr><td><b>10 月</b></td><td>Sky Lagoon、極光團、伯明罕車票、旅遊保險（<b>先取得冰川活動的書面確認</b>）、Hreyfill App</td></tr>
+        <tr><td><b>出發前 2 週</b></td><td>藍湖→KEF 計程車預約、市區→藍湖巴士、eSIM 裝好測試、插座轉接頭、量行李尺寸、<b>三筆 ASKA Holt 線上 check-in</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="deadline" class="panel">
+  <h2 class="h2"><span>🗓️</span>取消期限總表</h2>
+  <p class="lead">依時間排序。過了期限就是真的付出去了 —— 每一項都建議設手機提醒。</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>截止時間</th><th>項目</th><th>動作</th></tr></thead>
+      <tbody>
+        <tr><td><b>10/3</b></td><td>Airbnb 倫敦前段（11/11–13）</td><td>✅ <b>保留</b></td></tr>
+        <tr><td><b>11/8 23:59</b></td><td>ASKA Holt（原 11/13、11/16 兩筆）</td><td>⚠️ <b>改期成 11/13、11/14、11/17</b></td></tr>
+        <tr><td><b>11/10 23:59</b></td><td>格域機場飯店（11/14）</td><td>🔴 <b>取消（多餘訂單）</b></td></tr>
+        <tr><td><b>11/12 23:59</b></td><td>Forth House（愛丁堡 11/17–19）</td><td>🔴 <b>取消（不去愛丁堡）</b></td></tr>
+        <tr class="dl-hot"><td><b>11/14 09:00</b> 🔴</td><td><b>中文三日團</b>（11/15 09:00 出發，24 小時前可全額退）</td><td>約 <b>61,070（2 人）</b></td></tr>
+        <tr><td><b>11/17 13:00</b></td><td>藍湖門票（11/18 13:00 入場）</td><td>約 7,042（2 人）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prep" style="margin-top:18px">
+    <div class="pi done"><span class="k">✅</span><div><b>好消息：這一版的退團風險比第五版低很多</b>
+      <p>第五版是 <b>11/14 飛冰島、11/15 早上出團</b>，退團截止（11/14 09:00）時你還在倫敦、班機未起飛 —— 如果班機取消，可能來不及退團。</p>
+      <p style="margin-top:7px">第六版 <b>11/13 就飛冰島</b>，所以 <b>11/14 09:00 那個截止線時你已經在雷克雅維克了</b>。班機萬一取消，還有整個 11/14 可以補飛，也還能從容決定要不要退團。<b>這個風險基本消失。</b></p></div></div>
+    <div class="pi soon"><span class="k">⏰</span><div><b>11/13 出發前一晚 ＋ 當天早上各查一次班機<span class="lv">習慣動作</span></b>
+      <p>天氣造成的取消通常<b>前一晚就會發布</b>。11/12 睡前查一次、11/13 早上再查一次 —— 若 LGW 14:25 那班有異常，你還有整天可以改搭或決定。</p></div></div>
+    <div class="pi later"><span class="k">🔔</span><div><b>建議設五個提醒<span class="lv">手機行事曆</span></b>
+      <p><b>10/1</b> Airbnb 最後確認｜<b>11/6</b> ASKA Holt 改期完成 ＋ 開始看 vedur.is｜<b>11/9</b> 取消格域飯店｜<b>11/12 20:00</b> 取消 Forth House ＋ 查班機｜<b>11/17 12:00</b> 藍湖最後確認</p></div></div>
+  </div>
+</section>
+
+<section id="plan-b" class="panel">
+  <h2 class="h2"><span>🛟</span>備援方案</h2>
+  <p class="lead">第六版最大的收穫 —— <b>整趟已經沒有「錯過就無法補救」的航班了</b>。</p>
+  <div class="prep">
+    <div class="pi done"><span class="k">✅</span><div><b>已移除的最大風險：KEF → 愛丁堡</b>
+      <p>第五版的 11/17 KEF→愛丁堡是 easyJet，<b>每週僅 2 班</b>，而 <b>11/18 三家航空全都不飛</b> —— 錯過就要等 11/19，而 Forth House 兩晚、LNER 車票會全毀。</p>
+      <p style="margin-top:7px">改成 <b>KEF→倫敦</b>（Icelandair 每週 24 班、BA 每日 1–2、easyJet 每週約 7）後，<b>取消可以當天改搭</b>。這一段從「最脆弱」變成「最安全」。</p></div></div>
+    <div class="pi soon"><span class="k">🧊</span><div><b>11/13 LGW → KEF 若取消<span class="lv">影響三日團</span></b>
+      <p>LGW→KEF 每天約 1–2 班。若 14:25 取消：</p>
+      <p style="margin-top:7px">① 先問 easyJet 當日其他班次（最晚約 15:55）<br>
+      ② 沒有 → 改 <b>11/14</b> 飛（三日團 11/15 才開始，還趕得上）<br>
+      ③ 11/14 也飛不了 → <b>11/14 09:00 前退中文團</b>（全額退 61,070），留在倫敦重排</p>
+      <p style="margin-top:7px">💡 <b>因為提前一天飛，這一段有整天的緩衝</b> —— 這是第六版比第五版安全的關鍵。</p></div></div>
+    <div class="pi soon"><span class="k">✈️</span><div><b>easyJet 錯過班機：2 小時黃金窗口 ＋ £110<span class="lv">記住 2 小時</span></b>
+      <p>原定起飛時間後 <b>2 小時內</b>帶證件到機場 bag drop，付 <b>Rescue Fee £110</b> 可轉搭下一班有位的 easyJet。<b>超過 2 小時列為 no-show，整張票作廢。</b></p></div></div>
+    <div class="pi soon"><span class="k">🛡️</span><div><b>航空公司取消 → EU261 要求免費改班<span class="lv">你的權利</span></b>
+      <p>從英國／冰島起飛適用 <b>EU261</b>：航空公司<b>必須免費改到最早可行班次</b>，等待期間餐食住宿也由他們負擔。天氣屬「特殊情況」→ 拿不到現金補償，但<b>改班與照顧義務不因天氣免除</b>。</p>
+      <p style="margin-top:7px">⚠️ 廉航常只肯改自己的班機 —— <b>明確要求改搭其他航空</b>（EU261 的「最早可行」不限同一家），拒絕的話留單據自購後申訴。</p></div></div>
+    <div class="pi soon"><span class="k">🌨️</span><div><b>三日團因天氣變更路線<span class="lv">機率 10–20%</span></b>
+      <p>官方條款保留變更權利，11 月南岸可能因暴風雪或封路調整。<b>冰川健行或藍冰洞有可能取消</b>（通常改成其他景點，<b>團費不退</b>）。</p>
+      <p style="margin-top:7px">📊 11 月冰島風速經常 >60 km/h、陣風 70 km/h、瓦特納冰川一帶可達 113 km/h，但<b>風暴通常只持續約一天</b>，而且 vedur.is 看得到預報。</p></div></div>
+    <div class="pi later"><span class="k">🌧️</span><div><b>雨天備案<span class="lv">倫敦 15 天有雨</span></b>
+      <p><b>康登市集 Stables Market 有大量頂棚區</b>，而且離住處只有 5 分鐘 —— 這是最好的雨天替代方案。另外倫敦的<b>國立博物館全部免費</b>（大英、泰特現代、V&A、自然史），下雨隨時可以轉進去。</p></div></div>
+    <div class="pi later"><span class="k">❌</span><div><b>保險不賠「自己遲到」<span class="lv">認知</span></b>
+      <p>航空公司取消或延誤 4 小時以上 → 賠。<b>自己睡過頭、算錯時間、堵車 → 完全不賠。</b>那 £110、浪費的飯店與團費全部自己吸收。所以緩衝時間要自己守住。</p></div></div>
+  </div>
+</section>
+
+<section id="pack" class="panel">
+  <h2 class="h2"><span>🎒</span>天氣、日照與打包</h2>
+  <p class="lead">冰島日照只有 6 小時、英國 15 天有雨 —— 這兩件事決定了要帶什麼。</p>
+  <div class="tw">
+    <table class="wx">
+      <thead><tr><th>日期</th><th>地點</th><th>日照（約）</th><th>氣溫</th><th>重點</th></tr></thead>
+      <tbody>
+        <tr><td><b>11/11 三</b></td><td>倫敦</td><td>07:12–16:19</td><td>10°／4°</td><td>16:55 落地時已天黑</td></tr>
+        <tr><td><b>11/12 四</b></td><td>倫敦</td><td>07:14–16:17</td><td>10°／4°</td><td>倫敦塔 <b>16:30 就關</b></td></tr>
+        <tr><td><b>11/13 五</b></td><td>倫敦→冰島</td><td>07:15–16:16</td><td>10° → 2°</td><td><b>溫差 8 度</b>，機上換裝</td></tr>
+        <tr class="ice"><td><b>11/14 六</b></td><td>雷克雅維克</td><td>09:45–16:25（<b>6.5h</b>）</td><td>2°／-2°</td><td>市區慢遊＋Sky Lagoon＋極光團</td></tr>
+        <tr class="ice"><td><b>11/15 日</b></td><td>冰島南岸</td><td>09:50–16:20</td><td>2°／-2°</td><td>黃金圈，<b>塞里雅蘭瀑布會噴濕</b></td></tr>
+        <tr class="ice"><td><b>11/16 一</b></td><td>冰島南岸</td><td>09:55–16:15</td><td>2°／-2°</td><td>🔴 <b>冰川健行＋冰洞</b>，最冷最累</td></tr>
+        <tr class="ice"><td><b>11/17 二</b></td><td>南岸→市區</td><td>10:00–16:10（<b>6h</b>）</td><td>2°／-2°</td><td>黑沙灘強風、527 級台階</td></tr>
+        <tr class="ice"><td><b>11/18 三</b></td><td>冰島→倫敦</td><td>10:00–16:08</td><td>2° → 10°</td><td><b>藍湖泳衣</b>＋轉場</td></tr>
+        <tr><td><b>11/19 四</b></td><td>倫敦</td><td>07:26–16:07</td><td>10°／4°</td><td>康登夜市到 21:00</td></tr>
+        <tr><td><b>11/20 五</b></td><td>倫敦→伯明罕</td><td>07:28–16:05</td><td>10°／4°</td><td>市集<b>天黑後最美</b></td></tr>
+        <tr><td><b>11/21 六</b></td><td>倫敦→台北</td><td>07:30–16:04</td><td>10°／4°</td><td>21:15 夜航</td></tr>
+        <tr><td><b>11/22 日</b></td><td>台北</td><td>—</td><td>約 25°</td><td><b>溫差 20 度以上</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prep" style="margin-top:18px">
+    <div class="pi now"><span class="k">🌧️</span><div><b>下雨：英國比冰島更該擔心<span class="lv">帶傘</span></b>
+      <p>倫敦 11 月<b>月均 15 天有雨</b>（59mm）、每天約 39% 機率。你在英國待 <b>7 天</b> —— 幾乎一定會遇到。所幸多是綿綿細雨，防水外套＋摺疊傘就夠。</p></div></div>
+    <div class="pi soon"><span class="k">❄️</span><div><b>下雪：英國幾乎不會，冰島約 60% 機率<span class="lv">要真防水</span></b>
+      <p>倫敦下雪<b>約每兩年一次</b>且不積雪。但<b>雷克雅維克 11 月約有 5 天下雪</b>（月累積 8.7cm）—— 你在冰島 <b>5 天，遇到至少一天下雪的機率約 60%</b>，南岸與冰川一帶更高。所以冰島段要<b>真防水，不只防潑水</b>。</p></div></div>
+    <div class="pi soon"><span class="k">🔅</span><div><b>冰島日照只有 6 小時，比英國少 3 小時<span class="lv">頭燈必帶</span></b>
+      <p><b>10:00 才天亮、16:15 就天黑</b> —— 三日團三天實質只有 6 小時能拍照。11/15 早上 08:45 走去 ALVA Hotel 搭車時<b>天還是全黑的</b>。</p></div></div>
+  </div>
+
+  <h2 class="h2" style="margin-top:26px"><span>🧳</span>打包清單</h2>
+  <div class="pk">
+    <div class="pk-col must"><h4>🔴 必備（冰島關鍵）</h4>
+      <ul>
+        <li><b>防水登山靴</b>（腳踝以上、硬底）—— 冰川健行<b>強制要求</b>，運動鞋不行</li>
+        <li><b>厚羊毛襪 × 3</b></li>
+        <li><b>防水外套</b>（Gore-Tex 級）—— 12 天都在穿</li>
+        <li><b>防水褲或雨褲</b> —— 塞里雅蘭瀑布可走到瀑布後方，一定會濕</li>
+        <li><b>保暖中層</b>（刷毛／輕羽絨）</li>
+        <li><b>發熱衣褲</b>（羊毛或機能，長袖長褲）</li>
+        <li><b>毛帽、圍脖、防水手套</b> —— 風寒是主要威脅</li>
+        <li><b>頭燈或手電筒</b> —— 10:00 才天亮</li>
+        <li><b>泳衣 ＋ 快乾毛巾</b> ×2 —— 11/14 Sky Lagoon、11/18 藍湖</li>
+      </ul></div>
+    <div class="pk-col rec"><h4>🟠 強烈建議</h4>
+      <ul>
+        <li><b>行動電源（大容量）</b> —— 低溫會讓手機電量急速下降，拍極光、看導航都靠它</li>
+        <li><b>兩種插座轉接頭</b> —— 英國 Type G ／ 冰島 Type F</li>
+        <li>摺疊傘（倫敦 15 天有雨）</li>
+        <li>好走的防水鞋（英國段步行量大）</li>
+        <li>保溫瓶</li>
+        <li>常用藥品（感冒、腸胃、止痛）</li>
+      </ul></div>
+    <div class="pk-col opt"><h4>🟡 可選</h4>
+      <ul>
+        <li>太陽眼鏡（冰川反光＋低角度陽光）</li>
+        <li>防水手機袋</li>
+        <li>暖暖包</li>
+        <li>眼罩耳塞（11/21 夜航）</li>
+        <li>防滑鞋套（台灣買約 300–800 元）</li>
+      </ul></div>
+    <div class="pk-col no"><h4>❌ 不用帶</h4>
+      <ul>
+        <li><b>冰爪 crampons</b> —— 團費已含</li>
+        <li><b>安全帽</b> —— 團費已含</li>
+        <li>冰川安全裝備 —— 團費已含</li>
+        <li>厚重雪衣 —— 洋蔥式比單件厚衣好</li>
+      </ul></div>
+  </div>
+
+  <div class="prep" style="margin-top:16px">
+    <div class="pi later"><span class="k">🧅</span><div><b>三層穿搭系統<span class="lv">外層兩地共用</span></b>
+      <p><b>內層</b>排汗保暖（冰島用羊毛／發熱衣褲）→ <b>中層</b>保暖（刷毛或輕羽絨）→ <b>外層</b>防風防水（Gore-Tex）。<b>外層在冰島和英國都是同一件</b> —— 這就是值得投資一件好外套的理由。</p></div></div>
+    <div class="pi later"><span class="k">♨️</span><div><b>這一版有兩次溫泉<span class="lv">泳衣帶兩套</span></b>
+      <p><b>11/14 Sky Lagoon</b>（七步儀式）＋ <b>11/18 藍湖</b>（Comfort，含毛巾）。中間隔三天在南岸，泳衣不見得乾得了 —— <b>建議帶兩套泳衣、兩條快乾毛巾</b>。</p></div></div>
+    <div class="pi later"><span class="k">🌡️</span><div><b>回程溫差 20 度以上<span class="lv">容易忘</span></b>
+      <p>11/21 起飛時倫敦 4–10°C，11/22 落地台北約 25°C。<b>把一件薄長袖放在隨身包</b>，下機前換掉厚衣服。</p></div></div>
+  </div>
+</section>
+
+<section id="tel" class="panel">
+  <h2 class="h2"><span>📞</span>聯絡電話</h2>
+  <p class="lead">手機上可直接點擊撥號。出發前建議截圖存一份離線。</p>
+  <div class="tel">
+    <a href="tel:+886224129000"><b>華航 客服</b><span>02-412-9000</span><em>改票、哩程升等｜週一–五 08:00–18:30</em></a>
+    <a href="tel:+8000050119"><b>新安東京海上 產險</b><span>0800-050-119</span><em>旅平險理賠｜24 小時</em></a>
+    <a href="tel:+3545885522"><b>Hreyfill 計程車（冰島）</b><span>+354 588 5522</span><em>11/18 藍湖→KEF｜hreyfill@hreyfill.is</em></a>
+    <a href="tel:+3545395181"><b>ASKA Holt（雷克雅維克）</b><span>+354 539 5181</span><em>另有 +354 539 3097｜booking@greenkey.is</em></a>
+    <a href="tel:+3545990000"><b>Flybus（機場接送）</b><span>+354 599 0000</span><em>11/13 KEF→市區</em></a>
+    <a href="tel:+3544974000"><b>Destination Blue Lagoon</b><span>+354 497 4000</span><em>市區→藍湖巴士｜info@destinationbluelagoon.is</em></a>
+  </div>
+
+  <div class="prep" style="margin-top:18px">
+    <div class="pi later"><span class="k">💳</span><div><b>付款一律選當地幣別，拒絕台幣計價<span class="lv">DCC 陷阱</span></b>
+      <p>結帳時若跳出「以新台幣計價」（DCC），<b>一定要拒絕</b> —— 匯率通常比市場<b>差 3–5%</b>。冰島選 <b>ISK</b>、英國選 <b>GBP</b>。</p>
+      <p style="margin-top:7px">這趟外幣支出約 11–12 萬（兩人），<b>全程中 DCC 會多付 3,300–5,500 元</b> —— 比你為了省錢放棄的那些項目加起來還多。</p></div></div>
+  </div>
+</section>
+
+</div>
+</div>
+
+<footer class="wrap">
+  <p><b>2026 英倫與冰島 12 天 · 第六版</b>（中文三日團 × 不含愛丁堡）<br>
+  11/11（三）– 11/22（日）｜星期已對照 2026 年曆逐日驗證<br>
+  主要改動：改用中文團（11/15 週日出發）、放棄愛丁堡以移除最脆弱航班、雷克雅維克從 2 小時擴充為 3 天、新增伯明罕德式聖誕市集</p>
+</footer>
+
+<button id="top" type="button" aria-label="回到頂端">↑</button>
+
+<script>
+(function(){
+  /* ===== 日／夜間模式 ===== */
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  var meta=document.querySelector('meta[name="theme-color"]');
+  function applyTheme(t){
+    root.setAttribute('data-theme',t);
+    if(btn) btn.textContent = t==='dark' ? '🌙' : '☀️';
+    if(meta) meta.setAttribute('content', t==='dark' ? '#0b1020' : '#f5f7fc');
+  }
+  var saved=null;
+  try{ saved=localStorage.getItem('eu6-theme'); }catch(e){}
+  if(!saved){
+    saved=(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';
+  }
+  applyTheme(saved);
+  if(btn) btn.addEventListener('click',function(){
+    var next = root.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try{ localStorage.setItem('eu6-theme',next); }catch(e){}
+  });
+
+  /* ===== 每日行程手風琴 ===== */
+  var days=[].slice.call(document.querySelectorAll('#tl article.day'));
+  function setOpen(d,open){
+    if(!d) return;
+    var b=d.querySelector('.dbody'), h=d.querySelector('.dhead');
+    if(!b || !h) return;
+    if(open) d.classList.add('open'); else d.classList.remove('open');
+    h.setAttribute('aria-expanded', open?'true':'false');
+    if(!open){ b.style.maxHeight=''; return; }
+    var sh=b.scrollHeight;              /* 面板隱藏時為 0，等顯示後再算 */
+    b.style.maxHeight = sh>0 ? (sh+24)+'px' : '';
+  }
+  function refreshHeights(){
+    days.forEach(function(d){ if(d.classList.contains('open')) setOpen(d,true); });
+  }
+  days.forEach(function(d){
+    var h=d.querySelector('.dhead');
+    if(!h) return;
+    h.setAttribute('aria-expanded','false');
+    h.addEventListener('click',function(){ setOpen(d, !d.classList.contains('open')); });
+  });
+  var oa=document.getElementById('openAll'), ca=document.getElementById('closeAll');
+  if(oa) oa.addEventListener('click',function(){ days.forEach(function(d){ setOpen(d,true); }); });
+  if(ca) ca.addEventListener('click',function(){ days.forEach(function(d){ setOpen(d,false); }); });
+  if(window.innerWidth>760 && days[0]) setOpen(days[0],true);
+
+  /* ===== 標籤切換 ===== */
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  var VALID=tabs.map(function(t){ return t.getAttribute('data-p'); });
+
+  function show(id,opts){
+    if(VALID.indexOf(id)<0) id=VALID[0];
+    panels.forEach(function(pn){ pn.classList.toggle('on', pn.id===id); });
+    tabs.forEach(function(t){
+      var on=t.getAttribute('data-p')===id;
+      t.classList.toggle('on', on);
+      t.setAttribute('aria-current', on?'true':'false');
+      if(on && t.scrollIntoView){ try{ t.scrollIntoView({block:'nearest',inline:'center'}); }catch(e){} }
+    });
+    try{ localStorage.setItem('eu6-tab',id); }catch(e){}
+    if(!opts || !opts.silent){
+      if(history.replaceState) history.replaceState(null,'','#'+id);
+      else location.hash=id;
+    }
+    refreshHeights();
+    days.forEach(function(d){ d.classList.add('in'); });
+    window.scrollTo({top:0,behavior:(opts&&opts.jump)?'auto':'smooth'});
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){ show(t.getAttribute('data-p')); });
+  });
+  var init=(location.hash||'').replace('#','');
+  if(VALID.indexOf(init)<0){
+    var st=null;
+    try{ st=localStorage.getItem('eu6-tab'); }catch(e){}
+    init=(VALID.indexOf(st)>=0)?st:VALID[0];
+  }
+  show(init,{silent:true,jump:true});
+  window.addEventListener('hashchange',function(){
+    var h=(location.hash||'').replace('#','');
+    if(VALID.indexOf(h)>=0) show(h,{silent:true});
+  });
+
+  /* ===== 進場動畫 ===== */
+  var tlEl=document.getElementById('tl');
+  if(tlEl && 'IntersectionObserver' in window){
+    tlEl.classList.add('anim');
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.12});
+    days.forEach(function(d){ io.observe(d); });
+  }
+
+  /* ===== 回到頂端 ＋ 重算 ===== */
+  var top=document.getElementById('top');
+  if(top) top.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  window.addEventListener('scroll',function(){
+    if(top) top.classList.toggle('show', window.scrollY>420);
+  },{passive:true});
+  var rt;
+  window.addEventListener('resize',function(){
+    clearTimeout(rt); rt=setTimeout(refreshHeights,150);
+  });
+})();
+</script>
+</body>
+</html>
