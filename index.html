@@ -108,6 +108,11 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--accent),var(--ac
 .leg .rt i{font-style:normal;color:var(--dim);margin:0 6px}
 .leg .meta{font-size:12.5px;color:var(--muted);margin-top:2px}
 .leg .legday{text-align:right;font-size:12px;color:var(--dim);white-space:nowrap;font-variant-numeric:tabular-nums}
+.leg .grd{grid-column:2;margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);
+  font-size:12.5px;color:var(--muted);line-height:1.85}
+.leg .grd b{color:var(--text)}
+.leg .grd .car{color:var(--hot);font-weight:800}
+.leg .grd .pub{color:var(--accent2);font-weight:800}
 .leg .legday b{display:block;font-size:14px;color:var(--text)}
 @media(max-width:600px){
   .leg{grid-template-columns:auto 1fr;row-gap:6px}
@@ -637,13 +642,14 @@ footer{border-top:1px solid var(--border);margin-top:30px;padding:26px 0 44px;
 
 <section id="trans" class="panel">
   <h2 class="h2"><span>✈️</span>核心大交通</h2>
-  <p class="lead">四段骨幹。比第五版少一段 —— 拿掉了 KEF→愛丁堡與 LNER 火車。</p>
+  <p class="lead">四段骨幹（比第五版少一段 —— 拿掉了 KEF→愛丁堡與 LNER 火車）。<b>每張卡下面就是那班飛機兩端的地面接駁</b> —— 四段飛機 × 兩端＝<b>六段接駁</b>，其中 <span style="color:var(--hot);font-weight:800">只有 CI81 落地那一端叫車</span>，其餘五段全部大眾運輸。</p>
   <div class="legs">
     <div class="leg">
       <div class="ico">🛫</div>
       <div>
         <div class="rt">台北 TPE <i>➔</i> 倫敦 LHR</div>
         <div class="meta">華航 CI81 · 09:15 → 16:55 · <b>Terminal 3</b> · <b>飛行 15h40m</b>　<b style="color:var(--accent2)">✓ 已確認有飛</b><br>兩人皆<b>基本經濟</b> 15,705／人</div>
+        <div class="grd">🛬 <b>落地端</b>　<span class="car">🚗 唯一叫車的一段</span> —— 16:55 落地 → 17:40–18:10 出關 → <b>18:15 上 Uber Comfort</b> → 19:00–19:45 到南岸住處<br><span style="opacity:.7">LHR 到南岸沒有直達地鐵，且剛飛完 15h40、行李最多、天已全黑</span></div>
       </div>
       <div class="legday"><b>11/11（三）</b>Day 1</div>
     </div>
@@ -652,6 +658,7 @@ footer{border-top:1px solid var(--border);margin-top:30px;padding:26px 0 44px;
       <div>
         <div class="rt">倫敦 LGW <i>➔</i> 冰島 KEF</div>
         <div class="meta">easyJet · 14:25 → 17:40 · 阿聯酋哩程兌換（<b>行李要在訂位時一起加</b>）</div>
+        <div class="grd">🛫 <b>出發端</b>　<span class="pub">🚇 大眾運輸</span> —— <b>11:00 出門</b> → 走 8 分到 London Bridge → Thameslink <b>直達</b> LGW → 11:50 抵（距起飛 <b>2h35</b>）<br>🛬 <b>落地端</b>　<span class="pub">🚌 大眾運輸</span> —— 17:40 落地 → <b>Flybus 依班機發車</b>（延誤也等）→ 19:05 到雷市</div>
       </div>
       <div class="legday"><b>11/13（五）</b>Day 3</div>
     </div>
@@ -660,6 +667,7 @@ footer{border-top:1px solid var(--border);margin-top:30px;padding:26px 0 44px;
       <div>
         <div class="rt">冰島 KEF <i>➔</i> 倫敦 LGW</div>
         <div class="meta">14:20 → 約 17:30 抵 <b>格域 LGW</b>　<b style="color:var(--accent2)">✓ 已確認</b> · 飛行約 3 小時、無時差</div>
+        <div class="grd">🛫 <b>出發端</b>　<span class="pub">🚌 大眾運輸</span> —— 11:00 退房 → <b>Flybus 11:15 發車</b>（🔴 這方向是固定時刻表）→ 12:00 抵 KEF（距起飛 <b>2h20</b>）<br>🛬 <b>落地端</b>　<span class="pub">🚇 大眾運輸</span> —— 17:30 落地 → Thameslink <b>直達</b> St Pancras → 走 10–12 分 → 18:40 進 Bloomsbury 住處</div>
       </div>
       <div class="legday"><b>11/18（三）</b>Day 8</div>
     </div>
@@ -668,6 +676,7 @@ footer{border-top:1px solid var(--border);margin-top:30px;padding:26px 0 44px;
       <div>
         <div class="rt">倫敦 LHR <i>➔</i> 台北 TPE</div>
         <div class="meta">華航 CI82 · 21:15 起飛 · <b>Terminal 3</b> · <b>飛行約 13h30m</b><br><b>兩人都坐豪華經濟</b>（A 用哩程升等／B 現金買）</div>
+        <div class="grd">🛫 <b>出發端</b>　<span class="pub">🚇 大眾運輸</span> —— 16:00 拿行李 → <b>16:30 出發</b> → Piccadilly <b>直達・零換車</b> → 17:40 抵 T3（距起飛 <b>3h35</b>）<br><span style="opacity:.7">🔴 週六先查 TfL 週末工程，希斯洛段常停駛</span></div>
       </div>
       <div class="legday"><b>11/21（六）</b>Day 11</div>
     </div>
@@ -697,8 +706,8 @@ footer{border-top:1px solid var(--border);margin-top:30px;padding:26px 0 44px;
   </div>
 
   <h2 class="h2" style="margin-top:26px"><span>🚗</span>機場接駁：哪天叫車、哪天搭車</h2>
-  <div class="pi done"><b>結論：全程六段機場接駁，只有 11/11 那一段叫車，其餘五段全部搭大眾運輸。</b>
-    <span class="quote">理由很單純 —— <b>叫車只買一樣東西：不用拖著行李換線</b>。所以只在「行李最多 ＋ 人最累 ＋ 路線最需要換車」三件事同時發生的那天花這筆錢。全程只有 11/11 三個條件全中。</span></div>
+  <div class="pi done"><b>結論：四段飛機 × 兩端＝六段接駁，只有 <span style="color:var(--hot)">CI81 11/11 落地那一端叫車</span>，其餘五段全部大眾運輸。</b>
+    <span class="quote">🚗 <b>CI81 16:55 落地</b> → 叫車　🚇 <b>easyJet 14:25 起飛</b> → Thameslink　🚌 <b>easyJet 17:40 落地</b> → Flybus　🚌 <b>KEF 14:20 起飛</b> → Flybus　🚇 <b>LGW 17:30 落地</b> → Thameslink　🚇 <b>CI82 21:15 起飛</b> → Piccadilly<br>理由很單純 —— <b>叫車只買一樣東西：不用拖著行李換線</b>。所以只在「行李最多 ＋ 人最累 ＋ 路線最需要換車」三件事同時發生的那天花這筆錢，而全程只有 CI81 落地那一刻三個條件全中。</span></div>
   <div class="tw">
     <table>
       <thead><tr><th>日期</th><th>✈️ 對應班機</th><th>路段</th><th>方式</th><th>時間／費用（兩人）</th></tr></thead>
