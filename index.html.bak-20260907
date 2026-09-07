@@ -44,10 +44,6 @@ a{color:var(--accent)}
 .tb-dates{margin-left:auto;font-size:12.5px;color:var(--dim);white-space:nowrap;font-variant-numeric:tabular-nums}
 .tb-dates b{color:var(--accent2)}
 @media(max-width:540px){.tb-dates{display:none}}
-.tb-link{margin-left:auto;font-size:13px;color:var(--accent2);text-decoration:none;white-space:nowrap;
-  padding:7px 12px;border-radius:10px;border:1px solid var(--border);background:var(--card);transition:.18s}
-.tb-link:hover{border-color:var(--border-strong);transform:translateY(-1px)}
-@media(min-width:541px){.tb-dates + .tb-link{margin-left:14px}}
 #themeBtn{
   flex:0 0 auto;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:17px;line-height:1;
   background:var(--card);border:1px solid var(--border);color:var(--text);transition:.2s
@@ -296,7 +292,6 @@ footer{border-top:1px solid var(--border);margin-top:30px;padding:26px 0 44px;
   <div class="wrap topbar-in">
     <div class="brand">🏔️ 英倫 × 冰島<small>2026 / 第六版</small></div>
     <div class="tb-dates"><b>11/11</b> – <b>11/22</b>　12 天</div>
-    <a class="tb-link" href="./aurora.html">🌌 極光拍攝</a>
     <button id="themeBtn" type="button" aria-label="切換日／夜間模式" title="切換日／夜間模式">🌙</button>
   </div>
 </div>
