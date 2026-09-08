@@ -43,6 +43,36 @@ a{color:var(--accent)}
 .brand small{display:block;font-weight:500;font-size:11px;color:var(--dim);letter-spacing:.08em}
 .tb-dates{margin-left:auto;font-size:12.5px;color:var(--dim);white-space:nowrap;font-variant-numeric:tabular-nums}
 .tb-dates b{color:var(--accent2)}
+  .sch{list-style:none;margin:9px 0 2px;padding:0}
+  .sch>li{display:grid;grid-template-columns:56px 1fr;gap:11px;margin:0;padding:8px 4px 8px 0;
+    border-top:1px solid var(--border)}
+  .sch>li:first-child{border-top:0;padding-top:3px}
+  .sch>li>i{font-style:normal;font-weight:700;font-size:12.5px;line-height:1.45;letter-spacing:-.02em;
+    color:var(--accent);font-variant-numeric:tabular-nums;padding-top:2px}
+  .sch>li.pin>i{color:var(--accent2);font-size:15px;text-align:center;padding-top:0}
+  .sch>li>p{margin:0;font-size:14.2px;color:var(--muted);line-height:1.72}
+  .sch>li>p b{color:var(--text);font-weight:600}
+  .nb{margin:11px 0 10px;padding:9px 12px 6px;border-radius:12px;
+    background:color-mix(in srgb,var(--dim) 8%,transparent);border:1px solid var(--border)}
+  .nb>b{display:block;font-size:12px;letter-spacing:.04em;color:var(--dim);
+    font-weight:700;margin-bottom:1px}
+  .nb ul{margin:0;padding:0 0 0 17px}
+  .nb li{margin:5px 0;font-size:13.5px;color:var(--muted);line-height:1.68}
+  .nb li b{color:var(--text);font-weight:600}
+  .dtag{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
+  .dtag span{font-size:11px;padding:2px 7px;border-radius:6px;line-height:1.55;white-space:nowrap;
+    background:color-mix(in srgb,var(--accent) 11%,transparent);color:var(--muted);
+    border:1px solid var(--border)}
+  .dtag span.h{background:color-mix(in srgb,var(--hot) 12%,transparent);color:var(--hot);
+    border-color:color-mix(in srgb,var(--hot) 26%,transparent)}
+  .dtag span.g{background:color-mix(in srgb,var(--accent2) 12%,transparent);color:var(--accent2);
+    border-color:color-mix(in srgb,var(--accent2) 26%,transparent)}
+  @media(max-width:560px){
+    .sch>li{grid-template-columns:46px 1fr;gap:8px}
+    .sch>li>i{font-size:11.5px}
+    .sch>li>p,.nb li{font-size:13.4px}
+    .dtag span{font-size:10.5px;padding:2px 6px}
+  }
 @media(max-width:540px){.tb-dates{display:none}}
 .tb-link{margin-left:auto;font-size:13px;color:var(--accent2);text-decoration:none;white-space:nowrap;
   padding:7px 12px;border-radius:10px;border:1px solid var(--border);background:var(--card);transition:.18s}
@@ -160,7 +190,7 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--accent),var(--ac
 .day.open .chev{transform:rotate(180deg)}
 .dbody{overflow:hidden;max-height:0;transition:max-height .38s ease;margin:0 0 0 8px;
   border-left:1px dashed var(--border-strong)}
-.day.open .dbody{max-height:2400px}
+.day.open .dbody{max-height:5200px}
 .dbody ul{margin:8px 0;padding:0 6px 0 20px}
 .dbody li{margin:5px 0;font-size:14.2px;color:var(--muted);line-height:1.7}
 .dbody li b{color:var(--text);font-weight:600}
@@ -305,6 +335,8 @@ footer{border-top:1px solid var(--border);margin-top:30px;padding:26px 0 44px;
   <nav class="tabs wrap" id="tabs" aria-label="區塊導覽">
     <button class="tab" type="button" data-p="core">核心</button>
     <button class="tab" type="button" data-p="days">每日行程</button>
+    <button class="tab" type="button" data-p="maps">地圖</button>
+    <button class="tab" type="button" data-p="ice">冰島</button>
     <button class="tab" type="button" data-p="trans">大交通</button>
     <button class="tab" type="button" data-p="stay">住宿</button>
     <button class="tab" type="button" data-p="cost">費用</button><button class="tab" type="button" data-p="prep">行前必辦</button>
@@ -364,346 +396,8 @@ footer{border-top:1px solid var(--border);margin-top:30px;padding:26px 0 44px;
     <div class="pi soon"><span class="k">💺</span><div><b>11/21 是星期六 → 升等機會較大<span class="lv">但還沒證實</span></b>
       <p>週六商務客少、艙位釋出通常較多，所以 <b>11/21 的 CI82 比 11/23（一）容易升等</b>。<br>🔴 <b>但「有沒有位」必須打電話問真人才算數</b> —— 現在的方案是 <b>A 買標準 T（30,882）＋ 25,000 哩升豪華經濟</b>，而<b>買 T 的唯一理由就是升等</b>。先刷才發現沒位，那多付的 8,857 元就白花了。<br>💡 已放棄「豪經再升商務」那條路，哩程餘額 35,477 − 25,000 = <b>10,477</b>。</p></div></div>
   </div>
-</section>
 
-<section id="days" class="panel">
-  <h2 class="h2"><span>📅</span>每日行程</h2>
-  <p class="lead">點任一天展開細節。左側軸線依所在城市分段；圓點顏色：<b>藍＝英國、綠＝冰島、黃＝移動轉場日</b>（⚠️ 這套只用在時間軸；<b>下方倫敦地圖的顏色是另一套，代表「哪一天」</b>）。</p>
-  <div class="ctrl">
-    <button type="button" id="openAll">全部展開</button>
-    <button type="button" id="closeAll">全部收合</button>
-  </div>
-  <div class="tl" id="tl">
-
-    <div class="seg"><b>🇬🇧 倫敦（前段）</b><em>11/11–11/12 · 2 晚 · 調時差</em><i></i></div>
-
-    <article class="day move">
-      <button class="dhead" type="button"><span class="dnum">D1<span>11/11</span></span>
-        <span class="dttl"><b>【啟程】飛抵倫敦</b><em>11/11（三）· 台北 → 倫敦</em></span><span class="chev">▾</span></button>
-      <div class="dbody">
-        <ul>
-          <li><b>09:15</b> 華航 <b>CI81</b> 直飛（<b>已確認 11/11 有飛</b>）—— ⚠️ <b>飛行 15 小時 40 分</b>，不是一般以為的 13.5 小時（西行逆噴射氣流 ＋ 繞開俄羅斯領空）。<b>回程只要約 13 小時 30 分。</b></li>
-          <li><b>16:55</b> 抵達 <b>Terminal 3</b>（華航在 LHR 固定用 T3）→ 護照查驗 ＋ 提行李，約 <b>17:40–18:10</b> 出關。</li>
-          <li>🚗 <b>18:15 叫 Uber Comfort</b>（£46.98 ≈ 2,040 元）—— <b>已定案這天坐車</b>，不拖行李搭地鐵。</li>
-          <li>🔴 <b>上車點不在航廈門口！</b> 希斯洛的網約車一律在<b>短期停車場</b>接客 —— <b>T3 是「Short Stay Car Park, Level 3, Row A」</b>，從入境大廳走約 8 分鐘（有電梯）。叫車後 App 會給步行指引。</li>
-          <li>💡 <b>先領完行李再叫車</b> —— 司機在附近的虛擬排隊區，通常 5–10 分鐘就到。車資已包含司機進停車場的停車費。</li>
-          <li>🔴 <b>要有網路才叫得到車</b> —— eSIM 已於 <b>11/9–11/10 在家啟用</b>，落地關掉飛航模式就該自動連上英國電信。<b>出關前先確認有訊號與數據再走去停車場</b>；萬一沒訊號，入境大廳有希斯洛免費 WiFi。</li>
-          <li>⚠️ <b>11/11 是週三，18:00–19:00 是倫敦最塞的時段</b>（M4／A4 進城）—— 車程可能 <b>45–80 分</b>，預計 <b>19:00–19:45 抵達</b>住處（<b>68 Southwark Bridge Road, SE1</b>）。<br>🔴 <b>£46.98 那個報價是用舊住址（King's Cross）查的</b> —— 南岸更遠約 6 km，<b>要重新查價，估 £55–70</b>。</li>
-          <li>🟡 <b>兩個改搭地鐵的門檻</b>：① App 報價 <b>surge 超過 £60</b>；② App 顯示車程 <b>超過 70 分</b>。<br>→ 改地鐵：<b>T3 站內搭 Piccadilly 線 → Leicester Square 換 Northern 線 → Borough</b>（約 70 分、£5.90，<b>換一次車</b>）＋ 步行 5 分。<b>比住 King's Cross 時麻煩一點，但仍是可靠備案。</b></li>
-          <li><b>20:00</b>　晚餐在<b>南岸一帶</b> —— <b>Bermondsey Street</b>（走 10 分，餐廳酒吧密集）或 <b>Southwark Street／London Bridge</b> 一帶。⚠️ 波羅市場 18:00 就收攤，那天吃不到。</li>
-          <li>💡 <b>21:30–22:00 就睡</b>，完美切換英國時間 —— 別 19:00 就倒下，那會導致凌晨 2 點醒來。<b>飛了 15 小時 40 分，而 11/12 刻意排成 10:00 才出門（康登還可棄）</b>，就是為了這一天。</li>
-        </ul>
-        <div class="stay">🏨 倫敦南岸 Airbnb（68 Southwark Bridge Road, SE1）</div>
-      </div>
-    </article>
-
-    <article class="day">
-      <button class="dhead" type="button"><span class="dnum">D2<span>11/12</span></span>
-        <span class="dttl"><b>【一個大圈】南岸 → 聖保羅 → 兩座觀景台 → 倫敦塔</b><em>11/12（四）· 繞一圈走回家</em></span><span class="chev">▾</span></button>
-      <div class="dbody">
-        <ul>
-          <li>🔄 <b>一個大圈，不回頭</b>：住處往東南出發 → 沿南岸往西到聖保羅 → 搭公車往東到金融城 → 往東南到倫敦塔與塔橋 → <b>從塔橋走 15 分就回家</b>。約 5.5 km。</li>
-          <li>🔭 <b>兩座觀景台，一個白天一個夜晚</b>：13:20 的 <b>Horizon 22</b>（254 m）與 17:10 的 <b>Sky Garden</b>（155 m）—— 同一片天際線兩種樣子，<b>兩個都免費，但都要預約</b>。</li>
-          <li>📍 <b>整天只有一個硬時限：倫敦塔 16:30 關門</b>。前面每一段的時間都是從「14:15 進倫敦塔」往前反推的。</li>
-          <li><b>09:45</b>　住處出發。</li>
-          <li><b>09:55–10:15</b>　走 8–10 分 → <b>2 碎片塔</b>外觀（London Bridge 站旁）。💡 <b>不上觀景台</b>（£32／人）—— 今天的 Horizon 22 更高又免費。</li>
-          <li><b>10:15–11:15</b>　🍜 <b>3 波羅市場</b>（走 3 分）—— ⚠️ <b>週日休，週四是全市集日 ✅</b>。生蠔、西班牙火腿、起司吐司、Bread Ahead 甜甜圈。<br>💡 <b>10:00 剛開門人最少</b>，13:00 後上班族湧入會擠到走不動。<b>這裡當早午餐吃飽，下一餐要到晚上。</b></li>
-          <li><b>11:15–11:45</b>　沿南岸往西走 15 分（經環球劇場、泰特現代外觀）→ <b>4 千禧橋</b>。橋中央回望<b>聖保羅圓頂</b>是全倫敦最好的角度之一。</li>
-          <li><b>11:45–13:00</b>　<b>5 聖保羅大教堂</b>（£27・<b>可用 2FOR1</b>）—— ⚠️ <b>圓頂 528 階建議不要爬</b>，內部本身就很值。</li>
-          <li><b>13:00–13:20</b>　🚌 <b>公車 8／25／242 號</b>從 St Paul's Churchyard 往東到 Bank，再走 5 分。£1.75／人・contactless 直接嗶。<br>🟡 <b>走路 15–18 分也到</b> —— 倫敦短程公車沒比走路快多少，但<b>有位子坐</b>，走了一上午值得。</li>
-          <li><b>13:20–14:05</b>　🔭 <b>6 Horizon 22</b>（22 Bishopsgate）—— <b>歐洲最高的免費公共觀景台</b>：58 樓、254 m、300°。<br>🔴 <b>免費但一定要上官網預約</b>（horizon22.co.uk）—— <b>每週一 10:00 倫敦時間釋出 14 天後的票</b>，11/12 的票是 <b>10/27（一）台北 18:00</b> 開搶。每天留 10% 給現場候補。<br>⚠️ 平日 10:00–18:00，<b>最後入場只到 16:30–17:00</b>，只能排下午。</li>
-          <li><b>14:15–16:30</b>　⭐ <b>8 倫敦塔</b>（£37・<b>可用 2FOR1</b>）—— 皇冠珠寶、白塔「列王線」盔甲、血腥塔、渡鴉，別錯過<b>免費的 Yeoman Warder 導覽</b>。<br>🔴 <b>11 月 16:30 關門、最後入場 15:00</b> —— 整天唯一不能動的時間點。💡 下午進場皇冠珠寶的隊伍比早上短。</li>
-          <li><b>16:30–17:00</b>　⭐ <b>9 倫敦塔橋</b>（外觀免費，走 5 分）—— <b>日落 16:17 剛好趕上打燈</b>，塔橋最美的 30 分鐘。</li>
-          <li><b>17:10–18:00</b>　🌃 <b>7 Sky Garden</b>（20 Fenchurch Street）—— 🆓 免費、<b>一定要線上預約</b>，這個時段進去正好是全夜景。<br>🔴 <b>平日免費票只到 18:00</b>。<b>提前 3 週、每週一釋出一整週</b> → <b>10/19（一）開始盯</b>，沒搶到 10/26 再試。<b>要先註冊帳號。</b>訂不到就改塔橋南岸散步。</li>
-          <li>🍽️ <b>18:00–19:15　晚餐：走 15 分回南岸 Borough</b> —— 過倫敦橋往南，吃完走 5–10 分到住處。<br>🍺 <b>建議吃英式酒館</b> —— 整趟 12 天還沒有 pub 晚餐（11/18 義大利麵、11/19 與 11/20 都是牛排）。<br>🏛️ <b>The George Inn</b>（77 Borough High Street，離住處 8 分）—— <b>倫敦僅存唯一的迴廊式驛站客棧</b>，1677 年重建，National Trust 持有，狄更斯寫過它，就在回家路上。<br>🍝 其他：<b>Padella</b>（手工義大利麵，🔴 不接受訂位常排 30–60 分，且跟 11/18 的 Bancone 重複）、<b>Arabica</b>（波羅市場內）。⚠️ 訂前查營業時間。</li>
-          <li><b>19:30</b>　走回住處。<b>21:30–22:00 就睡</b>，完美切換英國時間 —— 別 19:00 就倒下，那會導致凌晨 2 點醒來。</li>
-          <li>🟡 <b>撐不住可以砍三段</b>：① <b>砍聖保羅</b>（省 75 分＋£54）→ 12:00 才出門，從波羅市場開始　② <b>砍 Horizon 22</b>（省 65 分）　③ <b>兩個都砍</b> → 波羅市場慢慢吃到 12:30，下午純倫敦塔＋塔橋＋Sky Garden<br>🔑 <b>倫敦塔 14:15 進場不能動。</b></li>
-          <li>🥯 <b>Brick Lane 是備案</b>（標記 10）—— <b>Dark Sugars</b> 現刨巧克力熱可可（141 號，10:00–20:00）＋ <b>Beigel Bake</b> 鹹牛肉貝果（159 號・<b>白色</b>招牌・<b>24 小時</b>，£6–7），兩家隔 18 個門牌。<br>🔴 <b>為什麼降成備案</b>：從 Sky Garden 走 20 分、再回住處 30 分 = <b>當天多走 50 分、20:00 才到家</b>。<br>✅ <b>啟用時機</b>：精神特別好、或 Sky Garden 沒訂到（省下 50 分剛好拿去走）。<b>Beigel Bake 24 小時，也可以某晚單獨去。</b>⚠️ 找<b>白色招牌、門牌 159</b>（155 號黃色是另一間）。</li>
-          <li>🎪 <b>康登市集是可選</b>（標記 11）—— 這天<b>唯一要搭車</b>的點：Borough 站 Northern 線直達 25 分，主市集<b>每天 10:00–19:00</b>（Hawley Wharf 食堂到 23:00）。<br>🔴 <b>要去就得砍掉碎片塔＋波羅市場＋千禧橋＋聖保羅整段</b>。<b>建議不去</b> —— 11/21 的波多貝羅（週六全市集、古董更好）覆蓋了同一種體驗。</li>
-          <li>💡 這晚<b>刻意不安排劇院</b> —— 隔天要飛冰島。</li>
-        </ul>
-        <div class="stay">🏨 倫敦南岸 Airbnb</div>
-      </div>
-    </article>
-
-    <div class="seg ice"><b>🇮🇸 冰島</b><em>11/13–11/17 · 5 晚 · 雷克雅維克＋中文三日團</em><i></i></div>
-
-    <article class="day move">
-      <button class="dhead" type="button"><span class="dnum">D3<span>11/13</span></span>
-        <span class="dttl"><b>【極地開局】從盧頓飛往冰島</b><em>11/13（五）· 倫敦 → 雷克雅維克</em></span><span class="chev">▾</span></button>
-      <div class="dbody">
-        <ul>
-          <li>🔄 <b>2026-09-07 改成 LTN 15:55</b>（原 LGW 14:25）—— <b>省 3,200 哩</b>；<b>2026-09-08 回程也定案走 LTN</b>（兩段共 15,093 哩），代價是<b>晚 1.5 小時到雷克雅維克</b>（20:35 而非 19:05）。<br>
-          ✅ <b>換到的是早上多 1.5 小時</b>：不必 11:00 就趕出門，可以慢慢吃早餐、輕裝再逛一次南岸。</li>
-          <li>😴 <b>睡飽、慢慢打包</b> —— 大英博物館已移到 11/19（它 10:00 才開、這天要拖行李，淨參觀不到 1 小時，不值得）。</li>
-          <li><b>09:30–10:30</b>　在南岸吃早餐（<b>Airbnb 有廚房的話自己做更省</b>，順便<b>做兩份三明治帶上 easyJet</b> —— 廉航不含餐、機上賣得貴）。</li>
-          <li><b>10:30–11:30</b>　整理行李、退房。⚠️ <b>easyJet 單件 23kg</b>，這時候就要秤好。</li>
-          <li>🟡 <b>11:30–12:15　如果住處能寄放行李 → 輕裝再逛一次南岸</b><br>
-          · 🎨 <b>泰特現代</b>（走 8–10 分・<b>免費</b>・10:00 開門）—— 11/12 只看了外觀，這次可以進去<br>
-          · 🎄 <b>Christmas by the River</b>（Hay&#39;s Galleria 一帶，走 10 分）—— ⚠️ <b>2026 開放日要查</b>，如果 11 月中已開，那是前段最值得的聖誕點<br>
-          · 🍜 <b>波羅市場</b>（走 6–8 分）再吃一輪<br>
-          🔴 <b>如果不能寄放行李，這段就跳過</b> —— 拖著兩件 28 吋逛街不現實。那就 11:30 直接出門，早點到機場。</li>
-          <li><b>12:20</b>　出門 → 步行 8 分到 <b>London Bridge</b> → <b>Thameslink 直達 Luton Airport Parkway</b>（約 50–55 分，要穿過整個倫敦）→ <b>13:30 抵達</b> → 轉 <b>DART 自動軌道 4 分</b> → <b>約 13:35–13:40 到航廈</b>，距起飛 <b>2 小時 15 分</b>。</li>
-          <li>✅ <b>安檢其實比傳聞快很多（我查證後修正）</b> —— LTN 已完成 <b>£20M 的安檢升級</b>，<b>所有通道都是 CT 掃描 ＋ 人體掃描</b>（液體與電子產品不用拿出來）。<b>平均等待 7 分鐘、離峰 4 分鐘</b>，而<b>官方說中午 11:00–14:00 的班機排隊最短</b> —— 你們 13:35 抵達正好在那個區間。<br>
-          🎁 <b>而且有免費的 Pre-Book</b>：可以<b>預約通過安檢的時段跳過排隊</b>（開放給 03:00–15:00 抵達安檢的乘客，你們符合）。<b>出發前上 LTN 官網預約，等於零排隊。</b><br>
-          🟡 <b>所以 2h15 是保守值</b> —— 12:20–12:35 出門都可以。<b>真正的問題不是安檢，是候機區座位不足</b>（見下方），所以<b>也不必太早到</b>。</li>
-          <li>🥪 <b>三明治還是要帶</b> —— LTN 的餐飲只有幾家連鎖快餐，選擇少又貴又要排隊。</li>
-          <li><b>15:55</b> easyJet 起飛（<b>阿聯酋哩程兌換</b>），飛行約 3 小時 15 分，英冰同為 GMT <b>無時差</b>。</li>
-          <li><b>約 19:10</b> 抵達 KEF → <b>Flybus</b> 進市區（🟢 <b>依班機抵達發車</b>，落地後 35–45 分開車、車程 45 分）→ 約 <b>20:35 抵達</b>，ALVA Hotel 下車步行 4 分。</li>
-          <li>🏨 ASKA Holt 是<b>自助入住</b>，門禁碼於抵達當天 08:00 email 寄出 —— <b>務必事先完成線上 check-in</b>。</li>
-          <li>🍽️ <b>21:00 晚餐</b> —— Laugavegur 主街（商店多已關，<b>餐廳酒吧開得晚</b>）。<br>
-          🔴 <b>但 21:00 之後有些餐廳不接客了</b> —— <b>建議事先查一兩家營業到 22:00 以後的</b>，或前一晚在超市買好備用。<b>這是改晚班機的實際代價。</b></li>
-          <li>💡 <b>11/14 早上 10:00 才出門</b>，所以晚睡不影響隔天 —— 那也是這個改動可行的原因。</li>
-        </ul>
-        <div class="stay">🏨 雷克雅維克 ASKA Holt（Skipholt 29A）</div>
-      </div>
-    </article>
-
-    <article class="day ice">
-      <button class="dhead" type="button"><span class="dnum">D4<span>11/14</span></span>
-        <span class="dttl"><b>【雷克雅維克】市區慢遊 ＋ Sky Lagoon 泡到天黑</b><em>11/14（六）· 雷克雅維克・零長途交通</em></span><span class="chev">▾</span></button>
-      <div class="dbody">
-        <ul>
-          <li>⭐ <b>這是第六版新增的一天</b> —— 前五版的雷克雅維克白天只有約 2 小時。日照 <b>09:45–16:25</b>。</li>
-          <li>🔄 <b>2026-08-31 改動：藍湖 → Sky Lagoon</b><br>
-          藍湖來回交通吃掉 <b>100 分鐘</b>（巴士各每小時一班），而 Sky Lagoon <b>叫車只要 15 分</b>。<b>省下 70 分鐘 ＋ 約 2,600–3,100 元</b>，而且面向大西洋，<b>日落視野更好</b>。<br>
-          🔑 <b>藍湖的優勢你們用不到</b>：它離 KEF 機場近，但 11/13 晚上 19:05 才落地、11/18 早上要趕 11:15 的 Flybus，兩頭都碰不到。<b>扣掉那個，藍湖只剩名氣。</b></li>
-          <li><b>10:00–10:40</b>　<b>哈爾格林姆教堂 ＋ 登塔</b>看全城彩色屋頂。</li>
-          <li>🌈 <b>10:45–11:00</b>　從教堂往下走 <b>彩虹街 Skólavörðustígur</b> —— 路面漆成彩虹、<b>正對教堂</b>，雷克雅維克最有名的一張照片。<b>零成本，走出來就是。</b><br>🧶 街上的 <b>Handknitting Association of Iceland</b>（19 號）是<b>正統手工羊毛衫 Lopapeysa</b> 的大本營。</li>
-          <li><b>11:00–12:00</b>　<b>Kolaportið 跳蚤市場</b> —— ⭐ <b>僅週末營業</b>，11/14 是週六剛好。二手 Lopapeysa 比新品便宜一半以上，還有現切魚乾。<b>這是唯一碰得到的日子，不能砍。</b></li>
-          <li><b>12:00–12:45</b>　午餐：<b>Bæjarins Beztu 羊肉熱狗堡</b>（1937 年開到現在，點「ein með öllu」＝全部加）或 <b>Braud &amp; Co</b> 肉桂捲。</li>
-          <li><b>12:45–13:30</b>　<b>Laugavegur 主街</b>買伴手禮（週六商店營業最久）→ <b>太陽航行者</b>雕塑 → <b>哈帕音樂廳</b>（內部免費）。<br>🧥 <b>66°North 就在主街上</b>（Laugavegur–Bankastræti 一線）—— 順路就到。<b>Faxafen 的 Outlet 已放棄</b>：來回 50 分鐘太遠。</li>
-          <li>🍫 <b>13:45–14:45</b>　<b>Grandi 舊港區 ＋ Omnom 巧克力工廠</b>（Hólmaslóð 4）—— ⭐ <b>這是換掉藍湖多出來的時間</b>。工廠直營店，包裝設計極美，<b>伴手禮一次買完</b>。<br>💡 <b>順路在 Bónus／Krónan 超市補齊</b>甘草糖、海鹽，以及<b>明天三日團要帶的麵包火腿起司</b>（團費不含午晚餐，沿途休息站一餐要 ISK 3,000–4,000）。</li>
-          <li>🌊 <b>15:15–18:00</b>　<b>Sky Lagoon</b>（Hreyfill App 叫車 15 分，<b>ISK 4,747 一台車不是一人</b>）—— <b>七步溫泉儀式</b>：熱池 → 冷水池 → 桑拿 → 冷霧 → 身體磨砂 → 蒸氣 → 沖洗。<br>🌆 <b>16:25 日落</b> —— 面海的無邊際池從白天泡到全黑，<b>有機會邊泡邊看極光</b>。<br>🔴 <b>要先訂時段</b>：官網或淘寶（Saman 約 <b>865 人民幣</b>、Ser 約 <b>1,025</b>）。⚠️ <b>淘寶電子票要先確認能不能指定時段</b>。</li>
-          <li><b>18:30</b>　叫車回市區 → 晚餐。</li>
-          <li>🌌 <b>20:00（選）</b>　想追極光：<b>Grótta 燈塔</b>（市區最西端，<b>免費、光害低</b>，走／搭車 20 分）或報極光團（20:00–00:30，多數業者沒看到可免費再參加）。</li>
-          <li>♨️ <b>藍湖是備案，不是別天</b> —— 🔴 <b>整趟沒有其他天可以去藍湖</b>：11/13 晚上 19:05 才到（KEF→藍湖的巴士 11 月只有 07:30／09:30／12:30／16:30，全部趕不上，計程車要 ISK 15,000）、11/15–17 在南岸、<b>11/18 早上藍湖 08:00 開門但要 06:00 起床</b>，跑完三日團隔天不值得。<br>✅ <b>所以「備案」的意思是</b>：如果 Sky Lagoon 那個時段訂不到，<b>就換回藍湖、同樣排在 11/14 下午</b>（13:15 巴士 → 14:30 入場 → 泡到 18:30 → 19:35 回市區），代價是砍掉 Omnom 工廠那一小時。</li>
-        </ul>
-        <div class="stay">🏨 雷克雅維克 ASKA Holt</div>
-      </div>
-    </article>
-
-    <article class="day ice">
-      <button class="dhead" type="button"><span class="dnum">D5<span>11/15</span></span>
-        <span class="dttl"><b>【中文團 · 第 1 天】黃金圈 ＋ 三座瀑布</b><em>11/15（日）· 雷克雅維克 → 教堂鎮</em></span><span class="chev">▾</span></button>
-      <div class="dbody">
-        <ul>
-          <li><b>09:00 出發</b>（中文導遊、小巴）。上車點請向旅行社確認 —— ASKA Holt 附近為 <b>ALVA Hotel（Brautarholt 22，步行 4 分）</b>。把 <b>28 吋大行李</b>丟上導遊拖車（每人 1 件 20kg、三邊之和 ≤158cm）。</li>
-          <li>🍞 <b>這天的早餐要自己吃</b> —— 團費只含<b>第 2、3 天</b>的酒店早餐。前一晚在超市買好。<b>順便多買一份午餐帶上車</b>（團費不含午晚餐，沿途休息站一份簡餐要 ISK 3,000–4,000）。</li>
-          <li><b>辛格韋德利國家公園 Þingvellir</b> —— <b>冰島第一個 UNESCO 世界遺產</b>。西元 <b>930 年</b>成立的阿爾庭（Althingi）議會遺址，是世界上最古老的議會。</li>
-          <li>🌍 <b>板塊：有，就在這裡 —— 但實情比「一腳踩兩洲」複雜一點</b><br>
-          ✅ <b>Þingvellir 整個谷地就是兩大板塊拉開造成的裂谷（rift valley）</b>。北美板塊往西、歐亞板塊往東，<b>每年拉開約 2 公分</b>；過去一萬年這片谷地<b>下沉了約 40 公尺</b>。你確實站在裂谷裡。<br>
-          🔍 <b>但要說清楚的是</b>：團會走的那條著名步道 <b>Almannagjá（阿曼納陡崖）</b>，是<b>北美板塊的東緣斷崖</b> —— 不是「兩板塊之間的縫」。<b>歐亞板塊的邊緣在東邊數公里外</b>（Hrafnagjá 一帶），中間整片都是被拉裂的破碎地殼。<br>
-          🎯 <b>所以「一腳踩歐洲、一腳踩美洲」是觀光說法</b>，地質上兩個邊界相距好幾公里。<b>不過走在 Almannagjá 底部、兩側是玄武岩壁那個體驗是真的</b> —— 你正走在北美板塊的邊上。<br>
-          💡 <b>順道會看到</b>：<b>Öxarárfoss 瀑布</b>（就在裂谷裡）與<b>法律岩 Lögberg</b>（古議會的宣讀處）。<br>
-          🤿 <b>真正「在兩板塊之間」的地方是 Silfra 裂縫</b> —— 那是世界上最清澈的水域，可以浮潛／水肺。<b>但那是另外的付費活動，三日團不含</b>。</li>
-          <li><b>蓋歇爾地熱區 Geysir</b> —— <b>史托克間歇泉 Strokkur</b> 每 <b>5–7 分鐘</b>噴發一次，水柱可高達 <b>30 公尺</b>。<br>💡 這裡是冰島觀光業的起點，英文的 geyser（間歇泉）一詞就來自這裡的 Geysir。</li>
-          <li>💙 <b>藍色秘境瀑布 Brúarfoss</b> —— ⭐ <b>這是中文團的額外亮點，很少團會來</b>。冰藍色的水流像融化的寶石在黑岩之間穿梭，顏色來自冰川沉積物。<b>非常適合停留拍照。</b></li>
-          <li><b>黃金瀑布 Gullfoss</b> —— 源自<b>朗格冰川 Langjökull</b> 的雙層瀑布。名字來自陽光下水霧折射的金色，映在棕色熔岩岩壁上。</li>
-          <li><b>塞里雅蘭瀑布 Seljalandsfoss</b> —— <b>60 公尺</b>高，⚠️ <b>天氣晴朗時可以走到瀑布後方</b>（會被水霧噴濕，防水外套褲要穿好）。</li>
-          <li>🌆 <b>傍晚途經維克鎮 Vík</b>，短暫停留感受海邊小鎮 —— 💡 <b>維克在 Day 1 和 Day 3 都會經過</b>，Day 3 才是正式的黑沙灘行程。</li>
-          <li>🏨 抵達 <b>教堂鎮 Kirkjubæjarklaustur</b> 一帶的 <b>Hotel Geirland</b>（含私人衛浴）—— ✅ <b>兩晚都住這裡</b>（官方 Day 2 內文寫「今晚的住宿<b>仍是</b>教堂鎮附近的 Hotel Geirland」），<b>行李不用每天打包</b>。<br>🌌 <b>光害極低，這是全程極光機會最好的兩晚</b>。睡前查 vedur.is，別早早拉上窗簾。</li>
-          <li>💡 <b>天氣好的話</b>途中可見<b>赫克拉火山 Hekla</b>（車上遠眺，11 月雲多，當加分不要當期待）。</li>
-        </ul>
-        <li>📚 <b>黃金圈其實是「冰島地質三堂課」，剛好一站一堂</b><br>
-          <b>① Þingvellir ＝ 拉張</b> —— 兩塊板塊分開，地殼裂開、下沉<br>
-          <b>② Geysir ＝ 地熱</b> —— 淺處的岩漿把地下水加熱到沸騰，壓力累積後噴出<br>
-          <b>③ Gullfoss ＝ 侵蝕</b> —— 冰川融水（來自朗格冰川）切穿熔岩台地<br>
-          🎯 <b>這也是選中文團最實際的回報</b> —— 這三件事聽得懂，黃金圈就從「三個拍照點」變成一個完整的故事；聽不懂就只是三個瀑布跟一個噴泉。</li>
-        <div class="stay">🏨 Hotel Geirland（團費含・第 1 晚）</div>
-      </div>
-    </article>
-
-    <article class="day ice">
-      <button class="dhead" type="button"><span class="dnum">D6<span>11/16</span></span>
-        <span class="dttl"><b>【中文團 · 第 2 天】冰河湖 ＋ 瓦特納冰川藍冰洞</b><em>11/16（一）· 冰島東南部</em></span><span class="chev">▾</span></button>
-      <div class="dbody">
-        <ul>
-          <li>🔴 <b>全程最耗體力的一天。</b>日照 09:55–16:15。</li>
-          <li>🔑 <b>冰洞確認在今天，是瓦特納冰川的藍冰洞</b> —— 官方原文：「<b>冬季，我們將在第二天探訪瓦特納冰川藍冰洞；夏季，我們將在第三天探訪卡特拉冰洞。</b>」11 月＝冬季。<br>✅ <b>而且排在第 2 天不是最後一天</b> —— 天氣不行時理論上還有第 3 天可緩衝，但那是<b>導遊看當天路況現場判斷</b>，不是可以事先約定的事。</li>
-          <li><b>傑古沙龍冰河湖 Jökulsárlón</b> —— 藍色冰山從<b>布萊扎梅爾克冰川</b>斷裂，緩緩漂向大西洋。冰面像玻璃一樣透明。<br>🚤 <b>遊船 11 月不能加選</b>（官方明寫僅 5–9 月），岸上本來就夠近。<br>🦭 <b>看海豹</b>：下車後往<b>出海口方向</b>（靠橋靠海那側）看 —— 港灣海豹在那裡逆流捕魚，比湖心容易發現，<b>帶望遠鏡差很多</b>。</li>
-          <li><b>鑽石沙灘</b> —— 冰塊被沖上黑色火山沙灘，晶瑩閃耀。</li>
-          <li>🧊 <b>下午：斯卡夫塔山國家公園 Skaftafell</b>（瓦特納冰川國家公園的一部分）—— <b>這裡就是冰川健行與冰洞的出發地</b>，AA 自家 Glacier Guides 的基地也設在這裡。<br>
-          🔴 <b>Svartifoss 瀑布是「僅夏季」的項目</b> —— 官網 Day 2 的費用涵蓋把它標成 <b>summer only</b>，<b>11 月不會去</b>（那條步道冬天結冰）。我原本寫錯了。</li>
-          <li>🧊 <b>瓦特納冰川藍冰洞 ＋ 冰川健行</b> —— 持證冰川導遊帶領，穿冰爪。<br>
-          ⏱️ <b>官網三日團明確寫「在冰上約 2 小時」，但你的訂單寫 3 小時</b><br>
-          AA <b>三日團官網頁面</b>的原文是：<span class="quote">"Including both ice cave and glacier hike exploration, we&#39;ll spend <b>roughly 2 hours on the ice</b>."</span>（含冰洞與冰川健行，在冰上約 2 小時）—— 而且<b>整份行程沒有任何地方寫 3 小時</b>。單日團頁面也是 1.5–2 小時。<br>
-          💡 <b>兩個解釋</b>：① <b>3 小時是含裝備穿戴、安全講解、停車場到冰川邊往返的總時長</b>（2 小時是純冰上）② 中文團的版本可能真的比英文團長。<br>
-          🎯 <b>準備上以 3 小時為準</b>（保守），<b>保險也寫 3 小時</b> —— 誠實，而且實際較短時承保範圍反而更寬。<br>
-          📞 <b>值得問一句</b>：「訂單的 3 小時，是<b>在冰上的時間</b>還是<b>含裝備與往返的總時長</b>？官網三日團寫的是 2 小時。」<br>📊 <b>官網寫的強度</b>：距離約 <b>3 km</b>、爬升 <b>200–250 公尺</b>，原文明說「<b>一開始就是陡上</b>」。<b>這不是平路散步。當天不要另外安排體力活動。</b><br>📊 <b>取消率 13.2%（乾燥日）／20.4%（大雨日）</b> —— 成功率約 <b>87%</b>。決定取消的是<b>當天的天氣</b>，跟月份幾乎無關（研究證實取消率與月份的相關性只有 −0.08）。<br>🔵 <b>藍不藍看日照</b> —— 「藍冰洞是<b>從外面被照亮的</b>，把日光拿掉就只是灰色的洞」。11/16 日照 6.3 小時，<b>比 12 月的 4.2 小時長 50%</b>。🔴 <b>要落在 11:00–14:00 進洞</b>，這一題要問 AA。<br>
-          ⏰ <b>而按官方順序推算，可能剛好卡在窗口邊緣</b>：從 Hotel Geirland 到傑古沙龍約 150 km（開 2 小時）→ 09:00 出發、<b>11:00 到冰河湖</b> → 11:00–12:30 冰河湖 ＋ 鑽石沙灘 → 開回 Skaftafell 約 45 分 → <b>13:30 才開始冰川健行</b>。<br>
-          🟡 <b>13:30 進洞還在 11:00–14:00 之內，但已經是尾端</b> —— 如果前面任何一段拖到，14:30 之後光線就明顯弱了。<b>所以那一題不只是「幾點」，而是「會不會被排在最後」。</b></li>
-          <li>📊 <b>網路上看到的「6 小時冰川健行」不是你們的版本</b><br>
-          AA／Glacier Guides 在 Skaftafell 有<b>五種等級</b>，時長差很多：<br>
-          · <b>Blue Ice（冰洞 ＋ 冰川健行）3.5–4.5 小時・Easy</b> ← <b>三日團用的應該是這個等級</b><br>
-          · Glacier Wonders 4 小時・Easy<br>
-          · <b>Glacier Explorer 5.5–6 小時・Moderate</b>（<b>8 km、爬升 350–400 m</b>）← <b>網路上的「6 小時」是這個</b><br>
-          · Glacier Beyond 5.5 小時<br>
-          · Glacier Xtreme <b>7–7.5 小時</b>（含<b>冰攀</b>）・Advanced<br>
-          🎯 <b>你們的是 3 km、爬升 200–250 m 的 Easy 級別</b> —— 那個 6 小時的版本是 <b>8 km、爬升多一倍</b>的獨立單日團，<b>跟三日團無關。不要用那個嚇自己。</b></li>
-          <li>🚻 <b>「3 小時不上廁所」—— 可以，但要準備</b><br>
-          🔴 <b>冰川上沒有廁所</b>，而且<b>穿著防水褲 ＋ 冰爪 ＋ 安全吊帶，要脫掉很麻煩</b>。<b>Skaftafell 遊客中心的廁所是最後一站</b>（付費），從那裡出發到回來實際約 <b>3–3.5 小時</b>。<br>
-          ⚠️ <b>而低溫會讓尿意變多</b>（cold diuresis —— 低溫使血管收縮、血壓上升，腎臟排尿增加）。<b>這不是心理作用，是生理反應。</b><br>
-          ✅ <b>四個實務做法</b>：<br>
-          ① <b>當天早上少喝咖啡／茶</b>（利尿）<br>
-          ② <b>出發前 30–45 分鐘停止大量喝水</b>，但<b>活動中要小口補水</b>（冰川上乾燥又會流汗，脫水更難受）<br>
-          ③ <b>在 Skaftafell 遊客中心一定要上</b>，即使沒感覺<br>
-          ④ 真的緊急時導遊會找地方（冰隙旁、大石後），<b>但那很不方便，盡量不要走到那一步</b></li>
-          <li>🥾 <b>登山靴是硬性要求</b> —— 官網原文：「<b>Sturdy hiking boots are essential</b>, as <b>crampons won't work with regular shoes</b>」「<b>Good hiking boots with ankle support</b>」。<b>＝ 硬底 ＋ 過踝</b>，防水是常識。<br>💰 <b>可以租</b>（防水外套褲、登山鞋），但<b>官網沒公布價格</b>。🔴 <b>要租整趟行程的裝備至少 48 小時前預訂</b>；也可現場在 Skaftafell 的 Glacier Guides Booking Center 租。<b>價格要問。</b><br>🎒 <b>團費已含</b>：冰爪、安全帽、吊帶、冰斧 —— <b>不用自己買冰爪</b>。</li>
-          <li>🛡️ <b>保險描述要精確</b>（團方提供吊帶與冰斧，所以<b>不能寫「不使用吊帶」</b>）：<span class="quote">「持證冰川導遊帶領，穿戴冰爪在冰川上<b>步行約 3 小時</b>（約 3 公里、爬升 200–250 公尺，起始段有陡坡），並步行進入天然冰洞。團方提供冰爪、安全帽、吊帶與冰斧作為標準安全裝備。<b>全程為導遊帶領的健行，不進行繩索攀登、冰攀或垂降。</b>」</span><br>🎯 如實列出裝備 ＋ 說明「不進行攀登」，<b>比隱瞞裝備安全得多</b> —— 隱瞞的代價是理賠被拒。</li>
-          <li>🏞️ <b>傍晚：羽毛峽谷 Fjaðrárgljúfur</b>（官方排在今天，不是第 3 天）—— 峽谷線條柔和卻深邃，河流像一條細長的銀帶。這也是 AA 自己營運的景點。</li>
-          <li>🏨 <b>今晚仍住 Hotel Geirland</b> —— 官方內文寫「今晚的住宿<b>仍是</b>教堂鎮附近的 Hotel Geirland」，<b>兩晚同一家、行李留在房間</b>。🌌 <b>光害極低，全程極光機會最好的兩晚。</b></li>
-        </ul>
-        <div class="stay">🏨 Hotel Geirland（團費含・第 2 晚）</div>
-      </div>
-    </article>
-
-    <article class="day ice">
-      <button class="dhead" type="button"><span class="dnum">D7<span>11/17</span></span>
-        <span class="dttl"><b>【中文團 · 第 3 天】熔岩原 · 黑沙灘 · 瀑布登頂</b><em>11/17（二）· 返回雷克雅維克</em></span><span class="chev">▾</span></button>
-      <div class="dbody">
-        <ul>
-          <li>享用酒店早餐後緩緩返回，途中多次停留。日照 10:00–16:10。</li>
-          <li>🌋 <b>埃爾德赫勞恩熔岩原 Eldhraun</b> —— <b>人類有史以來最大的一次熔岩噴發遺跡</b>（1783–84 年 Laki 火山，噴出約 14 立方公里熔岩，那場災難改變了整個歐洲的氣候）。現在覆滿苔蘚。導遊會講這場災變的歷史，並指引欣賞冰川洪水切割出的沙原。</li>
-          <li><b>再次經過維克鎮 Vík</b> —— ⚠️ <b>卡特拉冰洞是 5–9 月的夏季行程，你們 11 月不會去</b>（冰洞已在昨天的瓦特納冰川完成）。</li>
-          <li><b>雷尼斯黑沙灘 Reynisfjara ＋ 雷尼斯岩柱 Reynisdrangar</b> —— 面向大西洋，一側是<b>巨大的玄武岩柱</b>（像石製管風琴的音管嵌進山體），海上矗立著如古老石塔的岩柱群。<br>🔴 <b>這裡的海浪極不可預測，務必遵循導遊指示</b> —— 每年都有觀光客被瘋狗浪捲走。<b>別為了拍照走近水邊。</b></li>
-          <li><b>斯科加瀑布 Skógafoss</b> —— 落差 60 公尺，<b>沿階梯登頂</b>（陡但值得）可俯瞰<b>艾雅法拉冰川 Eyjafjallajökull</b>。<br>📖 傳說有巨魔被瀑布的美吸引，忘了黎明將至，被初升的陽光化為石像 —— 至今瀑布旁的岩壁上還看得到似有巨魔面孔的岩層。另有早期維京定居者在此藏寶的傳說。</li>
-          <li>🔴 <b>18:00–19:00 之間</b>回到雷克雅維克（<b>官方逐日行程的說法</b>），領回大行李。<br>⚠️ <b>這比原本以為的 16:00–19:00 晚了兩小時</b> —— 影響三件事：<br>① <b>66°North Outlet 完全不可能</b>（18:00 關門）—— 已放棄，主街門市 11/14 逛過就好<br>② <b>Sky Lagoon 今晚也不可行</b>（如果原本想補一場）<br>③ <b>晚餐要排 19:30 之後</b>，市區餐廳開得晚，不用擔心</li>
-          <li>🧳 <b>今晚就是休息</b> —— 明天 11:00 退房、11:15 Flybus、14:20 飛倫敦。<b>把行李在今晚整理好</b>，尤其是 easyJet 的<b>單件 23kg</b> 限制。</li>
-        </ul>
-        <div class="stay">🏨 雷克雅維克 ASKA Holt</div>
-      </div>
-    </article>
-
-    <div class="seg"><b>🇬🇧 倫敦（後段）</b><em>11/18–11/20 · 3 晚 · 聖誕季</em><i></i></div>
-
-    <article class="day move">
-      <button class="dhead" type="button"><span class="dnum">D8<span>11/18</span></span>
-        <span class="dttl"><b>【轉場】早班機飛回倫敦 ＋ W1 燈飾夜</b><em>11/18（三）· 雷克雅維克 → 倫敦</em></span><span class="chev">▾</span></button>
-      <div class="dbody">
-        <ul>
-          <li>🔄 <b>2026-09-08 定案 KEF 12:05 → 倫敦盧頓 LTN</b>（演進：14:20 LGW → 12:30 LGW → <b>12:05 LTN</b>）—— 代價是冰島早上完全沒了，換到的是<b>倫敦多快 2 小時</b>，而那正好是 W1 燈飾夜。<br>
-          🔑 <b>為什麼值得換</b>：11/18 冰島 <b>10:00 才天亮</b>，而伴手禮 <b>11/14 在 Omnom 工廠與超市已經買完</b> —— 那一小時本來價值就低。反過來，倫敦這 1.5 小時讓利柏特從「趕 50 分鐘」變成「慢慢逛」。</li>
-          <li><b>08:00</b>　起床。⚠️ 11/17 是三日團最後一天、<b>18:00–19:00 才回市區</b>，晚餐後整理行李可能 23:00 才睡 —— <b>08:00 起床約睡 8.5 小時</b>。🔴 <b>改 12:05 的班機後要比原本早起 30 分鐘，前一晚務必把行李完全收好</b>。</li>
-          <li><b>08:30</b>　早餐 ＋ 最後整理。<b>行李在前一晚就要收好</b>，尤其 easyJet 的單件 23kg 限制。</li>
-          <li><b>09:00</b>　ASKA Holt 退房。🔴 <b>這天早上完全沒有市區空檔</b> —— 伴手禮必須在 11/14 買完。</li>
-          <li><b>09:15</b>　<b>Flybus 從 ALVA Hotel</b>（步行 4 分）→ 車程 45 分 → <b>約 10:00 抵 KEF</b>，距起飛 <b>2 小時 5 分</b>。<br>🔴 <b>要先確認有這班</b> —— 市區→KEF 是<b>固定時刻表</b>（不像去程跟著飛機走）。查 flybus.is，找「<b>12:05 起飛前能在 10:00 前抵達</b>」的那班。<b>若最接近的只有 08:45 或 10:15，就要重算退房時間</b>。</li>
-          <li><b>12:05 起飛</b> ✈️ <b>KEF → 倫敦盧頓 LTN</b>，飛行約 3 小時 15 分（英冰同 GMT <b>無時差</b>）→ <b>約 15:20 抵達</b>。</li>
-          <li><b>15:40</b>　出關（🔴 <b>台灣護照不能用 eGate</b>，要走人工查驗，旺季可能 30 分）→ <b>DART 4 分</b>到 Luton Airport Parkway → <b>Thameslink 22–27 分</b>（一小時 4–6 班）→ <b>約 16:15 抵 St Pancras</b>。</li>
-          <li>🎄 <b>16:15–16:40　St Pancras 聖誕樹 ＋ King&#39;s Cross 燈光裝置</b> —— ⭐ <b>零成本的加分</b>：聖誕樹就在 Grand Terrace，走出月台就看到；King&#39;s Cross 是鄰居（走 3 分），每年有大型燈光裝置 ＋ Granary Square 噴泉。<b>16:15 天已黑近半小時，燈全亮</b>，而且改 LTN 後這一站從 15 分變 <b>25 分</b>。</li>
-          <li><b>16:40–16:55</b>　走 10–12 分 → 進住處（studios2Let Bloomsbury）放行李。</li>
-          <li><b>17:10</b>　地鐵到 Oxford Circus（Piccadilly 線 12–15 分）。</li>
-          <li>🎄 <b>17:25–20:00　W1 聖誕燈飾夜 —— 現在有 2 小時 35 分，完全不用趕</b><br>
-          · <b>利柏特 Liberty</b>（1924 都鐸復興式木造建築，<b>聖誕部門是倫敦最好的之一</b>，開到 20:00）<br>
-          · <b>攝政街聖誕燈飾</b>（倫敦最有名）<br>
-          · 🆕 <b>Carnaby Street 燈飾</b>（走 5 分）—— 每年主題造型，不是傳統燈串<br>
-          · 🆕 <b>Selfridges 櫥窗</b>（牛津街，跟攝政街平行）<br>
-          · 🆕 <b>Piccadilly Circus 燈飾</b>（走 5 分）</li>
-          <li><b>20:00–20:30</b>　<b>Hamleys</b> 百年玩具店（走 3 分，開到 21:00）。</li>
-          <li><b>20:30–21:00</b>　走 9 分到 <b>福楠梅森 Fortnum &amp; Mason</b>（1707 年創立）—— 室內 20:00 已關，但 <b>Piccadilly 那面的聖誕櫥窗在外面隨時可看</b>，是倫敦最有名的櫥窗之一。</li>
-          <li><b>21:00</b>　🍝 <b>Soho 晚餐：Bancone</b>（8–10 Lower James Street, W1F 9EL，離攝政街走 5 分）—— 手工義大利麵，招牌 <b>silk handkerchiefs</b>（絹帕麵佐蛋黃與鼠尾草奶油），主餐約 £12–16。<br>⚠️ <b>很熱門常排隊 → 一定要先訂位</b>（另有柯芬園分店 39 William IV Street）。</li>
-          <li>🟡 <b>累的話砍後半</b> —— 這是剛從冰島飛回來、又早起的一天。<b>只做「St Pancras 聖誕樹 ＋ 利柏特 ＋ 攝政街燈飾」就收工</b>，晚餐改住處附近。<b>11/19 晚上有 2 小時 55 分的舞台劇，睡好比逛完重要。</b></li>
-        </ul>
-        <div class="stay">🏨 倫敦 · studios2Let Bloomsbury（WC1）</div>
-      </div>
-    </article>
-
-    <article class="day">
-      <button class="dhead" type="button"><span class="dnum">D9<span>11/19</span></span>
-        <span class="dttl"><b>【博物館日】大英博物館 ＋ 哈利波特舞台劇</b><em>11/19（四）· 倫敦・全程步行</em></span><span class="chev">▾</span></button>
-      <div class="dbody">
-        <ul>
-          <li>🚶 <b>這一天也完全不用搭地鐵</b> —— 住處 → 大英博物館 → 柯芬園 → 劇院，全部走得到。而且<b>下午是室內、有地方坐</b>，剛好銜接晚上 3 小時的舞台劇。</li>
-          <li><b>10:00–12:00</b>　<b>大英博物館</b>（<b>走 8–10 分</b>、<b>免費</b>，10:00 開門）—— 鎖定<b>羅塞塔石碑、埃及廳、帕德嫩神廟雕刻</b>。雨天也完全不受影響。</li>
-          <li><b>12:15–13:15</b>　🥩 <b>午餐：Flat Iron</b>（17 Henrietta Street, WC2E 8QH，柯芬園）—— 招牌 <b>flat iron 牛排約 £15</b>，等位時送爆米花、吃完送鹹焦糖冰淇淋。<br>🔴 <b>大多數分店不接受訂位，只能現場排隊</b>（尖峰可排 30–60 分）—— 所以<b>刻意排在中午剛開門（約 12:00）</b>，這是全天最不用排的時段。<br>💡 <b>絕對不要排在 11/19 晚上</b>：劇院 19:00 開演，你只有 1 小時，排到隊就趕不上。（Soho 店在 17 Beak Street、Shoreditch 店在 Curtain Road，都在你別天的動線上）</li>
-          <li><b>13:30–15:15</b>　走 15 分到 <b>柯芬園</b> ＋ <b>柯芬園聖誕市集</b>（巨型聖誕球裝飾、街頭表演）。</li>
-          <li>✏️ <b>可愛文具雜貨就排在這裡</b> —— <b>Choosing Keeping</b>（21 Tower Street, WC2H 9NS，Seven Dials 一帶，離柯芬園走 5 分、離 Palace Theatre 走 5 分）是倫敦公認最好的文具店：日本與歐洲紙品、鋼筆、蠟封、手工筆記本。<br>💡 <b>比在 Spitalfields 找文具好得多</b> —— 那邊 18:00 就關，而你 11/12 那個時段被 Sky Garden 佔住（兩者都 18:00 關、相距 12 分，只能選一個）。</li>
-          <li><b>15:30–17:45</b>　🚇 <b>倫敦交通博物館</b>（就在柯芬園廣場上，<b>£27・可用 2FOR1</b>，票效一年，<b>18:00 關</b>）—— 可登上維多利亞時代蒸汽地鐵車廂與老雙層巴士，地鐵路線圖與 Roundel 標誌的設計史。<b>商店是全倫敦設計類伴手禮最好的一間</b>（不用門票就能進）。</li>
-          <li><b>18:00</b>　走 5 分到 Soho／柯芬園晚餐。<br>💡 <b>劇前只有 1 小時，要吃快又不將就 → 義大利麵是最好的選擇</b>。<b>Bancone 柯芬園店</b>（39 William IV Street）離劇院走約 10 分，🔴 <b>必須先訂 18:00 的位子</b>，不然排隊會趕不上 19:00 開演。</li>
-          <li><b>19:00–21:55</b>　🪄 <b>哈利波特：被詛咒的孩子</b> @ <b>Palace Theatre</b>（113 Shaftesbury Avenue，Cambridge Circus）<br>
-          🎟️ <b>座位：Dress Circle Row E 10–11</b>（二樓中段中央）—— 高度略俯視<b>看得到舞台地板的效果</b>，距離剛好<b>魔術不會破功</b>，而且不用仰視 3 小時。<br>🔑 <b>你們看到的是全新版本</b> —— 原本是<b>兩部曲</b>（要看兩場、共 5 小時 20 分），<b>2026/10/6 起改成「重新想像」的單場版</b>，慶祝西區 10 週年。<b>2 小時 55 分含一次中場。</b><br>
-          🎯 <b>11/19 距首演只有一個半月</b> —— 好處是看到最新製作，🔴 <b>壞處是會特別熱門，更要早訂</b>。<br>
-          ⚠️ <b>是「舞台劇」不是音樂劇</b> —— <b>沒有歌曲、沒有歌舞</b>。核心是<b>舞台魔術與特效</b>（消失、變形、飛行、火焰），所以<b>座位的「正面角度」比「前後排」重要得多</b>。<br>
-          ⚠️ <b>而舞台設計可能重新做過</b>，theatremonkey 之類網站上<b>舊版的座位評價未必適用</b>。</li>
-          <li>📍 <b>柯芬園走到 Palace Theatre 只要 5 分鐘</b>。</li>
-        </ul>
-        <div class="stay">🏨 倫敦</div>
-      </div>
-    </article>
-
-    <article class="day move">
-      <button class="dhead" type="button"><span class="dnum">D10<span>11/20</span></span>
-        <span class="dttl"><b>【西敏日】睡飽出門，一個圈走到夜景</b><em>11/20（五）· 倫敦・下午 ＋ 夜景</em></span><span class="chev">▾</span></button>
-      <div class="dbody">
-        <ul>
-          <li>🔄 <b>這一天被大改過兩次</b> —— 原本的聖保羅、千禧橋、波羅市場、碎片塔<b>全部移到 11/12</b>（那四個都在南岸住處的步行圈裡），接著<b>國家藝廊也砍掉</b>。剩下的西敏一帶重新排成<b>一個圈</b>，不回頭。</li>
-          <li>😌 <b>結果這天變成全程最鬆的一天</b> —— <b>12:30 才出門</b>，正好接前一晚哈利波特 <b>21:55</b> 才散場那一夜。整天只有<b>一個真正的重點</b>：16:17 之後的大笨鐘打燈。</li>
-          <li>🌆 <b>節奏被日落切成兩半</b>：天黑前散步看外觀，天黑後看打燈地標。全程步行約 4.5 km，<b>沒有任何要買票、要排隊、要卡時間的東西</b>。</li>
-          <li><b>12:30</b>　Bloomsbury 出門 → Piccadilly 線到 <b>Leicester Square</b>（10–12 分）。</li>
-          <li><b>13:00–14:15</b>　🍽️ <b>悠閒午餐</b>（Soho／柯芬園一帶）—— 💡 <b>這是全程唯一一頓不趕的午餐</b>。11/12 要趕倫敦塔 14:00、11/19 要趕劇院、11/21 要趕飛機，只有這天完全自由，值得挑一家坐下來慢慢吃。</li>
-          <li><b>14:20–14:45</b>　<b>Trafalgar Square</b> —— 納爾遜紀念柱、四隻獅子、國家藝廊的正立面（<b>已決定不進去</b>，看建築本身即可）。<br>⚠️ <b>挪威送的聖誕樹通常 12 月初才立</b>，11/20 大概還沒有。</li>
-          <li><b>14:45–15:10</b>　沿 <b>The Mall</b> 皇家大道往西走（兩旁掛滿英國國旗，是倫敦最有儀式感的一條路）。</li>
-          <li><b>15:10–15:35</b>　<b>白金漢宮</b>（外觀免費）—— <b>The Mall 這一端的正面視角最好</b>。<br>💡 <b>衛兵交接 11 月是隔天一次的上午 11:00</b> —— 放棄交接改看建築本身，不必跟人潮擠。</li>
-          <li><b>15:35–16:15</b>　穿過 <b>聖詹姆斯公園</b> 往東（園中橋上回望白金漢宮是明信片角度）→ 走到<b>國會大廈</b>。</li>
-          <li><b>16:17</b>　🌆 <b>日落</b>。</li>
-          <li><b>16:20–17:00</b>　⭐ <b>大笨鐘 ＋ 國會大廈</b> —— 走上<b>西敏橋</b>，這是全倫敦最好的打燈視角。<b>整天的高潮就在這 40 分鐘</b>。</li>
-          <li><b>17:00–17:45</b>　過橋到南岸 → 🎡 <b>倫敦眼</b>（夜間燈光）→ 🎄 <b>Southbank Winter Market</b>（Hungerford 橋下的阿爾卑斯小屋群，11/3–1/4，熱紅酒與烤香腸）。<br>📍 <b>倫敦眼就在大笨鐘正對面</b> —— 隔著泰晤士河、走過<b>西敏橋約 400 公尺／5 分鐘</b>就到，所以「西敏橋看打燈」跟「南岸市集」本來就是連著的一段，中間不用搭車。<br>🎟️ <b>要不要坐上去？建議不坐</b>（£29–36／人，兩人約 2,500–3,100 元，一圈 30 分鐘）—— 理由跟碎片塔一樣：<b>11/12 的 Sky Garden 是免費的</b>，而且 17:00 已經天黑兩小時、旺季排隊常 30–60 分，19:30 還要趕 Blacklock。<br>💡 <b>但視角其實不重複</b>：Sky Garden 在東邊金融區看塔橋方向，倫敦眼是<b>唯一從高處正面俯看西敏的角度</b>。如果願意放棄白金漢宮那段（省 45 分）換這個，是成立的取捨 —— <b>要坐就一定要先線上訂時段票</b>，現場排隊會吃掉整個晚上。</li>
-          <li><b>17:45–18:15</b>　走過 <b>Hungerford 人行橋</b> 回北岸（橋上可回望整條泰晤士河夜景）→ 走 10 分到 Leicester Square。</li>
-          <li><b>18:15–19:15</b>　🎄 <b>Leicester Square 聖誕市集 ＋ 溜冰場</b>（繞著莎士比亞雕像，開到 22:00）。</li>
-          <li><b>19:30</b>　🥩 <b>晚餐：Blacklock</b>（柯芬園店 16–18 Bedford Street, WC2E 9HE，<b>走 5 分</b>）—— 炭烤肉排專門店，招牌 <b>「All In」綜合肉排套餐約 £25–30／人</b>。<br>✅ <b>接受訂位</b>（跟 Flat Iron 不同）—— 但 <b>11/20 是週五，熱門時段常提前數週訂滿，要早訂</b>。<br>💡 <b>這是全程最適合吃一頓好的的晚餐</b>：沒有劇院也沒有飛機要趕，時間完全自由。<br>📍 其他分店：Soho（24 Great Windmill Street，原始店、地下室）、City（13 Philpot Lane）、Shoreditch（28–30 Rivington Street）。<br>⚠️ Blacklock 最有名的是<b>週日烤肉 Sunday roast</b>，但你在倫敦<b>沒有週日</b>（11/15 那天在冰島），所以吃的是平日的肉排菜單。</li>
-          <li>🟡 <b>累的話</b>：跳過白金漢宮與 The Mall（省 1.5 km），午餐後直接搭地鐵到 Westminster，16:20 準時到西敏橋。<b>那 40 分鐘的打燈才是這天唯一的重點</b>，其餘全部可棄。</li>
-        </ul>
-        <div class="stay">🏨 倫敦</div>
-      </div>
-    </article>
-
-    <article class="day move">
-      <button class="dhead" type="button"><span class="dnum">D11<span>11/21</span></span>
-        <span class="dttl"><b>【滿載而歸】波多貝羅 ＋ 返程</b><em>11/21（六）· 倫敦 → 台北</em></span><span class="chev">▾</span></button>
-      <div class="dbody">
-        <ul>
-          <li><b>09:00–14:00</b>　⭐ <b>波多貝羅市集</b>（諾丁丘）—— <b>週六是全市集日</b>，古董最盛，早去人少。順道看<b>諾丁丘彩色房子</b>。</li>
-          <li>🧥 <b>Highland Store 羊毛大衣</b>（波多貝羅一帶）—— 🔑 <b>11/21 是全程買大衣最好的一天</b>，理由是行李：<br>① 大衣體積大，但這天之後<b>只剩華航（每人 2 件 × 28kg）</b>，<b>不用再過 easyJet 的單件 23kg 那一關</b><br>② 💡 <b>最省空間的做法是「直接穿上它」</b> —— 11/21 倫敦 4–10°C 正好需要，而上飛機後可以掛起來，<b>完全不佔行李額度</b><br>⚠️ <b>英國自 2021 年起取消旅客退稅</b>，所以拿不回 20% VAT —— 買之前直接比標價就好，別等退稅</li>
-          <li>💡 <b>5 小時很夠</b>（古董區只有約 1.5 km）—— 市集雖開到 19:00，但<b>接下來是 13.5 小時夜航，在石板路硬撐 7 小時是自找的</b>。剩下的時間留給緩衝與休息。</li>
-          <li><b>14:00–15:00</b>　諾丁丘午餐。<br>☕ <b>選項：The Muffin Man 英式茶室</b>（12 Wrights Lane, W8 6TA）—— 老派英式茶室，英式早餐、司康、下午茶。從波多貝羅南端<b>往南走約 18 分</b>，吃完從 <b>High Street Kensington 搭 Circle 線直達 King's Cross</b>（約 25 分），動線接得上。<br>⚠️ 它是<b>茶室不是貝果店</b>（貝果在 11/12 的 Beigel Bake）。諾丁丘本地也有很多選擇，這 18 分鐘的路要不要走看你想不想要那個老派英式體驗。</li>
-          <li>🧳 這天已退房，<b>行李要先安排寄放</b> —— 問住處可否寄放，或用 Stasher／Bounce 市區寄物服務。</li>
-          <li><b>15:15</b> Notting Hill Gate 搭 <b>Circle 線</b>回 King's Cross（約 25 分）→ <b>16:00</b> 拿行李。</li>
-          <li><b>16:30</b> 出發 → <b>Piccadilly 線直達 LHR</b>（約 50 分＋步行 10 分）→ <b>約 17:40 抵達</b>，距起飛 <b>3.5 小時</b>。<br>💡 <b>在航廈休息比在市集硬撐好得多</b> —— 接下來要飛 13.5 小時。</li>
-          <li>🔴 <b>到 T3 的第一件事：處理 Alan 的升等稅費</b><br>
-          哩程升等的<b>英國 APD 艙等差額（約 £100–130）</b>，華航說<b>在機場繳付</b> —— 所以一到航廈就<b>先去華航櫃檯處理，不要先逛免稅店</b>。<br>
-          🎒 <b>要帶著</b>：① <b>行前拿到的 email 書面確認</b>（升等已確認 ＋ 稅費在機場付 ＋ 大約金額）② <b>能刷英鎊的卡</b>（出發前先確認已開通國外交易）③ <b>備用第二張卡</b><br>
-          ✅ <b>3 小時 35 分的緩衝很夠</b> —— 但要排在最前面，萬一系統查不到還有時間往上反映。<br>
-          ⚠️ <b>這是全程唯一「在異地、要飛了、還有錢沒付清」的環節</b> —— 到機場面對的是另一批人，<b>所以行前那份書面確認很重要</b>。</li>
-          <li>🔴 <b>週六先查 TfL 週末工程</b> —— Piccadilly 希斯洛段週末常停駛。有停駛就改 Elizabeth 線（Farringdon 上車）或叫車，<b>並提早 1 小時抓塞車</b>。</li>
-          <li>💡 <b>波多貝羅離 Paddington 只約 15 分</b>（Elizabeth 線／Heathrow Express 都在那）。如果住處願意讓你寄放行李到下午，就能「逛完直接去機場」，<b>市集多待一小時</b>。</li>
-          <li><b>21:15</b>　華航 <b>CI82</b> 直飛回台 —— <b>A 標準 T ＋ 25,000 哩升豪華經濟</b>／<b>B 現金買豪經</b>（飛行約 13h30m，比去程短 2 小時）。</li>
-        </ul>
-        <div class="stay none">✈️ 夜宿機上</div>
-      </div>
-    </article>
-
-    <div class="seg home"><b>🇹🇼 返抵台灣</b><em>11/22 · 傍晚落地桃園</em><i></i></div>
-
-    <article class="day">
-      <button class="dhead" type="button"><span class="dnum">D12<span>11/22</span></span>
-        <span class="dttl"><b>抵達台灣</b><em>11/22（日）· 台北</em></span><span class="chev">▾</span></button>
-      <div class="dbody">
-        <ul>
-          <li>推算 <b>18:00–19:00 之間</b>抵達桃園（<b>回程飛行約 13 小時 30 分</b>，比去程的 15h40m 短 2 小時 —— 東行順噴射氣流；時差 +8）。實際時刻以華航訂位為準。</li>
-          <li>⚠️ <b>溫差 20 度以上</b>（倫敦 4–10°C → 台北約 25°C）—— 把一件薄長袖放在隨身包，下機前換掉厚衣服。</li>
-          <li>帶著滿滿回憶回到家，<b>還有星期日晚上可以休息，11/23（一）上班</b>。</li>
-        </ul>
-        <div class="stay">🏠 回到溫暖的家</div>
-      </div>
-    </article>
-
-  </div>
-
-    <div class="pi done" style="margin-bottom:20px"><b>⚖️ 為什麼選三日團而不是兩日團</b>
-    <span class="quote">差別是<b>整個黃金圈 ＋ 一晚住宿</b>，價差約 32,000 元（兩人）。<b>選三日團最重要的理由是極光</b> —— 冰島 5 晚裡有 3 晚在雷市（光害重看不到），<b>Hotel Geirland 那兩晚是唯一機會，兩日團只給一晚</b>。加上 Day 3 幾乎只是回程停留（兩日團要在 2 天內跑完 800 km），以及中文團獨有的 <b>Brúarfoss</b>。<br>💡 兩個團的<b>冰洞完全相同</b>（都是 Skaftafell 的瓦特納藍冰洞，由 AA 自家 Glacier Guides 帶）—— 但兩日團標 <b>Easy</b>、三日團標 <b>Moderate</b>，<b>3 小時冰川健行可能只有三日團有</b>。</span></div>
-  <div class="pi done" style="margin-bottom:20px"><b>🇨🇳 為什麼選中文團（已成團）</b>
-    <span class="quote">價格只貴約 <b>9%</b>，行程、時間、導遊比<b>完全相同</b>。<br>🔑 <b>關鍵不是「聽得懂比較舒服」，而是英文團的實際負評正好在語言上</b> —— 有評價直接寫「導遊的英文因為<b>濃重的冰島腔</b>很難聽懂，很難學到當地歷史與背景」。冰島導遊講的是冰島腔英文，不是母語英語。<br>🔴 <b>而這趟有三個「聽不懂會出事」的場合</b>：雷尼斯黑沙灘的瘋狗浪（每年都有人被捲走）、3 小時冰川健行的落腳點與裂隙、天然冰洞的進出動線。<b>這三件事都是「當下一句話」，不是事後能查的資料。</b></span></div>
-<h2 class="h2" style="margin-top:26px"><span>🎄</span>聖誕市集：你們的日期全部對上了</h2>
+<h2 class="h2"><span>🎄</span>聖誕市集：你們的日期全部對上了</h2>
   <div class="pi done"><b>🔑 你清單上的「倫敦 11/19–01/03」是 <u>Hyde Park Winter Wonderland</u>，不是整個倫敦的聖誕市集。</b>
     <span class="quote">倫敦其他市集<b>開得比那早得多</b> —— 而且<b>連你們的前段（11/11–13）都已經開了</b>。</span></div>
   <div class="tw">
@@ -728,8 +422,399 @@ footer{border-top:1px solid var(--border);margin-top:30px;padding:26px 0 44px;
       <p style="margin-top:7px">🎯 <b>就聖誕市集本身而言，中歐是主場</b>（規模、密度、傳統都強得多）。<b>但這一版的主題是「冰島自然 ＋ 倫敦城市」</b> —— 聖誕市集是附帶的加分。<br>
       💡 <b>而這一版剛好吃到五個市集</b>：波羅市場（11/12）、Kolaportið（11/14・僅週末）、柯芬園（11/19）、Southbank ＋ Leicester Square（11/20）、波多貝羅（11/21・週六全市集日）。</p></div></div>
   </div>
+</section>
 
-  <h2 class="h2" style="margin-top:26px"><span>🌋</span>火山行程：11 月有什麼、沒什麼</h2>
+<section id="days" class="panel">
+  <h2 class="h2"><span>📅</span>每日行程</h2>
+  <p class="lead">每天標題下方有<b>三個摘要標籤</b>，收合著也看得出那天的重點。展開後分成<b>🕐 時間軸</b>（左欄是時間或 📍 停點）與<b>📌 重點與備註</b>兩塊。左側圓點顏色：<b>藍＝英國、綠＝冰島、黃＝移動轉場日</b>。<br>🗺️ <b>地圖移到「地圖」分頁</b>、🧊 <b>冰島的餐飲／伴手禮／火山選項移到「冰島」分頁</b>、🎄 <b>聖誕市集總覽移到「核心」分頁</b> —— 這一頁現在只有十二天本身。</p>
+  <div class="ctrl">
+    <button type="button" id="openAll">全部展開</button>
+    <button type="button" id="closeAll">全部收合</button>
+  </div>
+  <div class="tl" id="tl">
+
+    <div class="seg"><b>🇬🇧 倫敦（前段）</b><em>11/11–11/12 · 2 晚 · 調時差</em><i></i></div>
+
+    <article class="day move">
+      <button class="dhead" type="button"><span class="dnum">D1<span>11/11</span></span>
+        <span class="dttl"><b>【啟程】飛抵倫敦</b><em>11/11（三）· 台北 → 倫敦</em><span class="dtag"><span>✈️ 飛 15h40m</span><span>🚗 Uber £55–70</span><span>😴 21:30 就睡</span></span></span><span class="chev">▾</span></button>
+      <div class="dbody">
+                <ol class="sch">
+          <li><i>09:15</i><p>華航 <b>CI81</b> 直飛（<b>已確認 11/11 有飛</b>）—— ⚠️ <b>飛行 15 小時 40 分</b>，不是一般以為的 13.5 小時（西行逆噴射氣流 ＋ 繞開俄羅斯領空）。<b>回程只要約 13 小時 30 分。</b></p></li>
+          <li><i>16:55</i><p>抵達 <b>Terminal 3</b>（華航在 LHR 固定用 T3）→ 護照查驗 ＋ 提行李，約 <b>17:40–18:10</b> 出關。</p></li>
+          <li><i>18:15</i><p>🚗 <b>叫 Uber Comfort</b>（£46.98 ≈ 2,040 元）—— <b>已定案這天坐車</b>，不拖行李搭地鐵。</p></li>
+          <li><i>20:00</i><p>晚餐在<b>南岸一帶</b> —— <b>Bermondsey Street</b>（走 10 分，餐廳酒吧密集）或 <b>Southwark Street／London Bridge</b> 一帶。⚠️ 波羅市場 18:00 就收攤，那天吃不到。</p></li>
+          <li><i>21:30<br>22:00</i><p>💡 <b>就睡</b>，完美切換英國時間 —— 別 19:00 就倒下，那會導致凌晨 2 點醒來。<b>飛了 15 小時 40 分，而 11/12 刻意排成 10:00 才出門（康登還可棄）</b>，就是為了這一天。</p></li>
+        </ol>
+        <div class="nb"><b>📌 重點與備註 · 5 則</b>
+          <ul>
+            <li>🔴 <b>上車點不在航廈門口！</b> 希斯洛的網約車一律在<b>短期停車場</b>接客 —— <b>T3 是「Short Stay Car Park, Level 3, Row A」</b>，從入境大廳走約 8 分鐘（有電梯）。叫車後 App 會給步行指引。</li>
+            <li>💡 <b>先領完行李再叫車</b> —— 司機在附近的虛擬排隊區，通常 5–10 分鐘就到。車資已包含司機進停車場的停車費。</li>
+            <li>🔴 <b>要有網路才叫得到車</b> —— eSIM 已於 <b>11/9–11/10 在家啟用</b>，落地關掉飛航模式就該自動連上英國電信。<b>出關前先確認有訊號與數據再走去停車場</b>；萬一沒訊號，入境大廳有希斯洛免費 WiFi。</li>
+            <li>⚠️ <b>11/11 是週三，18:00–19:00 是倫敦最塞的時段</b>（M4／A4 進城）—— 車程可能 <b>45–80 分</b>，預計 <b>19:00–19:45 抵達</b>住處（<b>68 Southwark Bridge Road, SE1</b>）。<br>🔴 <b>£46.98 那個報價是用舊住址（King's Cross）查的</b> —— 南岸更遠約 6 km，<b>要重新查價，估 £55–70</b>。</li>
+            <li>🟡 <b>兩個改搭地鐵的門檻</b>：① App 報價 <b>surge 超過 £60</b>；② App 顯示車程 <b>超過 70 分</b>。<br>→ 改地鐵：<b>T3 站內搭 Piccadilly 線 → Leicester Square 換 Northern 線 → Borough</b>（約 70 分、£5.90，<b>換一次車</b>）＋ 步行 5 分。<b>比住 King's Cross 時麻煩一點，但仍是可靠備案。</b></li>
+          </ul>
+        </div>
+        <div class="stay">🏨 倫敦南岸 Airbnb（68 Southwark Bridge Road, SE1）</div>
+      </div>
+    </article>
+
+    <article class="day">
+      <button class="dhead" type="button"><span class="dnum">D2<span>11/12</span></span>
+        <span class="dttl"><b>【一個大圈】南岸 → 聖保羅 → 兩座觀景台 → 倫敦塔</b><em>11/12（四）· 繞一圈走回家</em><span class="dtag"><span>🚶 5.5 km</span><span>🚇 零地鐵</span><span class="h">⏰ 倫敦塔 14:15 進場</span></span></span><span class="chev">▾</span></button>
+      <div class="dbody">
+                <ol class="sch">
+          <li><i>09:45</i><p>住處出發。</p></li>
+          <li><i>09:55<br>10:15</i><p>走 8–10 分 → <b>2 碎片塔</b>外觀（London Bridge 站旁）。💡 <b>不上觀景台</b>（£32／人）—— 今天的 Horizon 22 更高又免費。</p></li>
+          <li><i>10:15<br>11:15</i><p>🍜 <b>3 波羅市場</b>（走 3 分）—— ⚠️ <b>週日休，週四是全市集日 ✅</b>。生蠔、西班牙火腿、起司吐司、Bread Ahead 甜甜圈。<br>💡 <b>10:00 剛開門人最少</b>，13:00 後上班族湧入會擠到走不動。<b>這裡當早午餐吃飽，下一餐要到晚上。</b></p></li>
+          <li><i>11:15<br>11:45</i><p>沿南岸往西走 15 分（經環球劇場、泰特現代外觀）→ <b>4 千禧橋</b>。橋中央回望<b>聖保羅圓頂</b>是全倫敦最好的角度之一。</p></li>
+          <li><i>11:45<br>13:00</i><p><b>5 聖保羅大教堂</b>（£27・<b>可用 2FOR1</b>）—— ⚠️ <b>圓頂 528 階建議不要爬</b>，內部本身就很值。</p></li>
+          <li><i>13:00<br>13:20</i><p>🚌 <b>公車 8／25／242 號</b>從 St Paul's Churchyard 往東到 Bank，再走 5 分。£1.75／人・contactless 直接嗶。<br>🟡 <b>走路 15–18 分也到</b> —— 倫敦短程公車沒比走路快多少，但<b>有位子坐</b>，走了一上午值得。</p></li>
+          <li><i>13:20<br>14:05</i><p>🔭 <b>6 Horizon 22</b>（22 Bishopsgate）—— <b>歐洲最高的免費公共觀景台</b>：58 樓、254 m、300°。<br>🔴 <b>免費但一定要上官網預約</b>（horizon22.co.uk）—— <b>每週一 10:00 倫敦時間釋出 14 天後的票</b>，11/12 的票是 <b>10/27（一）台北 18:00</b> 開搶。每天留 10% 給現場候補。<br>⚠️ 平日 10:00–18:00，<b>最後入場只到 16:30–17:00</b>，只能排下午。</p></li>
+          <li><i>14:15<br>16:30</i><p>⭐ <b>8 倫敦塔</b>（£37・<b>可用 2FOR1</b>）—— 皇冠珠寶、白塔「列王線」盔甲、血腥塔、渡鴉，別錯過<b>免費的 Yeoman Warder 導覽</b>。<br>🔴 <b>11 月 16:30 關門、最後入場 15:00</b> —— 整天唯一不能動的時間點。💡 下午進場皇冠珠寶的隊伍比早上短。</p></li>
+          <li><i>16:30<br>17:00</i><p>⭐ <b>9 倫敦塔橋</b>（外觀免費，走 5 分）—— <b>日落 16:17 剛好趕上打燈</b>，塔橋最美的 30 分鐘。</p></li>
+          <li><i>17:10<br>18:00</i><p>🌃 <b>7 Sky Garden</b>（20 Fenchurch Street）—— 🆓 免費、<b>一定要線上預約</b>，這個時段進去正好是全夜景。<br>🔴 <b>平日免費票只到 18:00</b>。<b>提前 3 週、每週一釋出一整週</b> → <b>10/19（一）開始盯</b>，沒搶到 10/26 再試。<b>要先註冊帳號。</b>訂不到就改塔橋南岸散步。</p></li>
+          <li><i>18:00<br>19:15</i><p>🍽️ <b>晚餐：走 15 分回南岸 Borough</b> —— 過倫敦橋往南，吃完走 5–10 分到住處。<br>🍺 <b>建議吃英式酒館</b> —— 整趟 12 天還沒有 pub 晚餐（11/18 義大利麵、11/19 與 11/20 都是牛排）。<br>🏛️ <b>The George Inn</b>（77 Borough High Street，離住處 8 分）—— <b>倫敦僅存唯一的迴廊式驛站客棧</b>，1677 年重建，National Trust 持有，狄更斯寫過它，就在回家路上。<br>🍝 其他：<b>Padella</b>（手工義大利麵，🔴 不接受訂位常排 30–60 分，且跟 11/18 的 Bancone 重複）、<b>Arabica</b>（波羅市場內）。⚠️ 訂前查營業時間。</p></li>
+          <li><i>19:30</i><p>走回住處。<b>21:30–22:00 就睡</b>，完美切換英國時間 —— 別 19:00 就倒下，那會導致凌晨 2 點醒來。</p></li>
+        </ol>
+        <div class="nb"><b>📌 重點與備註 · 7 則</b>
+          <ul>
+            <li>🔄 <b>一個大圈，不回頭</b>：住處往東南出發 → 沿南岸往西到聖保羅 → 搭公車往東到金融城 → 往東南到倫敦塔與塔橋 → <b>從塔橋走 15 分就回家</b>。約 5.5 km。</li>
+            <li>🔭 <b>兩座觀景台，一個白天一個夜晚</b>：13:20 的 <b>Horizon 22</b>（254 m）與 17:10 的 <b>Sky Garden</b>（155 m）—— 同一片天際線兩種樣子，<b>兩個都免費，但都要預約</b>。</li>
+            <li>📍 <b>整天只有一個硬時限：倫敦塔 16:30 關門</b>。前面每一段的時間都是從「14:15 進倫敦塔」往前反推的。</li>
+            <li>🟡 <b>撐不住可以砍三段</b>：① <b>砍聖保羅</b>（省 75 分＋£54）→ 12:00 才出門，從波羅市場開始　② <b>砍 Horizon 22</b>（省 65 分）　③ <b>兩個都砍</b> → 波羅市場慢慢吃到 12:30，下午純倫敦塔＋塔橋＋Sky Garden<br>🔑 <b>倫敦塔 14:15 進場不能動。</b></li>
+            <li>🥯 <b>Brick Lane 是備案</b>（標記 10）—— <b>Dark Sugars</b> 現刨巧克力熱可可（141 號，10:00–20:00）＋ <b>Beigel Bake</b> 鹹牛肉貝果（159 號・<b>白色</b>招牌・<b>24 小時</b>，£6–7），兩家隔 18 個門牌。<br>🔴 <b>為什麼降成備案</b>：從 Sky Garden 走 20 分、再回住處 30 分 = <b>當天多走 50 分、20:00 才到家</b>。<br>✅ <b>啟用時機</b>：精神特別好、或 Sky Garden 沒訂到（省下 50 分剛好拿去走）。<b>Beigel Bake 24 小時，也可以某晚單獨去。</b>⚠️ 找<b>白色招牌、門牌 159</b>（155 號黃色是另一間）。</li>
+            <li>🎪 <b>康登市集是可選</b>（標記 11）—— 這天<b>唯一要搭車</b>的點：Borough 站 Northern 線直達 25 分，主市集<b>每天 10:00–19:00</b>（Hawley Wharf 食堂到 23:00）。<br>🔴 <b>要去就得砍掉碎片塔＋波羅市場＋千禧橋＋聖保羅整段</b>。<b>建議不去</b> —— 11/21 的波多貝羅（週六全市集、古董更好）覆蓋了同一種體驗。</li>
+            <li>💡 這晚<b>刻意不安排劇院</b> —— 隔天要飛冰島。</li>
+          </ul>
+        </div>
+        <div class="stay">🏨 倫敦南岸 Airbnb</div>
+      </div>
+    </article>
+
+    <div class="seg ice"><b>🇮🇸 冰島</b><em>11/13–11/17 · 5 晚 · 雷克雅維克＋中文三日團</em><i></i></div>
+
+    <article class="day move">
+      <button class="dhead" type="button"><span class="dnum">D3<span>11/13</span></span>
+        <span class="dttl"><b>【極地開局】從盧頓飛往冰島</b><em>11/13（五）· 倫敦 → 雷克雅維克</em><span class="dtag"><span>🛫 LTN 15:55</span><span>🎒 11:30 退房</span><span class="h">🍽️ 21:00 才吃晚餐</span></span></span><span class="chev">▾</span></button>
+      <div class="dbody">
+                <ol class="sch">
+          <li><i>09:30<br>10:30</i><p>在南岸吃早餐（<b>Airbnb 有廚房的話自己做更省</b>，順便<b>做兩份三明治帶上 easyJet</b> —— 廉航不含餐、機上賣得貴）。</p></li>
+          <li><i>10:30<br>11:30</i><p>整理行李、退房。⚠️ <b>easyJet 單件 23kg</b>，這時候就要秤好。</p></li>
+          <li><i>11:30<br>12:15</i><p>🟡 <b>如果住處能寄放行李 → 輕裝再逛一次南岸</b><br>
+          · 🎨 <b>泰特現代</b>（走 8–10 分・<b>免費</b>・10:00 開門）—— 11/12 只看了外觀，這次可以進去<br>
+          · 🎄 <b>Christmas by the River</b>（Hay&#39;s Galleria 一帶，走 10 分）—— ⚠️ <b>2026 開放日要查</b>，如果 11 月中已開，那是前段最值得的聖誕點<br>
+          · 🍜 <b>波羅市場</b>（走 6–8 分）再吃一輪<br>
+          🔴 <b>如果不能寄放行李，這段就跳過</b> —— 拖著兩件 28 吋逛街不現實。那就 11:30 直接出門，早點到機場。</p></li>
+          <li><i>12:20</i><p>出門 → 步行 8 分到 <b>London Bridge</b> → <b>Thameslink 直達 Luton Airport Parkway</b>（約 50–55 分，要穿過整個倫敦）→ <b>13:30 抵達</b> → 轉 <b>DART 自動軌道 4 分</b> → <b>約 13:35–13:40 到航廈</b>，距起飛 <b>2 小時 15 分</b>。</p></li>
+          <li><i>15:55</i><p>easyJet 起飛（<b>阿聯酋哩程兌換</b>），飛行約 3 小時 15 分，英冰同為 GMT <b>無時差</b>。</p></li>
+          <li><i>19:10</i><p>抵達 KEF → <b>Flybus</b> 進市區（🟢 <b>依班機抵達發車</b>，落地後 35–45 分開車、車程 45 分）→ 約 <b>20:35 抵達</b>，ALVA Hotel 下車步行 4 分。</p></li>
+          <li><i>21:00</i><p>🍽️ <b>晚餐</b> —— Laugavegur 主街（商店多已關，<b>餐廳酒吧開得晚</b>）。<br>
+          🔴 <b>但 21:00 之後有些餐廳不接客了</b> —— <b>建議事先查一兩家營業到 22:00 以後的</b>，或前一晚在超市買好備用。<b>這是改晚班機的實際代價。</b></p></li>
+        </ol>
+        <div class="nb"><b>📌 重點與備註 · 6 則</b>
+          <ul>
+            <li>🔄 <b>2026-09-07 改成 LTN 15:55</b>（原 LGW 14:25）—— <b>省 3,200 哩</b>；<b>2026-09-08 回程也定案走 LTN</b>（兩段共 15,093 哩），代價是<b>晚 1.5 小時到雷克雅維克</b>（20:35 而非 19:05）。<br>
+          ✅ <b>換到的是早上多 1.5 小時</b>：不必 11:00 就趕出門，可以慢慢吃早餐、輕裝再逛一次南岸。</li>
+            <li>😴 <b>睡飽、慢慢打包</b> —— 大英博物館已移到 11/19（它 10:00 才開、這天要拖行李，淨參觀不到 1 小時，不值得）。</li>
+            <li>✅ <b>安檢其實比傳聞快很多（我查證後修正）</b> —— LTN 已完成 <b>£20M 的安檢升級</b>，<b>所有通道都是 CT 掃描 ＋ 人體掃描</b>（液體與電子產品不用拿出來）。<b>平均等待 7 分鐘、離峰 4 分鐘</b>，而<b>官方說中午 11:00–14:00 的班機排隊最短</b> —— 你們 13:35 抵達正好在那個區間。<br>
+          🎁 <b>而且有免費的 Pre-Book</b>：可以<b>預約通過安檢的時段跳過排隊</b>（開放給 03:00–15:00 抵達安檢的乘客，你們符合）。<b>出發前上 LTN 官網預約，等於零排隊。</b><br>
+          🟡 <b>所以 2h15 是保守值</b> —— 12:20–12:35 出門都可以。<b>真正的問題不是安檢，是候機區座位不足</b>（見下方），所以<b>也不必太早到</b>。</li>
+            <li>🥪 <b>三明治還是要帶</b> —— LTN 的餐飲只有幾家連鎖快餐，選擇少又貴又要排隊。</li>
+            <li>🏨 ASKA Holt 是<b>自助入住</b>，門禁碼於抵達當天 08:00 email 寄出 —— <b>務必事先完成線上 check-in</b>。</li>
+            <li>💡 <b>11/14 早上 10:00 才出門</b>，所以晚睡不影響隔天 —— 那也是這個改動可行的原因。</li>
+          </ul>
+        </div>
+        <div class="stay">🏨 雷克雅維克 ASKA Holt（Skipholt 29A）</div>
+      </div>
+    </article>
+
+    <article class="day ice">
+      <button class="dhead" type="button"><span class="dnum">D4<span>11/14</span></span>
+        <span class="dttl"><b>【雷克雅維克】市區慢遊 ＋ Sky Lagoon 泡到天黑</b><em>11/14（六）· 雷克雅維克・零長途交通</em><span class="dtag"><span class="g">🌊 Sky Lagoon 15:15</span><span class="h">🛍️ 伴手禮全在今天</span><span>🚶 零長途交通</span></span></span><span class="chev">▾</span></button>
+      <div class="dbody">
+                <ol class="sch">
+          <li><i>10:00<br>10:40</i><p><b>哈爾格林姆教堂 ＋ 登塔</b>看全城彩色屋頂。</p></li>
+          <li><i>10:45<br>11:00</i><p>🌈 從教堂往下走 <b>彩虹街 Skólavörðustígur</b> —— 路面漆成彩虹、<b>正對教堂</b>，雷克雅維克最有名的一張照片。<b>零成本，走出來就是。</b><br>🧶 街上的 <b>Handknitting Association of Iceland</b>（19 號）是<b>正統手工羊毛衫 Lopapeysa</b> 的大本營。</p></li>
+          <li><i>11:00<br>12:00</i><p><b>Kolaportið 跳蚤市場</b> —— ⭐ <b>僅週末營業</b>，11/14 是週六剛好。二手 Lopapeysa 比新品便宜一半以上，還有現切魚乾。<b>這是唯一碰得到的日子，不能砍。</b></p></li>
+          <li><i>12:00<br>12:45</i><p>午餐：<b>Bæjarins Beztu 羊肉熱狗堡</b>（1937 年開到現在，點「ein með öllu」＝全部加）或 <b>Braud &amp; Co</b> 肉桂捲。</p></li>
+          <li><i>12:45<br>13:30</i><p><b>Laugavegur 主街</b>買伴手禮（週六商店營業最久）→ <b>太陽航行者</b>雕塑 → <b>哈帕音樂廳</b>（內部免費）。<br>🧥 <b>66°North 就在主街上</b>（Laugavegur–Bankastræti 一線）—— 順路就到。<b>Faxafen 的 Outlet 已放棄</b>：來回 50 分鐘太遠。</p></li>
+          <li><i>13:45<br>14:45</i><p>🍫 <b>Grandi 舊港區 ＋ Omnom 巧克力工廠</b>（Hólmaslóð 4）—— ⭐ <b>這是換掉藍湖多出來的時間</b>。工廠直營店，包裝設計極美，<b>伴手禮一次買完</b>。<br>💡 <b>順路在 Bónus／Krónan 超市補齊</b>甘草糖、海鹽，以及<b>明天三日團要帶的麵包火腿起司</b>（團費不含午晚餐，沿途休息站一餐要 ISK 3,000–4,000）。</p></li>
+          <li><i>15:15<br>18:00</i><p>🌊 <b>Sky Lagoon</b>（Hreyfill App 叫車 15 分，<b>ISK 4,747 一台車不是一人</b>）—— <b>七步溫泉儀式</b>：熱池 → 冷水池 → 桑拿 → 冷霧 → 身體磨砂 → 蒸氣 → 沖洗。<br>🌆 <b>16:25 日落</b> —— 面海的無邊際池從白天泡到全黑，<b>有機會邊泡邊看極光</b>。<br>🔴 <b>要先訂時段</b>：官網或淘寶（Saman 約 <b>865 人民幣</b>、Ser 約 <b>1,025</b>）。⚠️ <b>淘寶電子票要先確認能不能指定時段</b>。</p></li>
+          <li><i>18:30</i><p>叫車回市區 → 晚餐。</p></li>
+          <li><i>20:00</i><p>🌌 <b>（選）</b>　想追極光：<b>Grótta 燈塔</b>（市區最西端，<b>免費、光害低</b>，走／搭車 20 分）或報極光團（20:00–00:30，多數業者沒看到可免費再參加）。</p></li>
+        </ol>
+        <div class="nb"><b>📌 重點與備註 · 3 則</b>
+          <ul>
+            <li>⭐ <b>這是第六版新增的一天</b> —— 前五版的雷克雅維克白天只有約 2 小時。日照 <b>09:45–16:25</b>。</li>
+            <li>🔄 <b>2026-08-31 改動：藍湖 → Sky Lagoon</b><br>
+          藍湖來回交通吃掉 <b>100 分鐘</b>（巴士各每小時一班），而 Sky Lagoon <b>叫車只要 15 分</b>。<b>省下 70 分鐘 ＋ 約 2,600–3,100 元</b>，而且面向大西洋，<b>日落視野更好</b>。<br>
+          🔑 <b>藍湖的優勢你們用不到</b>：它離 KEF 機場近，但 11/13 晚上 19:05 才落地、11/18 早上要趕 11:15 的 Flybus，兩頭都碰不到。<b>扣掉那個，藍湖只剩名氣。</b></li>
+            <li>♨️ <b>藍湖是備案，不是別天</b> —— 🔴 <b>整趟沒有其他天可以去藍湖</b>：11/13 晚上 19:05 才到（KEF→藍湖的巴士 11 月只有 07:30／09:30／12:30／16:30，全部趕不上，計程車要 ISK 15,000）、11/15–17 在南岸、<b>11/18 早上藍湖 08:00 開門但要 06:00 起床</b>，跑完三日團隔天不值得。<br>✅ <b>所以「備案」的意思是</b>：如果 Sky Lagoon 那個時段訂不到，<b>就換回藍湖、同樣排在 11/14 下午</b>（13:15 巴士 → 14:30 入場 → 泡到 18:30 → 19:35 回市區），代價是砍掉 Omnom 工廠那一小時。</li>
+          </ul>
+        </div>
+        <div class="stay">🏨 雷克雅維克 ASKA Holt</div>
+      </div>
+    </article>
+
+    <article class="day ice">
+      <button class="dhead" type="button"><span class="dnum">D5<span>11/15</span></span>
+        <span class="dttl"><b>【中文團 · 第 1 天】黃金圈 ＋ 三座瀑布</b><em>11/15（日）· 雷克雅維克 → 教堂鎮</em><span class="dtag"><span class="g">🚌 09:00 上車</span><span class="g">📍 6 個停點</span><span>🏨 Hotel Geirland</span></span></span><span class="chev">▾</span></button>
+      <div class="dbody">
+                <ol class="sch">
+          <li><i>09:00</i><p><b>出發</b>（中文導遊、小巴）。上車點請向旅行社確認 —— ASKA Holt 附近為 <b>ALVA Hotel（Brautarholt 22，步行 4 分）</b>。把 <b>28 吋大行李</b>丟上導遊拖車（每人 1 件 20kg、三邊之和 ≤158cm）。</p></li>
+          <li class="pin"><i>📍</i><p><b>辛格韋德利國家公園 Þingvellir</b> —— <b>冰島第一個 UNESCO 世界遺產</b>。西元 <b>930 年</b>成立的阿爾庭（Althingi）議會遺址，是世界上最古老的議會。</p></li>
+          <li class="pin"><i>📍</i><p><b>蓋歇爾地熱區 Geysir</b> —— <b>史托克間歇泉 Strokkur</b> 每 <b>5–7 分鐘</b>噴發一次，水柱可高達 <b>30 公尺</b>。<br>💡 這裡是冰島觀光業的起點，英文的 geyser（間歇泉）一詞就來自這裡的 Geysir。</p></li>
+          <li class="pin"><i>📍</i><p>💙 <b>藍色秘境瀑布 Brúarfoss</b> —— ⭐ <b>這是中文團的額外亮點，很少團會來</b>。冰藍色的水流像融化的寶石在黑岩之間穿梭，顏色來自冰川沉積物。<b>非常適合停留拍照。</b></p></li>
+          <li class="pin"><i>📍</i><p><b>黃金瀑布 Gullfoss</b> —— 源自<b>朗格冰川 Langjökull</b> 的雙層瀑布。名字來自陽光下水霧折射的金色，映在棕色熔岩岩壁上。</p></li>
+          <li class="pin"><i>📍</i><p><b>塞里雅蘭瀑布 Seljalandsfoss</b> —— <b>60 公尺</b>高，⚠️ <b>天氣晴朗時可以走到瀑布後方</b>（會被水霧噴濕，防水外套褲要穿好）。</p></li>
+          <li class="pin"><i>📍</i><p>🌆 <b>傍晚途經維克鎮 Vík</b>，短暫停留感受海邊小鎮 —— 💡 <b>維克在 Day 1 和 Day 3 都會經過</b>，Day 3 才是正式的黑沙灘行程。</p></li>
+          <li class="pin"><i>📍</i><p>🏨 抵達 <b>教堂鎮 Kirkjubæjarklaustur</b> 一帶的 <b>Hotel Geirland</b>（含私人衛浴）—— ✅ <b>兩晚都住這裡</b>（官方 Day 2 內文寫「今晚的住宿<b>仍是</b>教堂鎮附近的 Hotel Geirland」），<b>行李不用每天打包</b>。<br>🌌 <b>光害極低，這是全程極光機會最好的兩晚</b>。睡前查 vedur.is，別早早拉上窗簾。</p></li>
+        </ol>
+        <div class="nb"><b>📌 重點與備註 · 3 則</b>
+          <ul>
+            <li>🍞 <b>這天的早餐要自己吃</b> —— 團費只含<b>第 2、3 天</b>的酒店早餐。前一晚在超市買好。<b>順便多買一份午餐帶上車</b>（團費不含午晚餐，沿途休息站一份簡餐要 ISK 3,000–4,000）。</li>
+            <li>🌍 <b>板塊：有，就在這裡 —— 但實情比「一腳踩兩洲」複雜一點</b><br>
+          ✅ <b>Þingvellir 整個谷地就是兩大板塊拉開造成的裂谷（rift valley）</b>。北美板塊往西、歐亞板塊往東，<b>每年拉開約 2 公分</b>；過去一萬年這片谷地<b>下沉了約 40 公尺</b>。你確實站在裂谷裡。<br>
+          🔍 <b>但要說清楚的是</b>：團會走的那條著名步道 <b>Almannagjá（阿曼納陡崖）</b>，是<b>北美板塊的東緣斷崖</b> —— 不是「兩板塊之間的縫」。<b>歐亞板塊的邊緣在東邊數公里外</b>（Hrafnagjá 一帶），中間整片都是被拉裂的破碎地殼。<br>
+          🎯 <b>所以「一腳踩歐洲、一腳踩美洲」是觀光說法</b>，地質上兩個邊界相距好幾公里。<b>不過走在 Almannagjá 底部、兩側是玄武岩壁那個體驗是真的</b> —— 你正走在北美板塊的邊上。<br>
+          💡 <b>順道會看到</b>：<b>Öxarárfoss 瀑布</b>（就在裂谷裡）與<b>法律岩 Lögberg</b>（古議會的宣讀處）。<br>
+          🤿 <b>真正「在兩板塊之間」的地方是 Silfra 裂縫</b> —— 那是世界上最清澈的水域，可以浮潛／水肺。<b>但那是另外的付費活動，三日團不含</b>。</li>
+            <li>💡 <b>天氣好的話</b>途中可見<b>赫克拉火山 Hekla</b>（車上遠眺，11 月雲多，當加分不要當期待）。</li>
+          </ul>
+        </div>
+        <li>📚 <b>黃金圈其實是「冰島地質三堂課」，剛好一站一堂</b><br>
+          <b>① Þingvellir ＝ 拉張</b> —— 兩塊板塊分開，地殼裂開、下沉<br>
+          <b>② Geysir ＝ 地熱</b> —— 淺處的岩漿把地下水加熱到沸騰，壓力累積後噴出<br>
+          <b>③ Gullfoss ＝ 侵蝕</b> —— 冰川融水（來自朗格冰川）切穿熔岩台地<br>
+          🎯 <b>這也是選中文團最實際的回報</b> —— 這三件事聽得懂，黃金圈就從「三個拍照點」變成一個完整的故事；聽不懂就只是三個瀑布跟一個噴泉。</li>
+        <div class="stay">🏨 Hotel Geirland（團費含・第 1 晚）</div>
+      </div>
+    </article>
+
+    <article class="day ice">
+      <button class="dhead" type="button"><span class="dnum">D6<span>11/16</span></span>
+        <span class="dttl"><b>【中文團 · 第 2 天】冰河湖 ＋ 瓦特納冰川藍冰洞</b><em>11/16（一）· 冰島東南部</em><span class="dtag"><span class="h">🔴 最耗體力</span><span class="g">🧊 冰洞＋健行 3h</span><span class="g">🌌 極光機會最好</span></span></span><span class="chev">▾</span></button>
+      <div class="dbody">
+                <ol class="sch">
+          <li class="pin"><i>📍</i><p><b>傑古沙龍冰河湖 Jökulsárlón</b> —— 藍色冰山從<b>布萊扎梅爾克冰川</b>斷裂，緩緩漂向大西洋。冰面像玻璃一樣透明。<br>🚤 <b>遊船 11 月不能加選</b>（官方明寫僅 5–9 月），岸上本來就夠近。<br>🦭 <b>看海豹</b>：下車後往<b>出海口方向</b>（靠橋靠海那側）看 —— 港灣海豹在那裡逆流捕魚，比湖心容易發現，<b>帶望遠鏡差很多</b>。</p></li>
+          <li class="pin"><i>📍</i><p><b>鑽石沙灘</b> —— 冰塊被沖上黑色火山沙灘，晶瑩閃耀。</p></li>
+          <li class="pin"><i>📍</i><p>🧊 <b>下午：斯卡夫塔山國家公園 Skaftafell</b>（瓦特納冰川國家公園的一部分）—— <b>這裡就是冰川健行與冰洞的出發地</b>，AA 自家 Glacier Guides 的基地也設在這裡。<br>
+          🔴 <b>Svartifoss 瀑布是「僅夏季」的項目</b> —— 官網 Day 2 的費用涵蓋把它標成 <b>summer only</b>，<b>11 月不會去</b>（那條步道冬天結冰）。我原本寫錯了。</p></li>
+          <li class="pin"><i>📍</i><p>🧊 <b>瓦特納冰川藍冰洞 ＋ 冰川健行</b> —— 持證冰川導遊帶領，穿冰爪。<br>
+          ⏱️ <b>官網三日團明確寫「在冰上約 2 小時」，但你的訂單寫 3 小時</b><br>
+          AA <b>三日團官網頁面</b>的原文是：<span class="quote">"Including both ice cave and glacier hike exploration, we&#39;ll spend <b>roughly 2 hours on the ice</b>."</span>（含冰洞與冰川健行，在冰上約 2 小時）—— 而且<b>整份行程沒有任何地方寫 3 小時</b>。單日團頁面也是 1.5–2 小時。<br>
+          💡 <b>兩個解釋</b>：① <b>3 小時是含裝備穿戴、安全講解、停車場到冰川邊往返的總時長</b>（2 小時是純冰上）② 中文團的版本可能真的比英文團長。<br>
+          🎯 <b>準備上以 3 小時為準</b>（保守），<b>保險也寫 3 小時</b> —— 誠實，而且實際較短時承保範圍反而更寬。<br>
+          📞 <b>值得問一句</b>：「訂單的 3 小時，是<b>在冰上的時間</b>還是<b>含裝備與往返的總時長</b>？官網三日團寫的是 2 小時。」<br>📊 <b>官網寫的強度</b>：距離約 <b>3 km</b>、爬升 <b>200–250 公尺</b>，原文明說「<b>一開始就是陡上</b>」。<b>這不是平路散步。當天不要另外安排體力活動。</b><br>📊 <b>取消率 13.2%（乾燥日）／20.4%（大雨日）</b> —— 成功率約 <b>87%</b>。決定取消的是<b>當天的天氣</b>，跟月份幾乎無關（研究證實取消率與月份的相關性只有 −0.08）。<br>🔵 <b>藍不藍看日照</b> —— 「藍冰洞是<b>從外面被照亮的</b>，把日光拿掉就只是灰色的洞」。11/16 日照 6.3 小時，<b>比 12 月的 4.2 小時長 50%</b>。🔴 <b>要落在 11:00–14:00 進洞</b>，這一題要問 AA。<br>
+          ⏰ <b>而按官方順序推算，可能剛好卡在窗口邊緣</b>：從 Hotel Geirland 到傑古沙龍約 150 km（開 2 小時）→ 09:00 出發、<b>11:00 到冰河湖</b> → 11:00–12:30 冰河湖 ＋ 鑽石沙灘 → 開回 Skaftafell 約 45 分 → <b>13:30 才開始冰川健行</b>。<br>
+          🟡 <b>13:30 進洞還在 11:00–14:00 之內，但已經是尾端</b> —— 如果前面任何一段拖到，14:30 之後光線就明顯弱了。<b>所以那一題不只是「幾點」，而是「會不會被排在最後」。</b></p></li>
+          <li class="pin"><i>📍</i><p>🏞️ <b>傍晚：羽毛峽谷 Fjaðrárgljúfur</b>（官方排在今天，不是第 3 天）—— 峽谷線條柔和卻深邃，河流像一條細長的銀帶。這也是 AA 自己營運的景點。</p></li>
+          <li class="pin"><i>📍</i><p>🏨 <b>今晚仍住 Hotel Geirland</b> —— 官方內文寫「今晚的住宿<b>仍是</b>教堂鎮附近的 Hotel Geirland」，<b>兩晚同一家、行李留在房間</b>。🌌 <b>光害極低，全程極光機會最好的兩晚。</b></p></li>
+        </ol>
+        <div class="nb"><b>📌 重點與備註 · 6 則</b>
+          <ul>
+            <li>🔴 <b>全程最耗體力的一天。</b>日照 09:55–16:15。</li>
+            <li>🔑 <b>冰洞確認在今天，是瓦特納冰川的藍冰洞</b> —— 官方原文：「<b>冬季，我們將在第二天探訪瓦特納冰川藍冰洞；夏季，我們將在第三天探訪卡特拉冰洞。</b>」11 月＝冬季。<br>✅ <b>而且排在第 2 天不是最後一天</b> —— 天氣不行時理論上還有第 3 天可緩衝，但那是<b>導遊看當天路況現場判斷</b>，不是可以事先約定的事。</li>
+            <li>📊 <b>網路上看到的「6 小時冰川健行」不是你們的版本</b><br>
+          AA／Glacier Guides 在 Skaftafell 有<b>五種等級</b>，時長差很多：<br>
+          · <b>Blue Ice（冰洞 ＋ 冰川健行）3.5–4.5 小時・Easy</b> ← <b>三日團用的應該是這個等級</b><br>
+          · Glacier Wonders 4 小時・Easy<br>
+          · <b>Glacier Explorer 5.5–6 小時・Moderate</b>（<b>8 km、爬升 350–400 m</b>）← <b>網路上的「6 小時」是這個</b><br>
+          · Glacier Beyond 5.5 小時<br>
+          · Glacier Xtreme <b>7–7.5 小時</b>（含<b>冰攀</b>）・Advanced<br>
+          🎯 <b>你們的是 3 km、爬升 200–250 m 的 Easy 級別</b> —— 那個 6 小時的版本是 <b>8 km、爬升多一倍</b>的獨立單日團，<b>跟三日團無關。不要用那個嚇自己。</b></li>
+            <li>🚻 <b>「3 小時不上廁所」—— 可以，但要準備</b><br>
+          🔴 <b>冰川上沒有廁所</b>，而且<b>穿著防水褲 ＋ 冰爪 ＋ 安全吊帶，要脫掉很麻煩</b>。<b>Skaftafell 遊客中心的廁所是最後一站</b>（付費），從那裡出發到回來實際約 <b>3–3.5 小時</b>。<br>
+          ⚠️ <b>而低溫會讓尿意變多</b>（cold diuresis —— 低溫使血管收縮、血壓上升，腎臟排尿增加）。<b>這不是心理作用，是生理反應。</b><br>
+          ✅ <b>四個實務做法</b>：<br>
+          ① <b>當天早上少喝咖啡／茶</b>（利尿）<br>
+          ② <b>出發前 30–45 分鐘停止大量喝水</b>，但<b>活動中要小口補水</b>（冰川上乾燥又會流汗，脫水更難受）<br>
+          ③ <b>在 Skaftafell 遊客中心一定要上</b>，即使沒感覺<br>
+          ④ 真的緊急時導遊會找地方（冰隙旁、大石後），<b>但那很不方便，盡量不要走到那一步</b></li>
+            <li>🥾 <b>登山靴是硬性要求</b> —— 官網原文：「<b>Sturdy hiking boots are essential</b>, as <b>crampons won't work with regular shoes</b>」「<b>Good hiking boots with ankle support</b>」。<b>＝ 硬底 ＋ 過踝</b>，防水是常識。<br>💰 <b>可以租</b>（防水外套褲、登山鞋），但<b>官網沒公布價格</b>。🔴 <b>要租整趟行程的裝備至少 48 小時前預訂</b>；也可現場在 Skaftafell 的 Glacier Guides Booking Center 租。<b>價格要問。</b><br>🎒 <b>團費已含</b>：冰爪、安全帽、吊帶、冰斧 —— <b>不用自己買冰爪</b>。</li>
+            <li>🛡️ <b>保險描述要精確</b>（團方提供吊帶與冰斧，所以<b>不能寫「不使用吊帶」</b>）：<span class="quote">「持證冰川導遊帶領，穿戴冰爪在冰川上<b>步行約 3 小時</b>（約 3 公里、爬升 200–250 公尺，起始段有陡坡），並步行進入天然冰洞。團方提供冰爪、安全帽、吊帶與冰斧作為標準安全裝備。<b>全程為導遊帶領的健行，不進行繩索攀登、冰攀或垂降。</b>」</span><br>🎯 如實列出裝備 ＋ 說明「不進行攀登」，<b>比隱瞞裝備安全得多</b> —— 隱瞞的代價是理賠被拒。</li>
+          </ul>
+        </div>
+        <div class="stay">🏨 Hotel Geirland（團費含・第 2 晚）</div>
+      </div>
+    </article>
+
+    <article class="day ice">
+      <button class="dhead" type="button"><span class="dnum">D7<span>11/17</span></span>
+        <span class="dttl"><b>【中文團 · 第 3 天】熔岩原 · 黑沙灘 · 瀑布登頂</b><em>11/17（二）· 返回雷克雅維克</em><span class="dtag"><span class="g">📍 4 個停點</span><span class="h">🕖 18:00–19:00 才回市區</span><span>🧳 今晚打包</span></span></span><span class="chev">▾</span></button>
+      <div class="dbody">
+                <ol class="sch">
+          <li class="pin"><i>📍</i><p>🌋 <b>埃爾德赫勞恩熔岩原 Eldhraun</b> —— <b>人類有史以來最大的一次熔岩噴發遺跡</b>（1783–84 年 Laki 火山，噴出約 14 立方公里熔岩，那場災難改變了整個歐洲的氣候）。現在覆滿苔蘚。導遊會講這場災變的歷史，並指引欣賞冰川洪水切割出的沙原。</p></li>
+          <li class="pin"><i>📍</i><p><b>再次經過維克鎮 Vík</b> —— ⚠️ <b>卡特拉冰洞是 5–9 月的夏季行程，你們 11 月不會去</b>（冰洞已在昨天的瓦特納冰川完成）。</p></li>
+          <li class="pin"><i>📍</i><p><b>雷尼斯黑沙灘 Reynisfjara ＋ 雷尼斯岩柱 Reynisdrangar</b> —— 面向大西洋，一側是<b>巨大的玄武岩柱</b>（像石製管風琴的音管嵌進山體），海上矗立著如古老石塔的岩柱群。<br>🔴 <b>這裡的海浪極不可預測，務必遵循導遊指示</b> —— 每年都有觀光客被瘋狗浪捲走。<b>別為了拍照走近水邊。</b></p></li>
+          <li class="pin"><i>📍</i><p><b>斯科加瀑布 Skógafoss</b> —— 落差 60 公尺，<b>沿階梯登頂</b>（陡但值得）可俯瞰<b>艾雅法拉冰川 Eyjafjallajökull</b>。<br>📖 傳說有巨魔被瀑布的美吸引，忘了黎明將至，被初升的陽光化為石像 —— 至今瀑布旁的岩壁上還看得到似有巨魔面孔的岩層。另有早期維京定居者在此藏寶的傳說。</p></li>
+          <li><i>18:00<br>19:00</i><p>🔴 <b>回到雷克雅維克</b>（<b>官方逐日行程的說法</b>），領回大行李。<br>⚠️ <b>這比原本以為的 16:00–19:00 晚了兩小時</b> —— 影響三件事：<br>① <b>66°North Outlet 完全不可能</b>（18:00 關門）—— 已放棄，主街門市 11/14 逛過就好<br>② <b>Sky Lagoon 今晚也不可行</b>（如果原本想補一場）<br>③ <b>晚餐要排 19:30 之後</b>，市區餐廳開得晚，不用擔心</p></li>
+        </ol>
+        <div class="nb"><b>📌 重點與備註 · 2 則</b>
+          <ul>
+            <li>享用酒店早餐後緩緩返回，途中多次停留。日照 10:00–16:10。</li>
+            <li>🧳 <b>今晚就是休息</b> —— 明天 11:00 退房、11:15 Flybus、14:20 飛倫敦。<b>把行李在今晚整理好</b>，尤其是 easyJet 的<b>單件 23kg</b> 限制。</li>
+          </ul>
+        </div>
+        <div class="stay">🏨 雷克雅維克 ASKA Holt</div>
+      </div>
+    </article>
+
+    <div class="seg"><b>🇬🇧 倫敦（後段）</b><em>11/18–11/20 · 3 晚 · 聖誕季</em><i></i></div>
+
+    <article class="day move">
+      <button class="dhead" type="button"><span class="dnum">D8<span>11/18</span></span>
+        <span class="dttl"><b>【轉場】早班機飛回倫敦 ＋ W1 燈飾夜</b><em>11/18（三）· 雷克雅維克 → 倫敦</em><span class="dtag"><span class="h">⏰ 08:00 起床</span><span>🛫 KEF 12:05</span><span>🎄 W1 燈飾 2h35</span></span></span><span class="chev">▾</span></button>
+      <div class="dbody">
+                <ol class="sch">
+          <li><i>08:00</i><p>起床。⚠️ 11/17 是三日團最後一天、<b>18:00–19:00 才回市區</b>，晚餐後整理行李可能 23:00 才睡 —— <b>08:00 起床約睡 8.5 小時</b>。🔴 <b>改 12:05 的班機後要比原本早起 30 分鐘，前一晚務必把行李完全收好</b>。</p></li>
+          <li><i>08:30</i><p>早餐 ＋ 最後整理。<b>行李在前一晚就要收好</b>，尤其 easyJet 的單件 23kg 限制。</p></li>
+          <li><i>09:00</i><p>ASKA Holt 退房。🔴 <b>這天早上完全沒有市區空檔</b> —— 伴手禮必須在 11/14 買完。</p></li>
+          <li><i>09:15</i><p><b>Flybus 從 ALVA Hotel</b>（步行 4 分）→ 車程 45 分 → <b>約 10:00 抵 KEF</b>，距起飛 <b>2 小時 5 分</b>。<br>🔴 <b>要先確認有這班</b> —— 市區→KEF 是<b>固定時刻表</b>（不像去程跟著飛機走）。查 flybus.is，找「<b>12:05 起飛前能在 10:00 前抵達</b>」的那班。<b>若最接近的只有 08:45 或 10:15，就要重算退房時間</b>。</p></li>
+          <li><i>12:05</i><p><b>起飛</b> ✈️ <b>KEF → 倫敦盧頓 LTN</b>，飛行約 3 小時 15 分（英冰同 GMT <b>無時差</b>）→ <b>約 15:20 抵達</b>。</p></li>
+          <li><i>15:40</i><p>出關（🔴 <b>台灣護照不能用 eGate</b>，要走人工查驗，旺季可能 30 分）→ <b>DART 4 分</b>到 Luton Airport Parkway → <b>Thameslink 22–27 分</b>（一小時 4–6 班）→ <b>約 16:15 抵 St Pancras</b>。</p></li>
+          <li><i>16:15<br>16:40</i><p>🎄 <b>St Pancras 聖誕樹 ＋ King&#39;s Cross 燈光裝置</b> —— ⭐ <b>零成本的加分</b>：聖誕樹就在 Grand Terrace，走出月台就看到；King&#39;s Cross 是鄰居（走 3 分），每年有大型燈光裝置 ＋ Granary Square 噴泉。<b>16:15 天已黑近半小時，燈全亮</b>，而且改 LTN 後這一站從 15 分變 <b>25 分</b>。</p></li>
+          <li><i>16:40<br>16:55</i><p>走 10–12 分 → 進住處（studios2Let Bloomsbury）放行李。</p></li>
+          <li><i>17:10</i><p>地鐵到 Oxford Circus（Piccadilly 線 12–15 分）。</p></li>
+          <li><i>17:25<br>20:00</i><p>🎄 <b>W1 聖誕燈飾夜 —— 現在有 2 小時 35 分，完全不用趕</b><br>
+          · <b>利柏特 Liberty</b>（1924 都鐸復興式木造建築，<b>聖誕部門是倫敦最好的之一</b>，開到 20:00）<br>
+          · <b>攝政街聖誕燈飾</b>（倫敦最有名）<br>
+          · 🆕 <b>Carnaby Street 燈飾</b>（走 5 分）—— 每年主題造型，不是傳統燈串<br>
+          · 🆕 <b>Selfridges 櫥窗</b>（牛津街，跟攝政街平行）<br>
+          · 🆕 <b>Piccadilly Circus 燈飾</b>（走 5 分）</p></li>
+          <li><i>20:00<br>20:30</i><p><b>Hamleys</b> 百年玩具店（走 3 分，開到 21:00）。</p></li>
+          <li><i>20:30<br>21:00</i><p>走 9 分到 <b>福楠梅森 Fortnum &amp; Mason</b>（1707 年創立）—— 室內 20:00 已關，但 <b>Piccadilly 那面的聖誕櫥窗在外面隨時可看</b>，是倫敦最有名的櫥窗之一。</p></li>
+          <li><i>21:00</i><p>🍝 <b>Soho 晚餐：Bancone</b>（8–10 Lower James Street, W1F 9EL，離攝政街走 5 分）—— 手工義大利麵，招牌 <b>silk handkerchiefs</b>（絹帕麵佐蛋黃與鼠尾草奶油），主餐約 £12–16。<br>⚠️ <b>很熱門常排隊 → 一定要先訂位</b>（另有柯芬園分店 39 William IV Street）。</p></li>
+        </ol>
+        <div class="nb"><b>📌 重點與備註 · 2 則</b>
+          <ul>
+            <li>🔄 <b>2026-09-08 定案 KEF 12:05 → 倫敦盧頓 LTN</b>（演進：14:20 LGW → 12:30 LGW → <b>12:05 LTN</b>）—— 代價是冰島早上完全沒了，換到的是<b>倫敦多快 2 小時</b>，而那正好是 W1 燈飾夜。<br>
+          🔑 <b>為什麼值得換</b>：11/18 冰島 <b>10:00 才天亮</b>，而伴手禮 <b>11/14 在 Omnom 工廠與超市已經買完</b> —— 那一小時本來價值就低。反過來，倫敦這 1.5 小時讓利柏特從「趕 50 分鐘」變成「慢慢逛」。</li>
+            <li>🟡 <b>累的話砍後半</b> —— 這是剛從冰島飛回來、又早起的一天。<b>只做「St Pancras 聖誕樹 ＋ 利柏特 ＋ 攝政街燈飾」就收工</b>，晚餐改住處附近。<b>11/19 晚上有 2 小時 55 分的舞台劇，睡好比逛完重要。</b></li>
+          </ul>
+        </div>
+        <div class="stay">🏨 倫敦 · studios2Let Bloomsbury（WC1）</div>
+      </div>
+    </article>
+
+    <article class="day">
+      <button class="dhead" type="button"><span class="dnum">D9<span>11/19</span></span>
+        <span class="dttl"><b>【博物館日】大英博物館 ＋ 哈利波特舞台劇</b><em>11/19（四）· 倫敦・全程步行</em><span class="dtag"><span>🚶 零地鐵</span><span class="h">🎭 19:00 開演・不可退</span><span>💰 £27（2FOR1）</span></span></span><span class="chev">▾</span></button>
+      <div class="dbody">
+                <ol class="sch">
+          <li><i>10:00<br>12:00</i><p><b>大英博物館</b>（<b>走 8–10 分</b>、<b>免費</b>，10:00 開門）—— 鎖定<b>羅塞塔石碑、埃及廳、帕德嫩神廟雕刻</b>。雨天也完全不受影響。</p></li>
+          <li><i>12:15<br>13:15</i><p>🥩 <b>午餐：Flat Iron</b>（17 Henrietta Street, WC2E 8QH，柯芬園）—— 招牌 <b>flat iron 牛排約 £15</b>，等位時送爆米花、吃完送鹹焦糖冰淇淋。<br>🔴 <b>大多數分店不接受訂位，只能現場排隊</b>（尖峰可排 30–60 分）—— 所以<b>刻意排在中午剛開門（約 12:00）</b>，這是全天最不用排的時段。<br>💡 <b>絕對不要排在 11/19 晚上</b>：劇院 19:00 開演，你只有 1 小時，排到隊就趕不上。（Soho 店在 17 Beak Street、Shoreditch 店在 Curtain Road，都在你別天的動線上）</p></li>
+          <li><i>13:30<br>15:15</i><p>走 15 分到 <b>柯芬園</b> ＋ <b>柯芬園聖誕市集</b>（巨型聖誕球裝飾、街頭表演）。</p></li>
+          <li><i>15:30<br>17:45</i><p>🚇 <b>倫敦交通博物館</b>（就在柯芬園廣場上，<b>£27・可用 2FOR1</b>，票效一年，<b>18:00 關</b>）—— 可登上維多利亞時代蒸汽地鐵車廂與老雙層巴士，地鐵路線圖與 Roundel 標誌的設計史。<b>商店是全倫敦設計類伴手禮最好的一間</b>（不用門票就能進）。</p></li>
+          <li><i>18:00</i><p>走 5 分到 Soho／柯芬園晚餐。<br>💡 <b>劇前只有 1 小時，要吃快又不將就 → 義大利麵是最好的選擇</b>。<b>Bancone 柯芬園店</b>（39 William IV Street）離劇院走約 10 分，🔴 <b>必須先訂 18:00 的位子</b>，不然排隊會趕不上 19:00 開演。</p></li>
+          <li><i>19:00<br>21:55</i><p>🪄 <b>哈利波特：被詛咒的孩子</b> @ <b>Palace Theatre</b>（113 Shaftesbury Avenue，Cambridge Circus）<br>
+          🎟️ <b>座位：Dress Circle Row E 10–11</b>（二樓中段中央）—— 高度略俯視<b>看得到舞台地板的效果</b>，距離剛好<b>魔術不會破功</b>，而且不用仰視 3 小時。<br>🔑 <b>你們看到的是全新版本</b> —— 原本是<b>兩部曲</b>（要看兩場、共 5 小時 20 分），<b>2026/10/6 起改成「重新想像」的單場版</b>，慶祝西區 10 週年。<b>2 小時 55 分含一次中場。</b><br>
+          🎯 <b>11/19 距首演只有一個半月</b> —— 好處是看到最新製作，🔴 <b>壞處是會特別熱門，更要早訂</b>。<br>
+          ⚠️ <b>是「舞台劇」不是音樂劇</b> —— <b>沒有歌曲、沒有歌舞</b>。核心是<b>舞台魔術與特效</b>（消失、變形、飛行、火焰），所以<b>座位的「正面角度」比「前後排」重要得多</b>。<br>
+          ⚠️ <b>而舞台設計可能重新做過</b>，theatremonkey 之類網站上<b>舊版的座位評價未必適用</b>。</p></li>
+        </ol>
+        <div class="nb"><b>📌 重點與備註 · 3 則</b>
+          <ul>
+            <li>🚶 <b>這一天也完全不用搭地鐵</b> —— 住處 → 大英博物館 → 柯芬園 → 劇院，全部走得到。而且<b>下午是室內、有地方坐</b>，剛好銜接晚上 3 小時的舞台劇。</li>
+            <li>✏️ <b>可愛文具雜貨就排在這裡</b> —— <b>Choosing Keeping</b>（21 Tower Street, WC2H 9NS，Seven Dials 一帶，離柯芬園走 5 分、離 Palace Theatre 走 5 分）是倫敦公認最好的文具店：日本與歐洲紙品、鋼筆、蠟封、手工筆記本。<br>💡 <b>比在 Spitalfields 找文具好得多</b> —— 那邊 18:00 就關，而你 11/12 那個時段被 Sky Garden 佔住（兩者都 18:00 關、相距 12 分，只能選一個）。</li>
+            <li>📍 <b>柯芬園走到 Palace Theatre 只要 5 分鐘</b>。</li>
+          </ul>
+        </div>
+        <div class="stay">🏨 倫敦</div>
+      </div>
+    </article>
+
+    <article class="day move">
+      <button class="dhead" type="button"><span class="dnum">D10<span>11/20</span></span>
+        <span class="dttl"><b>【西敏日】睡飽出門，一個圈走到夜景</b><em>11/20（五）· 倫敦・下午 ＋ 夜景</em><span class="dtag"><span>😌 12:30 才出門</span><span>💰 全程免費</span><span>🌆 16:17 日落打燈</span></span></span><span class="chev">▾</span></button>
+      <div class="dbody">
+                <ol class="sch">
+          <li><i>12:30</i><p>Bloomsbury 出門 → Piccadilly 線到 <b>Leicester Square</b>（10–12 分）。</p></li>
+          <li><i>13:00<br>14:15</i><p>🍽️ <b>悠閒午餐</b>（Soho／柯芬園一帶）—— 💡 <b>這是全程唯一一頓不趕的午餐</b>。11/12 要趕倫敦塔 14:00、11/19 要趕劇院、11/21 要趕飛機，只有這天完全自由，值得挑一家坐下來慢慢吃。</p></li>
+          <li><i>14:20<br>14:45</i><p><b>Trafalgar Square</b> —— 納爾遜紀念柱、四隻獅子、國家藝廊的正立面（<b>已決定不進去</b>，看建築本身即可）。<br>⚠️ <b>挪威送的聖誕樹通常 12 月初才立</b>，11/20 大概還沒有。</p></li>
+          <li><i>14:45<br>15:10</i><p>沿 <b>The Mall</b> 皇家大道往西走（兩旁掛滿英國國旗，是倫敦最有儀式感的一條路）。</p></li>
+          <li><i>15:10<br>15:35</i><p><b>白金漢宮</b>（外觀免費）—— <b>The Mall 這一端的正面視角最好</b>。<br>💡 <b>衛兵交接 11 月是隔天一次的上午 11:00</b> —— 放棄交接改看建築本身，不必跟人潮擠。</p></li>
+          <li><i>15:35<br>16:15</i><p>穿過 <b>聖詹姆斯公園</b> 往東（園中橋上回望白金漢宮是明信片角度）→ 走到<b>國會大廈</b>。</p></li>
+          <li><i>16:17</i><p>🌆 <b>日落</b>。</p></li>
+          <li><i>16:20<br>17:00</i><p>⭐ <b>大笨鐘 ＋ 國會大廈</b> —— 走上<b>西敏橋</b>，這是全倫敦最好的打燈視角。<b>整天的高潮就在這 40 分鐘</b>。</p></li>
+          <li><i>17:00<br>17:45</i><p>過橋到南岸 → 🎡 <b>倫敦眼</b>（夜間燈光）→ 🎄 <b>Southbank Winter Market</b>（Hungerford 橋下的阿爾卑斯小屋群，11/3–1/4，熱紅酒與烤香腸）。<br>📍 <b>倫敦眼就在大笨鐘正對面</b> —— 隔著泰晤士河、走過<b>西敏橋約 400 公尺／5 分鐘</b>就到，所以「西敏橋看打燈」跟「南岸市集」本來就是連著的一段，中間不用搭車。<br>🎟️ <b>要不要坐上去？建議不坐</b>（£29–36／人，兩人約 2,500–3,100 元，一圈 30 分鐘）—— 理由跟碎片塔一樣：<b>11/12 的 Sky Garden 是免費的</b>，而且 17:00 已經天黑兩小時、旺季排隊常 30–60 分，19:30 還要趕 Blacklock。<br>💡 <b>但視角其實不重複</b>：Sky Garden 在東邊金融區看塔橋方向，倫敦眼是<b>唯一從高處正面俯看西敏的角度</b>。如果願意放棄白金漢宮那段（省 45 分）換這個，是成立的取捨 —— <b>要坐就一定要先線上訂時段票</b>，現場排隊會吃掉整個晚上。</p></li>
+          <li><i>17:45<br>18:15</i><p>走過 <b>Hungerford 人行橋</b> 回北岸（橋上可回望整條泰晤士河夜景）→ 走 10 分到 Leicester Square。</p></li>
+          <li><i>18:15<br>19:15</i><p>🎄 <b>Leicester Square 聖誕市集 ＋ 溜冰場</b>（繞著莎士比亞雕像，開到 22:00）。</p></li>
+          <li><i>19:30</i><p>🥩 <b>晚餐：Blacklock</b>（柯芬園店 16–18 Bedford Street, WC2E 9HE，<b>走 5 分</b>）—— 炭烤肉排專門店，招牌 <b>「All In」綜合肉排套餐約 £25–30／人</b>。<br>✅ <b>接受訂位</b>（跟 Flat Iron 不同）—— 但 <b>11/20 是週五，熱門時段常提前數週訂滿，要早訂</b>。<br>💡 <b>這是全程最適合吃一頓好的的晚餐</b>：沒有劇院也沒有飛機要趕，時間完全自由。<br>📍 其他分店：Soho（24 Great Windmill Street，原始店、地下室）、City（13 Philpot Lane）、Shoreditch（28–30 Rivington Street）。<br>⚠️ Blacklock 最有名的是<b>週日烤肉 Sunday roast</b>，但你在倫敦<b>沒有週日</b>（11/15 那天在冰島），所以吃的是平日的肉排菜單。</p></li>
+        </ol>
+        <div class="nb"><b>📌 重點與備註 · 4 則</b>
+          <ul>
+            <li>🔄 <b>這一天被大改過兩次</b> —— 原本的聖保羅、千禧橋、波羅市場、碎片塔<b>全部移到 11/12</b>（那四個都在南岸住處的步行圈裡），接著<b>國家藝廊也砍掉</b>。剩下的西敏一帶重新排成<b>一個圈</b>，不回頭。</li>
+            <li>😌 <b>結果這天變成全程最鬆的一天</b> —— <b>12:30 才出門</b>，正好接前一晚哈利波特 <b>21:55</b> 才散場那一夜。整天只有<b>一個真正的重點</b>：16:17 之後的大笨鐘打燈。</li>
+            <li>🌆 <b>節奏被日落切成兩半</b>：天黑前散步看外觀，天黑後看打燈地標。全程步行約 4.5 km，<b>沒有任何要買票、要排隊、要卡時間的東西</b>。</li>
+            <li>🟡 <b>累的話</b>：跳過白金漢宮與 The Mall（省 1.5 km），午餐後直接搭地鐵到 Westminster，16:20 準時到西敏橋。<b>那 40 分鐘的打燈才是這天唯一的重點</b>，其餘全部可棄。</li>
+          </ul>
+        </div>
+        <div class="stay">🏨 倫敦</div>
+      </div>
+    </article>
+
+    <article class="day move">
+      <button class="dhead" type="button"><span class="dnum">D11<span>11/21</span></span>
+        <span class="dttl"><b>【滿載而歸】波多貝羅 ＋ 返程</b><em>11/21（六）· 倫敦 → 台北</em><span class="dtag"><span>🛍️ 09:00–14:00 市集</span><span class="h">🔴 到 T3 先繳 APD</span><span>✈️ CI82 21:15</span></span></span><span class="chev">▾</span></button>
+      <div class="dbody">
+                <ol class="sch">
+          <li><i>09:00<br>14:00</i><p>⭐ <b>波多貝羅市集</b>（諾丁丘）—— <b>週六是全市集日</b>，古董最盛，早去人少。順道看<b>諾丁丘彩色房子</b>。</p></li>
+          <li><i>14:00<br>15:00</i><p>諾丁丘午餐。<br>☕ <b>選項：The Muffin Man 英式茶室</b>（12 Wrights Lane, W8 6TA）—— 老派英式茶室，英式早餐、司康、下午茶。從波多貝羅南端<b>往南走約 18 分</b>，吃完從 <b>High Street Kensington 搭 Circle 線直達 King's Cross</b>（約 25 分），動線接得上。<br>⚠️ 它是<b>茶室不是貝果店</b>（貝果在 11/12 的 Beigel Bake）。諾丁丘本地也有很多選擇，這 18 分鐘的路要不要走看你想不想要那個老派英式體驗。</p></li>
+          <li><i>15:15</i><p>Notting Hill Gate 搭 <b>Circle 線</b>回 King's Cross（約 25 分）→ <b>16:00</b> 拿行李。</p></li>
+          <li><i>16:30</i><p>出發 → <b>Piccadilly 線直達 LHR</b>（約 50 分＋步行 10 分）→ <b>約 17:40 抵達</b>，距起飛 <b>3.5 小時</b>。<br>💡 <b>在航廈休息比在市集硬撐好得多</b> —— 接下來要飛 13.5 小時。</p></li>
+          <li><i>21:15</i><p>華航 <b>CI82</b> 直飛回台 —— <b>A 標準 T ＋ 25,000 哩升豪華經濟</b>／<b>B 現金買豪經</b>（飛行約 13h30m，比去程短 2 小時）。</p></li>
+        </ol>
+        <div class="nb"><b>📌 重點與備註 · 6 則</b>
+          <ul>
+            <li>🧥 <b>Highland Store 羊毛大衣</b>（波多貝羅一帶）—— 🔑 <b>11/21 是全程買大衣最好的一天</b>，理由是行李：<br>① 大衣體積大，但這天之後<b>只剩華航（每人 2 件 × 28kg）</b>，<b>不用再過 easyJet 的單件 23kg 那一關</b><br>② 💡 <b>最省空間的做法是「直接穿上它」</b> —— 11/21 倫敦 4–10°C 正好需要，而上飛機後可以掛起來，<b>完全不佔行李額度</b><br>⚠️ <b>英國自 2021 年起取消旅客退稅</b>，所以拿不回 20% VAT —— 買之前直接比標價就好，別等退稅</li>
+            <li>💡 <b>5 小時很夠</b>（古董區只有約 1.5 km）—— 市集雖開到 19:00，但<b>接下來是 13.5 小時夜航，在石板路硬撐 7 小時是自找的</b>。剩下的時間留給緩衝與休息。</li>
+            <li>🧳 這天已退房，<b>行李要先安排寄放</b> —— 問住處可否寄放，或用 Stasher／Bounce 市區寄物服務。</li>
+            <li>🔴 <b>到 T3 的第一件事：處理 Alan 的升等稅費</b><br>
+          哩程升等的<b>英國 APD 艙等差額（約 £100–130）</b>，華航說<b>在機場繳付</b> —— 所以一到航廈就<b>先去華航櫃檯處理，不要先逛免稅店</b>。<br>
+          🎒 <b>要帶著</b>：① <b>行前拿到的 email 書面確認</b>（升等已確認 ＋ 稅費在機場付 ＋ 大約金額）② <b>能刷英鎊的卡</b>（出發前先確認已開通國外交易）③ <b>備用第二張卡</b><br>
+          ✅ <b>3 小時 35 分的緩衝很夠</b> —— 但要排在最前面，萬一系統查不到還有時間往上反映。<br>
+          ⚠️ <b>這是全程唯一「在異地、要飛了、還有錢沒付清」的環節</b> —— 到機場面對的是另一批人，<b>所以行前那份書面確認很重要</b>。</li>
+            <li>🔴 <b>週六先查 TfL 週末工程</b> —— Piccadilly 希斯洛段週末常停駛。有停駛就改 Elizabeth 線（Farringdon 上車）或叫車，<b>並提早 1 小時抓塞車</b>。</li>
+            <li>💡 <b>波多貝羅離 Paddington 只約 15 分</b>（Elizabeth 線／Heathrow Express 都在那）。如果住處願意讓你寄放行李到下午，就能「逛完直接去機場」，<b>市集多待一小時</b>。</li>
+          </ul>
+        </div>
+        <div class="stay none">✈️ 夜宿機上</div>
+      </div>
+    </article>
+
+    <div class="seg home"><b>🇹🇼 返抵台灣</b><em>11/22 · 傍晚落地桃園</em><i></i></div>
+
+    <article class="day">
+      <button class="dhead" type="button"><span class="dnum">D12<span>11/22</span></span>
+        <span class="dttl"><b>抵達台灣</b><em>11/22（日）· 台北</em><span class="dtag"><span>🛬 桃園 18:00–19:00</span></span></span><span class="chev">▾</span></button>
+      <div class="dbody">
+                <ol class="sch">
+          <li><i>18:00<br>19:00</i><p>推算 <b>之間</b>抵達桃園（<b>回程飛行約 13 小時 30 分</b>，比去程的 15h40m 短 2 小時 —— 東行順噴射氣流；時差 +8）。實際時刻以華航訂位為準。</p></li>
+        </ol>
+        <div class="nb"><b>📌 重點與備註 · 2 則</b>
+          <ul>
+            <li>⚠️ <b>溫差 20 度以上</b>（倫敦 4–10°C → 台北約 25°C）—— 把一件薄長袖放在隨身包，下機前換掉厚衣服。</li>
+            <li>帶著滿滿回憶回到家，<b>還有星期日晚上可以休息，11/23（一）上班</b>。</li>
+          </ul>
+        </div>
+        <div class="stay">🏠 回到溫暖的家</div>
+      </div>
+    </article>
+
+  </div>
+
+    <div class="pi done" style="margin-bottom:20px"><b>⚖️ 為什麼選三日團而不是兩日團</b>
+    <span class="quote">差別是<b>整個黃金圈 ＋ 一晚住宿</b>，價差約 32,000 元（兩人）。<b>選三日團最重要的理由是極光</b> —— 冰島 5 晚裡有 3 晚在雷市（光害重看不到），<b>Hotel Geirland 那兩晚是唯一機會，兩日團只給一晚</b>。加上 Day 3 幾乎只是回程停留（兩日團要在 2 天內跑完 800 km），以及中文團獨有的 <b>Brúarfoss</b>。<br>💡 兩個團的<b>冰洞完全相同</b>（都是 Skaftafell 的瓦特納藍冰洞，由 AA 自家 Glacier Guides 帶）—— 但兩日團標 <b>Easy</b>、三日團標 <b>Moderate</b>，<b>3 小時冰川健行可能只有三日團有</b>。</span></div>
+  <div class="pi done" style="margin-bottom:20px"><b>🇨🇳 為什麼選中文團（已成團）</b>
+    <span class="quote">價格只貴約 <b>9%</b>，行程、時間、導遊比<b>完全相同</b>。<br>🔑 <b>關鍵不是「聽得懂比較舒服」，而是英文團的實際負評正好在語言上</b> —— 有評價直接寫「導遊的英文因為<b>濃重的冰島腔</b>很難聽懂，很難學到當地歷史與背景」。冰島導遊講的是冰島腔英文，不是母語英語。<br>🔴 <b>而這趟有三個「聽不懂會出事」的場合</b>：雷尼斯黑沙灘的瘋狗浪（每年都有人被捲走）、3 小時冰川健行的落腳點與裂隙、天然冰洞的進出動線。<b>這三件事都是「當下一句話」，不是事後能查的資料。</b></span></div>
+</section>
+
+<section id="ice" class="panel">
+  <h2 class="h2"><span>🧊</span>冰島專區</h2>
+  <p class="lead">從<b>每日行程</b>拆出來的三件事：<b>火山行程能不能加</b>、<b>12 餐怎麼分配</b>、<b>雷克雅維克市區與伴手禮</b>。這些不綁在某一天，所以放在一起看比較清楚。</p>
+<h2 class="h2"><span>🌋</span>火山行程：11 月有什麼、沒什麼</h2>
   <div class="tw">
     <table>
       <thead><tr><th>行程</th><th>11 月</th><th>說明</th></tr></thead>
@@ -821,8 +906,12 @@ footer{border-top:1px solid var(--border);margin-top:30px;padding:26px 0 44px;
       <b>Braud & Co</b> —— 彩繪外牆的麵包店，<b>肉桂捲</b>是招牌。<br>
       💡 <b>三日團不含午晚餐</b>（官方估每人每天 USD 80）—— <b>11/14 在超市買麵包火腿起司帶上車</b>，沿途休息站一份簡餐要 3,000–4,000 ISK。</p></div></div>
   </div>
+</section>
 
-  <h2 class="h2" style="margin-top:26px"><span>🧊</span>冰島路線地圖</h2>
+<section id="maps" class="panel">
+  <h2 class="h2"><span>🗺️</span>地圖</h2>
+  <p class="lead">兩張自繪地圖 —— <b>冰島路線</b>（三日團動線）與<b>倫敦景點</b>（依「哪一天」上色）。⚠️ <b>倫敦地圖的顏色代表日期，跟每日行程時間軸的顏色是兩套</b>。</p>
+<h2 class="h2"><span>🧊</span>冰島路線地圖</h2>
   <p class="lead">🔴 <b>你們沒有環島</b> —— 只走<b>西南角 ＋ 南岸</b>，約全島的四分之一。北部、東峽灣、西峽灣完全沒去。<br>結構是<b>「一個小圈 ＋ 一條往東的線」</b>：雷克雅維克 → 黃金圈小環 → 南岸一路往東到傑古沙龍 → 原路折返。</p>
   <div class="mapwrap"><svg viewBox="0 0 1000 460" role="img" aria-label="冰島西南角與南岸路線圖"><rect x="0" y="0" width="1000" height="460" fill="#0b3a5c" fill-opacity=".14"/><path d="M 20 20 L 980 20 L 980 155 Q 900 190 840 218 Q 750 262 660 288 Q 600 330 540 392 Q 470 352 425 320 Q 350 300 300 290 Q 200 264 120 250 Q 66 240 20 224 Z" fill="#5b6b52" fill-opacity=".22" stroke="currentColor" stroke-opacity=".18" stroke-width="1.5"/><ellipse cx="855" cy="105" rx="128" ry="56" fill="#7dd3fc" fill-opacity=".2"/><text x="855" y="110" font-size="14" fill="#7dd3fc" fill-opacity=".85" text-anchor="middle">Vatnajökull 瓦特納冰川</text><ellipse cx="512" cy="248" rx="58" ry="32" fill="#7dd3fc" fill-opacity=".18"/><text x="512" y="252" font-size="11.5" fill="#7dd3fc" fill-opacity=".8" text-anchor="middle">Mýrdalsjökull</text><ellipse cx="300" cy="150" rx="52" ry="28" fill="#7dd3fc" fill-opacity=".15"/><text x="300" y="154" font-size="11" fill="#7dd3fc" fill-opacity=".7" text-anchor="middle">Langjökull</text><text x="330" y="428" font-size="15" fill="#7dd3fc" fill-opacity=".75" text-anchor="middle">北大西洋　Atlantshaf</text><text x="880" y="405" font-size="12" fill="currentColor" fill-opacity=".45" text-anchor="middle">▲ 東峽灣、北部：這趟沒去</text><path d="M 66.0 186.5 L 154.7 137.4" fill="none" stroke="#64748b" stroke-opacity=".75" stroke-width="3.4" stroke-dasharray="7 6" stroke-linecap="round" stroke-linejoin="round"/><path d="M 154.7 137.4 L 90.8 225.5" fill="none" stroke="#f97316" stroke-opacity=".75" stroke-width="3.4" stroke-dasharray="7 6" stroke-linecap="round" stroke-linejoin="round"/><path d="M 154.7 137.4 L 262.7 103.9 L 385.3 84.4 L 414.7 298.9" fill="none" stroke="#a855f7" stroke-opacity=".75" stroke-width="3.4" stroke-dasharray="7 6" stroke-linecap="round" stroke-linejoin="round"/><path d="M 414.7 298.9 L 560 300 L 700 240 L 817.3 177.0 L 922.7 167.3" fill="none" stroke="#22c55e" stroke-opacity=".75" stroke-width="3.4" stroke-dasharray="7 6" stroke-linecap="round" stroke-linejoin="round"/><path d="M 922.7 167.3 L 817.3 177.0 L 657.3 251.7 L 540.0 363.5 L 478.7 324.5 L 300 285 L 154.7 137.4" fill="none" stroke="#ec4899" stroke-opacity=".75" stroke-width="3.4" stroke-dasharray="7 6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="154.7" cy="137.4" r="16" fill="#0ea5e9" stroke="var(--card-solid)" stroke-width="2.5"/><text x="154.7" y="142.4" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">R</text><circle cx="66.0" cy="186.5" r="16" fill="#64748b" stroke="var(--card-solid)" stroke-width="2.5"/><text x="66.0" y="191.5" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">1</text><circle cx="90.8" cy="225.5" r="16" fill="#f97316" stroke="var(--card-solid)" stroke-width="2.5"/><text x="90.8" y="230.5" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">2</text><circle cx="262.7" cy="103.9" r="16" fill="#a855f7" stroke="var(--card-solid)" stroke-width="2.5"/><text x="262.7" y="108.9" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">3</text><circle cx="385.3" cy="84.4" r="16" fill="#a855f7" stroke="var(--card-solid)" stroke-width="2.5"/><text x="385.3" y="89.4" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">4</text><circle cx="414.7" cy="298.9" r="16" fill="#a855f7" stroke="var(--card-solid)" stroke-width="2.5"/><text x="414.7" y="303.9" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">5</text><circle cx="922.7" cy="167.3" r="16" fill="#22c55e" stroke="var(--card-solid)" stroke-width="2.5"/><text x="922.7" y="172.3" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">6</text><circle cx="817.3" cy="177.0" r="16" fill="#22c55e" stroke="var(--card-solid)" stroke-width="2.5"/><text x="817.3" y="182.0" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">7</text><circle cx="657.3" cy="251.7" r="16" fill="#ec4899" stroke="var(--card-solid)" stroke-width="2.5"/><text x="657.3" y="256.7" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">8</text><circle cx="540.0" cy="363.5" r="16" fill="#ec4899" stroke="var(--card-solid)" stroke-width="2.5"/><text x="540.0" y="368.5" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">9</text><circle cx="478.7" cy="324.5" r="17" fill="#ec4899" stroke="var(--card-solid)" stroke-width="2.5"/><text x="478.7" y="329.0" font-size="12.5" font-weight="700" fill="#fff" text-anchor="middle">10</text></svg>
     <div class="mapkey"><span><i style="background:#0ea5e9"></i>基地</span><span><i style="background:#64748b"></i>11/13 抵達</span><span><i style="background:#f97316"></i>11/14 藍湖</span><span><i style="background:#a855f7"></i>11/15 黃金圈</span><span><i style="background:#22c55e"></i>11/16 冰洞</span><span><i style="background:#ec4899"></i>11/17 返程</span></div>
