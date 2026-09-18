@@ -306,9 +306,13 @@ footer{border-top:1px solid var(--border);padding:26px 0 44px;color:var(--dim);f
   <p class="lead">極光一出現就沒空翻手冊——這三張卡直接照抄。建議先切到右上角 🔴 <b>紅光夜視模式</b>再看，不會破壞夜視力。</p>
 
   <div class="note">
-    <span class="byclaude" style="color:var(--accent2);font-weight:bold;">⚙️ Gemini 3.1 Pro 評估與實戰對比</span><br>
-    以下黃金數值由 <b>Gemini 3.1 Pro</b> 綜合國外大神 GoPro 實測、小紅書網友實測、以及 Pocket 3 參數交叉比對推演而成。<br>
-    我們<b>嚴格剃除了「Auto ISO、Auto色溫」等會導致雜訊的懶人設定</b>，全面替換為「M 手動模式 ＋ 解鎖 f/2.0」的大師級戰法。
+    <span class="byclaude">⚙️ CLAUDE 評估</span>
+    <span class="byclaude" style="color:var(--accent2)">⚙️ GEMINI 3.1 PRO 評估</span><br>
+    下方三張速查卡由 <b>Claude</b> 依 <b>DJI 官方《Osmo Action 6 光圈模式》文件</b>、Action 6 官方規格，
+    以及一組<b>網友實測的 DJI Pocket 3 極光縮時參數</b>推算換算而成。
+    <b>Gemini 3.1 Pro</b> 另提出一套走「長曝光 ＋ 低 ISO」路線的參數，綜合國外實測與網友心得推演。
+    <b>兩套立場並列於下，刻意不做合併</b>——現場依極光動得快不快自行選用（見「兩派參數立場」）。<br>
+    兩者<b>皆非 DJI 官方建議值</b>，極光強度每晚差異極大，<b>務必以現場試拍結果為準</b>——出發前請先在台灣找有星星的夜晚試跑一次。
   </div>
 
   <div class="qc">
@@ -331,18 +335,21 @@ footer{border-top:1px solid var(--border);padding:26px 0 44px;color:var(--dim);f
     </div>
 
     <div class="qcard">
-      <div class="qr">卡 2 · 跳舞的極光</div>
+      <div class="qr">卡 2 · 立場 A · CLAUDE</div>
       <div class="qt">🎬 Action 6 · 縮時</div>
-      <div class="qn">靜止延時（Night Lapse）</div>
+      <div class="qn">靜止延時（Night Lapse）· 短間隔派</div>
       <dl>
-        <dt>快門</dt><dd><em>15 秒</em><small>起手式，極光快則縮短為 5-10s</small></dd>
-        <dt>間隔</dt><dd><em>20 秒</em><small>鐵律：絕對大於快門 3~5 秒</small></dd>
-        <dt>光圈</dt><dd><em>f/2.0</em><small>務必裝上微距鏡頭解鎖</small></dd>
-        <dt>ISO</dt><dd>800–1600<small>純淨底線，不要開 Auto</small></dd>
-        <dt>白平衡</dt><dd><em>3500–4000K</em><small>手動固定，防紫灰天空</small></dd>
-        <dt>銳利度</dt><dd>-1 (低)<small>防夜拍數位雜訊</small></dd>
-        <dt>輸出</dt><dd>4K 4:3<small>拍到最多天空與地面</small></dd>
-        <dt>操作</dt><dd>語音控制<small>喊 Take Photo 零晃動</small></dd>
+        <dt>模式</dt><dd>靜止延時</dd>
+        <dt>光圈</dt><dd><em>f/2.8</em><small>裝微距鏡才可選 f/2.0</small></dd>
+        <dt>快門</dt><dd><em>4–6 秒</em><small>極光越快、快門越短</small></dd>
+        <dt>間隔</dt><dd><em>3–4 秒</em><small>比 Pocket 3 長，補小底劣勢</small></dd>
+        <dt>ISO</dt><dd>3200–6400<small>先固定 3200 試拍</small></dd>
+        <dt>白平衡</dt><dd><em>4000–4800K</em><small>手動固定</small></dd>
+        <dt>EV</dt><dd>+0.3 ~ +0.7</dd>
+        <dt>銳利度</dt><dd><em>−1（低）</em><small>機內銳化會放大夜拍雜訊</small></dd>
+        <dt>輸出</dt><dd><em>4K 4:3 · 24fps</em><small>方形大底吃更多天地；24fps 片長多 25%</small></dd>
+        <dt>防抖</dt><dd>關閉<small>上腳架不需要</small></dd>
+        <dt>時長</dt><dd>20–30 分</dd>
       </dl>
     </div>
 
@@ -364,6 +371,56 @@ footer{border-top:1px solid var(--border);padding:26px 0 44px;color:var(--dim);f
 
   </div>
 
+
+  <h3>兩派參數立場（各自成立，未合併）</h3>
+  <p class="lead">同一台 Action 6，兩套截然不同的縮時思路。<b>沒有誰對誰錯——取決於當晚極光動得快不快。</b></p>
+  <div class="tw"><table>
+    <tr><th class="nowrap">項目</th><th>立場 A · Claude<br><span style="color:var(--dim);font-weight:400">短間隔派</span></th><th>立場 B · Gemini 3.1 Pro<br><span style="color:var(--dim);font-weight:400">長曝光派</span></th></tr>
+    <tr><td class="nowrap">快門</td><td><b>4–6 秒</b></td><td><b>15 秒</b>（快則 5–10s）</td></tr>
+    <tr><td class="nowrap">間隔</td><td><b>3–4 秒</b></td><td><b>20 秒</b><small style="display:block;color:var(--dim)">鐵律：大於快門 3~5 秒</small></td></tr>
+    <tr><td class="nowrap">ISO</td><td>3200–6400</td><td><b>800–1600</b></td></tr>
+    <tr><td class="nowrap">光圈</td><td>f/2.8 <span style="color:var(--dim)">（沒微距鏡也能跑）</span></td><td>f/2.0 <span style="color:var(--dim)">（須先買微距鏡）</span></td></tr>
+    <tr><td class="nowrap">白平衡</td><td>4000–4800K</td><td>3500–4000K</td></tr>
+    <tr><td class="nowrap">銳利度</td><td colspan="2" style="text-align:center"><b>−1（低）· 兩派共識</b></td></tr>
+    <tr><td class="nowrap">進光量</td><td>基準</td><td><b>多約 1.1 檔</b>（≈2 倍）</td></tr>
+    <tr><td class="nowrap">加速倍率</td><td>90×–120×</td><td><b>600×</b></td></tr>
+    <tr><td class="nowrap">拍 30 分成片</td><td><b>約 10 秒</b> ✅</td><td><b>約 3 秒</b> ⚠️</td></tr>
+  </table></div>
+
+  <div class="split" style="margin-top:14px">
+    <div class="dev">
+      <div class="role">立場 A · CLAUDE</div>
+      <div class="name">短間隔 · 保留紋理</div>
+      <ul>
+        <li>✅ 極光舞動的<b>絲狀紋理不會糊</b></li>
+        <li>✅ 拍 30 分就有 10 秒成片，<b>一晚能拍好幾組</b></li>
+        <li>✅ <b>沒買微距鏡也能跑</b>（f/2.8）</li>
+        <li>⚠️ ISO 較高，<b>雜訊比較明顯</b></li>
+      </ul>
+    </div>
+    <div class="dev">
+      <div class="role">立場 B · GEMINI 3.1 PRO</div>
+      <div class="name">長曝光 · 畫質優先</div>
+      <ul>
+        <li>✅ 低 ISO，<b>畫面乾淨很多</b></li>
+        <li>✅ 弱極光也能拍亮</li>
+        <li>⚠️ 極光快速舞動時<b>會糊成一片綠霧</b></li>
+        <li>🔴 <b>成片極短</b>——想要 10 秒影片得拍 100 分鐘</li>
+        <li>🔴 <b>必須先買微距鏡</b>才有 f/2.0</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>現場怎麼選</h3>
+  <div class="tw"><table>
+    <tr><th>肉眼看到的極光</th><th class="nowrap">選哪一派</th><th>理由</th></tr>
+    <tr><td><b>明顯舞動</b>、像簾幕翻騰</td><td class="nowrap"><b>立場 A</b></td><td>長曝會把紋理糊掉</td></tr>
+    <tr><td><b>緩慢飄移</b>、像靜止的光帶</td><td class="nowrap"><b>立場 B</b></td><td>不會糊，畫質更乾淨</td></tr>
+    <tr><td><b>很淡</b>、幾乎看不見</td><td class="nowrap"><b>立場 B</b></td><td>但 ISO 要拉到 3200</td></tr>
+    <tr><td><b>不確定</b> / 只有一次機會</td><td class="nowrap"><b>立場 A</b></td><td>保底——至少一定拿得到完整成片</td></tr>
+  </table></div>
+  <div class="note ok"><b>時間夠的話兩派各跑一次。</b>先用立場 A 拍 20 分鐘<b>保底</b>，確定成片到手後，再換立場 B 拍一段<b>拚畫質</b>。</div>
+
   <h3>間隔 ↔ 成片長度對照（30fps 輸出）</h3>
   <div class="tw"><table>
     <tr><th class="nowrap">想要成片</th><th class="nowrap">間隔 2 秒</th><th class="nowrap">間隔 3 秒</th><th class="nowrap">間隔 5 秒</th></tr>
@@ -373,6 +430,7 @@ footer{border-top:1px solid var(--border);padding:26px 0 44px;color:var(--dim);f
     <tr><td class="nowrap">加速倍率</td><td class="nowrap"><b>60×</b></td><td class="nowrap"><b>90×</b></td><td class="nowrap">150×</td></tr>
   </table></div>
   <div class="note ok"><b>極光縮時的甜蜜點是間隔 2～4 秒。</b>太長（5 秒以上）極光會跑得像閃電，反而不自然。</div>
+  <div class="note"><b>省力技：輸出改 24fps。</b>同樣張數片長直接多 25%（240 張：30fps＝8 秒、<b>24fps＝10 秒</b>），而且更有電影感。</div>
 
   <h3>參考來源：網友實測的 Pocket 3 參數</h3>
   <div class="tw"><table>
