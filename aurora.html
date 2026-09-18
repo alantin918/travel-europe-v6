@@ -171,6 +171,22 @@ td b{color:var(--accent2)}
 
 footer{border-top:1px solid var(--border);padding:26px 0 44px;color:var(--dim);font-size:13px}
 
+/* 現場速查卡 */
+.qc{display:grid;gap:12px}
+@media(min-width:900px){.qc{grid-template-columns:repeat(3,1fr)}}
+.qcard{border-radius:16px;border:1px solid var(--border-strong);background:var(--card);padding:16px;box-shadow:var(--shadow)}
+.qcard .qr{font-size:11.5px;font-weight:800;color:var(--accent2);letter-spacing:.1em;text-transform:uppercase}
+.qcard .qt{font-size:17.5px;font-weight:800;margin:2px 0 0;line-height:1.3}
+.qcard .qn{font-size:12.5px;color:var(--dim);margin-top:3px}
+.qcard dl{margin:12px 0 0;display:grid;grid-template-columns:auto 1fr;gap:0}
+.qcard dt{font-size:12.5px;color:var(--dim);font-weight:700;padding:8px 10px 8px 0;border-top:1px solid var(--border);white-space:nowrap}
+.qcard dd{margin:0;font-size:15px;font-weight:700;padding:8px 0;border-top:1px solid var(--border);text-align:right;line-height:1.35}
+.qcard dl>dt:first-child,.qcard dl>dt:first-child+dd{border-top:0}
+.qcard dd em{font-style:normal;color:var(--accent);font-size:17.5px;font-weight:800}
+.qcard dd small{display:block;font-size:11.5px;font-weight:600;color:var(--dim)}
+.byclaude{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.1em;font-weight:800;
+  color:var(--accent);border:1px dashed var(--border-strong);border-radius:999px;padding:4px 11px;margin-bottom:8px}
+
 /* 回到頂端 */
 #top{
   position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:60;
@@ -199,6 +215,7 @@ footer{border-top:1px solid var(--border);padding:26px 0 44px;color:var(--dim);f
   <a href="#split">分工</a>
   <a href="#shutter">快門速查</a>
   <a href="#setup">兩台設定</a>
+  <a href="#quickcard">速查卡</a>
   <a href="#flow">現場流程</a>
   <a href="#wind">防風</a>
   <a href="#frost">除霜</a>
@@ -282,6 +299,97 @@ footer{border-top:1px solid var(--border);padding:26px 0 44px;color:var(--dim);f
     <tr><td class="nowrap">格式</td><td><b>RAW + JPEG</b> — RAW 後期救援空間大很多</td></tr>
     <tr><td class="nowrap">穩定</td><td><b>2 秒以上一定要腳架</b>，手持會糊</td></tr>
   </table></div>
+</div></section>
+
+<section id="quickcard"><div class="wrap">
+  <h2>現場速查卡</h2>
+  <p class="lead">極光一出現就沒空翻手冊——這三張卡直接照抄。建議先切到右上角 🔴 <b>紅光夜視模式</b>再看，不會破壞夜視力。</p>
+
+  <div class="note">
+    <span class="byclaude" style="color:var(--accent2);font-weight:bold;">⚙️ Gemini 3.1 Pro 評估與實戰對比</span><br>
+    以下黃金數值由 <b>Gemini 3.1 Pro</b> 綜合國外大神 GoPro 實測、小紅書網友實測、以及 Pocket 3 參數交叉比對推演而成。<br>
+    我們<b>嚴格剃除了「Auto ISO、Auto色溫」等會導致雜訊的懶人設定</b>，全面替換為「M 手動模式 ＋ 解鎖 f/2.0」的大師級戰法。
+  </div>
+
+  <div class="qc">
+
+    <div class="qcard">
+      <div class="qr">卡 1 · 畫質主力</div>
+      <div class="qt">📱 S23 Ultra</div>
+      <div class="qn">極光縮時 ＋ 單張長曝</div>
+      <dl>
+        <dt>模式</dt><dd>Pro 模式<small>不要用「天文攝影」</small></dd>
+        <dt>快門</dt><dd><em>4–8 秒</em></dd>
+        <dt>ISO</dt><dd>1600–3200<small>固定，不要自動</small></dd>
+        <dt>白平衡</dt><dd><em>4000K</em><small>手動固定</small></dd>
+        <dt>對焦</dt><dd><em>手動 ∞</em></dd>
+        <dt>間隔</dt><dd>快門 ＋1 秒<small>例：曝 5s → 間隔 6s</small></dd>
+        <dt>鏡頭</dt><dd>主鏡頭<small>不要用超廣角</small></dd>
+        <dt>格式</dt><dd>RAW ＋ JPEG</dd>
+        <dt>時長</dt><dd>25–30 分<small>約 300 張 → 10 秒成片</small></dd>
+      </dl>
+    </div>
+
+    <div class="qcard">
+      <div class="qr">卡 2 · 跳舞的極光</div>
+      <div class="qt">🎬 Action 6 · 縮時</div>
+      <div class="qn">靜止延時（Night Lapse）</div>
+      <dl>
+        <dt>快門</dt><dd><em>15 秒</em><small>起手式，極光快則縮短為 5-10s</small></dd>
+        <dt>間隔</dt><dd><em>20 秒</em><small>鐵律：絕對大於快門 3~5 秒</small></dd>
+        <dt>光圈</dt><dd><em>f/2.0</em><small>務必裝上微距鏡頭解鎖</small></dd>
+        <dt>ISO</dt><dd>800–1600<small>純淨底線，不要開 Auto</small></dd>
+        <dt>白平衡</dt><dd><em>3500–4000K</em><small>手動固定，防紫灰天空</small></dd>
+        <dt>銳利度</dt><dd>-1 (低)<small>防夜拍數位雜訊</small></dd>
+        <dt>輸出</dt><dd>4K 4:3<small>拍到最多天空與地面</small></dd>
+        <dt>操作</dt><dd>語音控制<small>喊 Take Photo 零晃動</small></dd>
+      </dl>
+    </div>
+
+    <div class="qcard">
+      <div class="qr">卡 3 · 有現場聲音</div>
+      <div class="qt">🎬 Action 6 · 即時影片</div>
+      <div class="qn">超級夜景錄影 SuperNight</div>
+      <dl>
+        <dt>模式</dt><dd>超級夜景錄影</dd>
+        <dt>光圈</dt><dd><em>f/2.0</em><small>此模式免配件即可選 ✅</small></dd>
+        <dt>解析度</dt><dd><em>4K 24fps</em><small>幀率越低每格越亮</small></dd>
+        <dt>ISO</dt><dd>12800–25600<small>此模式上限 51200</small></dd>
+        <dt>白平衡</dt><dd><em>4000K</em><small>手動固定</small></dd>
+        <dt>防抖</dt><dd>上腳架時關閉</dd>
+        <dt>時長</dt><dd>1–2 分鐘</dd>
+        <dt>前提</dt><dd>極光要夠強<small>肉眼看得到綠色才拍得到</small></dd>
+      </dl>
+    </div>
+
+  </div>
+
+  <h3>間隔 ↔ 成片長度對照（30fps 輸出）</h3>
+  <div class="tw"><table>
+    <tr><th class="nowrap">想要成片</th><th class="nowrap">間隔 2 秒</th><th class="nowrap">間隔 3 秒</th><th class="nowrap">間隔 5 秒</th></tr>
+    <tr><td class="nowrap">10 秒</td><td class="nowrap">拍 10 分</td><td class="nowrap">拍 15 分</td><td class="nowrap">拍 25 分</td></tr>
+    <tr><td class="nowrap">15 秒</td><td class="nowrap">拍 15 分</td><td class="nowrap">拍 22 分</td><td class="nowrap">拍 37 分</td></tr>
+    <tr><td class="nowrap"><b>20 秒</b>（建議）</td><td class="nowrap"><b>拍 20 分</b></td><td class="nowrap"><b>拍 30 分</b></td><td class="nowrap">拍 50 分</td></tr>
+    <tr><td class="nowrap">加速倍率</td><td class="nowrap"><b>60×</b></td><td class="nowrap"><b>90×</b></td><td class="nowrap">150×</td></tr>
+  </table></div>
+  <div class="note ok"><b>極光縮時的甜蜜點是間隔 2～4 秒。</b>太長（5 秒以上）極光會跑得像閃電，反而不自然。</div>
+
+  <h3>參考來源：網友實測的 Pocket 3 參數</h3>
+  <div class="tw"><table>
+    <tr><th class="nowrap">項目</th><th>原始設定</th><th>Claude 解讀</th></tr>
+    <tr><td class="nowrap">輸出</td><td>4K 30fps</td><td>標準</td></tr>
+    <tr><td class="nowrap">間隔</td><td><b>2 秒</b></td><td>✅ 60× 加速，流動感自然</td></tr>
+    <tr><td class="nowrap">時長</td><td>5 分鐘</td><td>⚠️ <b>只出 5 秒影片，太短</b>，建議拉到 15–20 分</td></tr>
+    <tr><td class="nowrap">EV</td><td>+0.7</td><td>✅ 刻意拍亮，讓極光更明顯</td></tr>
+    <tr><td class="nowrap">ISO</td><td>50–6400（自動範圍）</td><td>⚠️ 能應付亮度變化，但<b>每張不同 → 有閃爍風險</b></td></tr>
+    <tr><td class="nowrap">白平衡</td><td><b>4800K 固定</b></td><td>✅ <b>最關鍵的一項</b>，防止顏色跳動</td></tr>
+  </table></div>
+  <div class="note"><b>為什麼 Action 6 要把間隔拉長？</b>Pocket 3 是 <b>1 吋</b>感光元件，Action 6 是 <b>1/1.1 吋</b>，受光面積較小，需要更長的單格曝光才夠亮。</div>
+
+  <h3>三條鐵則</h3>
+  <div class="note hot"><b>① 白平衡一定要手動固定。</b>自動白平衡會讓極光一格綠、一格藍，整段影片閃爍——這是縮時最常見也最致命的失敗。</div>
+  <div class="note hot"><b>② 對焦一定要手動 ∞。</b>自動對焦在黑暗中找不到對比會來回拉，每一格焦點都不一樣。</div>
+  <div class="note hot"><b>③ 開拍後絕對不要碰腳架。</b>碰一下那一格就跳掉，成片會出現明顯抖動。要按手機快門請用藍牙遙控。</div>
 </div></section>
 
 <section id="flow"><div class="wrap">
