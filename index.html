@@ -83,6 +83,8 @@ a{color:var(--accent)}
   padding:7px 12px;border-radius:10px;border:1px solid var(--border);background:var(--card);transition:.18s}
 .tb-link:hover{border-color:var(--border-strong);transform:translateY(-1px)}
 @media(min-width:541px){.tb-dates + .tb-link{margin-left:14px}}
+.tb-link + .tb-link{margin-left:0}
+@media(max-width:420px){.tb-link{padding:6px 8px;font-size:12px}}
 #themeBtn{
   flex:0 0 auto;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:17px;line-height:1;
   background:var(--card);border:1px solid var(--border);color:var(--text);transition:.2s
@@ -338,6 +340,7 @@ details.arc[open]>summary{margin-bottom:10px}
     <div class="brand">🏔️ 英倫 × 冰島<small>2026 / 第六版</small></div>
     <div class="tb-dates"><b>11/11</b> – <b>11/22</b>　12 天</div>
     <a class="tb-link" href="./aurora.html">🌌 極光拍攝</a>
+    <a class="tb-link" href="./shots.html">🎬 短片清單</a>
     <button id="themeBtn" type="button" aria-label="切換日／夜間模式" title="切換日／夜間模式">🌙</button>
   </div>
 </div>

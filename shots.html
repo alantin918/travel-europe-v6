@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1020">
+<meta name="description" content="冰島極光拍攝現場流程：Action 6 × S23 Ultra 分工、參數速查、防風除霜電池對策">
+<title>冰島每日短片清單｜英倫與冰島 12 天</title>
+<style>
+:root{
+  --bg:#0b1020; --bg2:#101830; --card:rgba(255,255,255,.055); --card-solid:#141d38;
+  --border:rgba(255,255,255,.11); --border-strong:rgba(255,255,255,.2);
+  --text:#eef2ff; --muted:#a3b0d4; --dim:#7c89ad;
+  --accent:#6ea8ff; --accent2:#8be9c0; --warn:#ffd166; --hot:#ff8fa3;
+  --shadow:0 18px 50px rgba(0,0,0,.45);
+  --glow:radial-gradient(1200px 600px at 15% -10%, rgba(110,168,255,.22), transparent 60%),
+         radial-gradient(900px 500px at 95% 0%, rgba(139,233,192,.15), transparent 55%);
+}
+html[data-theme="light"]{
+  --bg:#f5f7fc; --bg2:#ffffff; --card:rgba(255,255,255,.78); --card-solid:#ffffff;
+  --border:rgba(15,30,70,.12); --border-strong:rgba(15,30,70,.22);
+  --text:#131a2e; --muted:#4a5878; --dim:#6b7794;
+  --accent:#2563eb; --accent2:#0f9b73; --warn:#b06f00; --hot:#c0264a;
+  --shadow:0 14px 38px rgba(20,40,90,.13);
+  --glow:radial-gradient(1100px 560px at 12% -12%, rgba(37,99,235,.13), transparent 60%),
+         radial-gradient(900px 500px at 96% 0%, rgba(15,155,115,.12), transparent 55%);
+}
+/* 紅光夜視模式：極光現場用，不破壞夜視力、不干擾旁人拍照 */
+html[data-theme="night"]{
+  --bg:#070000; --bg2:#0f0200; --card:rgba(255,80,40,.055); --card-solid:#160400;
+  --border:rgba(255,90,50,.18); --border-strong:rgba(255,110,60,.34);
+  --text:#ff8a63; --muted:#c9603f; --dim:#96442c;
+  --accent:#ff9166; --accent2:#ff7043; --warn:#ffa06b; --hot:#ff6b4a;
+  --shadow:none; --glow:none;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;color:var(--text);background:var(--bg);background-image:var(--glow);
+  background-attachment:fixed;
+  font-family:"PingFang TC","Noto Sans TC","Hiragino Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  line-height:1.75;letter-spacing:.01em;transition:background-color .35s ease,color .35s ease;
+}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+a{color:var(--accent)}
+h2{font-size:clamp(20px,4.4vw,27px);margin:0 0 4px;letter-spacing:-.01em}
+h3{font-size:clamp(15.5px,3vw,18px);margin:22px 0 10px}
+p{margin:8px 0}
+section{padding:clamp(22px,3.8vw,34px) 0;scroll-margin-top:104px}
+.lead{color:var(--muted);font-size:14.5px;margin:0 0 18px}
+
+/* 頂部列 */
+.topbar{border-bottom:1px solid var(--border)}
+.topbar-in{display:flex;align-items:center;gap:10px;height:54px}
+.brand{font-weight:800;font-size:15px;white-space:nowrap}
+.brand small{display:block;font-weight:500;font-size:11px;color:var(--dim);letter-spacing:.08em}
+.tb-spacer{margin-left:auto}
+.back{font-size:12.5px;color:var(--dim);text-decoration:none;white-space:nowrap}
+.back:hover{color:var(--text)}
+#themeBtn{
+  flex:0 0 auto;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:17px;line-height:1;
+  background:var(--card);border:1px solid var(--border);color:var(--text);transition:.2s
+}
+#themeBtn:hover{border-color:var(--border-strong);transform:translateY(-1px)}
+
+/* 錨點導覽 */
+.navbar{position:sticky;top:0;z-index:55;background:var(--bg);border-bottom:1px solid var(--border)}
+.navs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.navs::-webkit-scrollbar{display:none}
+.navs a{
+  flex:0 0 auto;padding:13px 12px;font-size:14px;color:var(--dim);text-decoration:none;
+  white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-1px;transition:.18s
+}
+.navs a:hover,.navs a.on{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* Hero */
+.hero{padding:clamp(20px,4vw,34px) 0 6px}
+.tag{
+  display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.12em;
+  padding:6px 14px;border-radius:999px;border:1px solid var(--border-strong);
+  background:var(--card);color:var(--accent2);font-weight:700
+}
+h1{font-size:clamp(26px,6vw,44px);line-height:1.2;margin:16px 0 8px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:15px;max-width:60ch}
+
+/* 卡片 */
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:clamp(14px,2.6vw,20px);box-shadow:var(--shadow)
+}
+.grid{display:grid;gap:12px}
+@media(min-width:720px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+.k{font-size:12px;letter-spacing:.1em;color:var(--dim);font-weight:700;text-transform:uppercase}
+.big{font-size:clamp(22px,5vw,32px);font-weight:800;line-height:1.25;margin:6px 0 2px}
+
+/* 分工圖 */
+.split{display:grid;gap:12px}
+@media(min-width:720px){.split{grid-template-columns:1fr 1fr}}
+.dev{border-radius:16px;padding:clamp(14px,2.6vw,20px);border:1px solid var(--border-strong);background:var(--card)}
+.dev .name{font-size:17px;font-weight:800;margin-bottom:2px}
+.dev .role{font-size:13px;color:var(--accent2);font-weight:700;letter-spacing:.04em}
+.dev ul{margin:12px 0 0;padding-left:1.15em}
+.dev li{margin:5px 0;font-size:14.5px}
+
+/* 表格 */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px;border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:420px;background:var(--card)}
+th,td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-size:12.5px;letter-spacing:.06em;color:var(--dim);font-weight:700;background:var(--bg2);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td b{color:var(--accent2)}
+.nowrap{white-space:nowrap}
+
+/* 快門速查 */
+.shut{display:grid;gap:10px}
+@media(min-width:640px){.shut{grid-template-columns:repeat(3,1fr)}}
+.sh{border-radius:14px;border:1px solid var(--border-strong);background:var(--card);padding:16px;text-align:center}
+.sh .lv{font-size:12.5px;color:var(--dim);font-weight:700;letter-spacing:.08em}
+.sh .val{font-size:clamp(26px,6.5vw,36px);font-weight:800;margin:6px 0 2px;color:var(--accent)}
+.sh .why{font-size:13px;color:var(--muted)}
+
+/* 時間軸 */
+.tl{position:relative;margin:0;padding:0 0 0 26px;list-style:none}
+.tl:before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--border-strong)}
+.tl li{position:relative;margin:0 0 20px}
+.tl li:before{
+  content:"";position:absolute;left:-26px;top:7px;width:14px;height:14px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--accent)
+}
+.tl .when{font-size:12.5px;letter-spacing:.08em;color:var(--accent2);font-weight:700}
+.tl .what{font-size:16px;font-weight:700;margin:2px 0 6px}
+.tl ol,.tl ul{margin:6px 0 0;padding-left:1.2em}
+.tl li li{margin:4px 0;font-size:14.5px}
+
+/* 提示條 */
+.note{border-left:3px solid var(--warn);background:var(--card);border-radius:0 12px 12px 0;padding:12px 14px;margin:14px 0;font-size:14.5px}
+.note.hot{border-left-color:var(--hot)}
+.note.ok{border-left-color:var(--accent2)}
+.note b{color:var(--text)}
+
+/* 勾選清單 */
+.chk{list-style:none;margin:0;padding:0}
+.chk li{border-bottom:1px solid var(--border)}
+.chk li:last-child{border-bottom:0}
+.chk label{display:flex;gap:12px;align-items:flex-start;padding:12px 2px;cursor:pointer;font-size:15px}
+.chk input{
+  flex:0 0 auto;appearance:none;-webkit-appearance:none;width:24px;height:24px;margin:0;
+  border:2px solid var(--border-strong);border-radius:7px;background:transparent;cursor:pointer;
+  position:relative;transition:.15s
+}
+.chk input:checked{background:var(--accent2);border-color:var(--accent2)}
+.chk input:checked:after{
+  content:"";position:absolute;left:7px;top:3px;width:6px;height:12px;
+  border:solid #06120d;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)
+}
+.chk input:checked+span{color:var(--dim);text-decoration:line-through}
+.chk-actions{display:flex;gap:8px;margin-top:12px}
+.btn{
+  font-family:inherit;font-size:13px;padding:9px 15px;border-radius:11px;cursor:pointer;
+  background:var(--card);border:1px solid var(--border);color:var(--muted);transition:.18s
+}
+.btn:hover{border-color:var(--border-strong);color:var(--text)}
+
+/* 風速表 */
+.wind{display:grid;gap:10px}
+@media(min-width:640px){.wind{grid-template-columns:repeat(3,1fr)}}
+.wd{border-radius:14px;padding:14px;border:1px solid var(--border);background:var(--card)}
+.wd .sp{font-size:19px;font-weight:800}
+.wd.go .sp{color:var(--accent2)} .wd.care .sp{color:var(--warn)} .wd.stop .sp{color:var(--hot)}
+.wd .act{font-size:14px;color:var(--muted);margin-top:4px}
+
+footer{border-top:1px solid var(--border);padding:26px 0 44px;color:var(--dim);font-size:13px}
+
+/* 現場速查卡 */
+.qc{display:grid;gap:12px}
+@media(min-width:900px){.qc{grid-template-columns:repeat(3,1fr)}}
+.qcard{border-radius:16px;border:1px solid var(--border-strong);background:var(--card);padding:16px;box-shadow:var(--shadow)}
+.qcard .qr{font-size:11.5px;font-weight:800;color:var(--accent2);letter-spacing:.1em;text-transform:uppercase}
+.qcard .qt{font-size:17.5px;font-weight:800;margin:2px 0 0;line-height:1.3}
+.qcard .qn{font-size:12.5px;color:var(--dim);margin-top:3px}
+.qcard dl{margin:12px 0 0;display:grid;grid-template-columns:auto 1fr;gap:0}
+.qcard dt{font-size:12.5px;color:var(--dim);font-weight:700;padding:8px 10px 8px 0;border-top:1px solid var(--border);white-space:nowrap}
+.qcard dd{margin:0;font-size:15px;font-weight:700;padding:8px 0;border-top:1px solid var(--border);text-align:right;line-height:1.35}
+.qcard dl>dt:first-child,.qcard dl>dt:first-child+dd{border-top:0}
+.qcard dd em{font-style:normal;color:var(--accent);font-size:17.5px;font-weight:800}
+.qcard dd small{display:block;font-size:11.5px;font-weight:600;color:var(--dim)}
+.byclaude{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.1em;font-weight:800;
+  color:var(--accent);border:1px dashed var(--border-strong);border-radius:999px;padding:4px 11px;margin-bottom:8px}
+
+/* 回到頂端 */
+#top{
+  position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:60;
+  width:44px;height:44px;border-radius:14px;border:1px solid var(--border-strong);
+  background:var(--card-solid);color:var(--text);cursor:pointer;font-size:17px;
+  opacity:0;pointer-events:none;transition:.22s
+}
+#top.show{opacity:1;pointer-events:auto}
+
+@media print{
+  .topbar,.navbar,#top,#themeBtn{display:none}
+  body{background:#fff;color:#000}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap topbar-in">
+  <div class="brand">冰島每日短片清單<small>ICELAND SHOT LIST</small></div>
+  <span class="tb-spacer"></span>
+  <a class="back" href="./aurora.html">🌌 極光拍攝</a>
+  <a class="back" href="./index.html">← 行程主頁</a>
+  <button id="themeBtn" type="button" aria-label="切換顯示模式" title="夜間 / 日間 / 紅光夜視">🌙</button>
+</div></div>
+
+<nav class="navbar"><div class="wrap"><div class="navs" id="navs">
+  <a href="#rules">拍攝原則</a>
+  <a href="#d13">11/13</a>
+  <a href="#d14">11/14</a>
+  <a href="#d15">11/15</a>
+  <a href="#d16">11/16</a>
+  <a href="#d17">11/17</a>
+  <a href="#d18">11/18</a>
+  <a href="#edit">回程剪片</a>
+</div></div></nav>
+
+<header class="hero"><div class="wrap">
+  <span class="tag">🎬 11/13–11/18 · 冰島</span>
+  <h1>每天拍什麼</h1>
+  <p class="sub">目標：<b>回程 CI82 上用手機剪出一支 2–3 分鐘的旅行影片</b>。每天只拍 ★ 必拍的幾段，每段 10–15 秒，拍完點一下打勾（記在這台裝置上）。</p>
+</div></header>
+
+<section id="rules"><div class="wrap">
+  <h2>拍攝原則</h2>
+  <div class="tw"><table>
+    <tr><th class="nowrap">原則</th><th>怎麼做</th></tr>
+    <tr><td class="nowrap">少而精</td><td>每天 <b>★ 3–5 段</b>就好，素材少回來才剪得完</td></tr>
+    <tr><td class="nowrap">每段長度</td><td><b>10–15 秒</b>；開頭和結尾各<b>停 2 秒不動</b>，剪接時才好接</td></tr>
+    <tr><td class="nowrap">動靜搭配</td><td>一個景點拍「一段固定鏡頭＋一段移動鏡頭」，移動要<b>很慢</b></td></tr>
+    <tr><td class="nowrap">要有人</td><td>每天至少一段有你們自己（自拍、背影、手、腳步），影片才有溫度</td></tr>
+    <tr><td class="nowrap">錄聲音</td><td>間歇泉、冰爪、海浪、驚呼聲都很珍貴，<b>不要每段都配音樂蓋掉</b></td></tr>
+    <tr><td class="nowrap">直橫兩用</td><td>A6 錄 <b>4K 4:3</b>，事後要裁直式（Reels）或橫式都可以</td></tr>
+    <tr><td class="nowrap">每晚備份</td><td>睡前把當天影片傳到手機，<b>順便刪掉明顯失敗的</b>，剪片時省一半時間</td></tr>
+  </table></div>
+  <div class="note"><b>器材代號：</b>🎬 A6 ＝ DJI Action 6 ／ 📱 S23U ＝ Galaxy S23 Ultra ／ 🟡 GO 3 ＝ Insta360 GO 3。<br>
+  <b>還沒決定買 A6？</b>寫「A6／GO 3」的段落改用 GO 3；夜間影片改用 S23U；慢動作改用 S23U 的慢動作模式。清單一樣能用。</div>
+</div></section>
+
+<section id="d13"><div class="wrap">
+  <h2>11/13（五）· 開場：飛往冰島</h2>
+  <p class="lead">🛫 LTN 15:55 → KEF 19:10 · 住 KONVIN</p>
+  <ul class="chk">
+    <li><label><input type="checkbox" data-id="s1"><span><b>★ 起飛時窗外的夕陽與雲海</b>｜📱 S23U／🎬 A6<br><span style="color:var(--muted);font-size:13.5px">8F 右側窗；15:55 起飛剛好是倫敦日落，<b>起飛前 5 分鐘就開錄</b></span></span></label></li>
+    <li><label><input type="checkbox" data-id="s2"><span><b>機上極光（有的話）</b>｜📱 S23U 夜間模式<br><span style="color:var(--muted);font-size:13.5px">外套罩頭貼窗，見「極光拍攝 → 拍攝模式 → 飛機上」</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s3"><span><b>★ 出關後第一句「到冰島了！」自拍</b>｜🎬 A6 前螢幕／📱 S23U<br><span style="color:var(--muted);font-size:13.5px">5 秒就好，這是整支片的<b>開場鏡頭</b></span></span></label></li>
+    <li><label><input type="checkbox" data-id="s4"><span><b>KONVIN 晚餐／房間窗外</b>｜📱 S23U<br><span style="color:var(--muted);font-size:13.5px">當作「第一晚」的過場</span></span></label></li>
+  </ul>
+</div></section>
+
+<section id="d14"><div class="wrap">
+  <h2>11/14（六）· 藍湖＋雷克雅維克</h2>
+  <p class="lead">♨️ 藍湖 09:00 · 下午市區</p>
+  <ul class="chk">
+    <li><label><input type="checkbox" data-id="s5"><span><b>★ 藍湖清晨的藍調時刻與蒸氣</b>｜🎬 A6（綁手腕繩＋浮力手柄）／🟡 GO 3<br><span style="color:var(--muted);font-size:13.5px">09:00 天還沒亮（日出約 09:45），用<b>超級夜景錄影</b>；鏡頭貼近水面拍蒸氣飄過</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s6"><span><b>★ 兩人敷矽泥面膜</b>｜🎬 A6 前螢幕／🟡 GO 3<br><span style="color:var(--muted);font-size:13.5px">笑一下、揮手，10 秒</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s7"><span><b>藍湖從暗到亮的縮時</b>｜🎬 A6 縮時<br><span style="color:var(--muted);font-size:13.5px">放在置物台上 10 分鐘，拍天色變亮（不放心就跳過）</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s8"><span><b>★ 哈爾格林姆教堂塔頂俯瞰彩色屋頂</b>｜📱 S23U 照片＋🎬 A6 慢慢橫移<br><span style="color:var(--muted);font-size:13.5px">橫移要<b>很慢</b>，10 秒只轉 90 度</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s9"><span><b>主街／彩虹街散步第一人稱</b>｜🟡 GO 3 胸前／🎬 A6<br><span style="color:var(--muted);font-size:13.5px">邊走邊錄，順便錄到街上的聲音</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s10"><span><b>★ 傍晚 16:25 前後的城市燈光</b>｜🎬 A6 超級夜景／📱 S23U<br><span style="color:var(--muted);font-size:13.5px">藍調時刻最好看，不要等到全黑</span></span></label></li>
+  </ul>
+</div></section>
+
+<section id="d15"><div class="wrap">
+  <h2>11/15（日）· 中文團 Day 1：黃金圈＋瀑布</h2>
+  <p class="lead">🚌 09:00 上車 · 住 Hotel Geirland</p>
+  <ul class="chk">
+    <li><label><input type="checkbox" data-id="s11"><span><b>★ 辛格韋德利：走在玄武岩壁之間</b>｜🎬 A6 邊走邊錄／🟡 GO 3<br><span style="color:var(--muted);font-size:13.5px">Almannagjá 步道，開<b>地平線鎖定</b>，岩壁從兩側滑過最有感</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s12"><span><b>★ 史托克間歇泉噴發慢動作</b>｜🎬 A6 <b>4K 120fps</b>／📱 S23U 慢動作<br><span style="color:var(--muted);font-size:13.5px">每 5–7 分鐘噴一次；看到水面<b>鼓起藍色水泡</b>就按錄影，第一次先用眼睛看</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s13"><span><b>★ 藍色秘境瀑布的冰藍色水流</b>｜🎬 A6 低角度貼近水面<br><span style="color:var(--muted);font-size:13.5px">中文團的額外亮點，水色最特別</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s14"><span><b>黃金瀑布全景</b>｜📱 S23U 照片＋🎬 A6 延長桿<br><span style="color:var(--muted);font-size:13.5px">站遠一點拍雙層瀑布，人放在畫面角落比例才出得來</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s15"><span><b>★ 塞里雅蘭瀑布（後方步道有開就走進去）</b>｜🎬 A6／🟡 GO 3（防水）<br><span style="color:var(--muted);font-size:13.5px">鏡頭沾到水珠<b>馬上擦</b>；步道封閉就拍正面＋兩人背影</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s16"><span><b>🌌 夜：Geirland 極光</b>｜🎬 A6 縮時＋📱 S23U 照片<br><span style="color:var(--muted);font-size:13.5px">全程機會最好的兩晚之一；照「極光拍攝」頁流程</span></span></label></li>
+  </ul>
+</div></section>
+
+<section id="d16"><div class="wrap">
+  <h2>11/16（一）· 中文團 Day 2：冰河湖＋藍冰洞 🏆</h2>
+  <p class="lead">🧊 全片高潮 · 住 Hotel Geirland</p>
+  <ul class="chk">
+    <li><label><input type="checkbox" data-id="s17"><span><b>★ 冰河湖上漂浮的藍色冰山</b>｜🎬 A6 低角度＋📱 S23U 照片<br><span style="color:var(--muted);font-size:13.5px">鏡頭壓低，讓冰山佔滿畫面</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s18"><span><b>出海口的海豹</b>｜📱 S23U <b>10 倍</b>錄影<br><span style="color:var(--muted);font-size:13.5px">往靠橋靠海那側找；10 倍只有 S23U 拍得到</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s19"><span><b>★ 鑽石沙灘：浪打過冰塊的慢動作</b>｜🎬 A6 4K 120fps<br><span style="color:var(--muted);font-size:13.5px">相機放低靠近冰塊，<b>人絕對不要背對海浪</b></span></span></label></li>
+    <li><label><input type="checkbox" data-id="s20"><span><b>超級吉普車開往冰川</b>｜🎬 A6 窗邊／🟡 GO 3<br><span style="color:var(--muted);font-size:13.5px">顛簸的路配地平線鎖定，很有冒險感</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s21"><span><b>★ 穿上冰爪踩上冰面的第一步</b>｜🎬 A6 胸前／🟡 GO 3 磁吸<br><span style="color:var(--muted);font-size:13.5px">低頭看腳下的第一人稱，冰爪咬進冰面的聲音也錄進去</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s22"><span><b>★ 走進藍冰洞的那一刻</b>｜🎬 A6 胸前或手持<br><span style="color:var(--muted);font-size:13.5px">從洞外慢慢走進去，<b>一鏡到底 15 秒</b>；白平衡固定約 5500K，藍色才不會被修掉</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s23"><span><b>★ 藍冰洞裡兩人的剪影</b>｜📱 S23U 照片＋🎬 A6 固定鏡頭<br><span style="color:var(--muted);font-size:13.5px">人站在洞口逆光處；EV −0.3 避免亮部過曝</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s24"><span><b>🌌 夜：Geirland 極光（最後一次好機會）</b>｜🎬 A6 縮時＋📱 S23U 照片<br><span style="color:var(--muted);font-size:13.5px">極光爆發時切<b>超級夜景錄影</b> 1–2 分鐘，錄下你們的驚呼</span></span></label></li>
+  </ul>
+</div></section>
+
+<section id="d17"><div class="wrap">
+  <h2>11/17（二）· 中文團 Day 3：黑沙灘＋瀑布登頂</h2>
+  <p class="lead">🔀 18:00 分水嶺 · 回雷克雅維克</p>
+  <ul class="chk">
+    <li><label><input type="checkbox" data-id="s25"><span><b>埃爾德赫勞恩苔蘚熔岩原</b>｜🎬 A6 貼近苔蘚慢慢推進<br><span style="color:var(--muted);font-size:13.5px">安靜的過場鏡頭；苔蘚很脆弱，<b>不要踩</b></span></span></label></li>
+    <li><label><input type="checkbox" data-id="s26"><span><b>★ 雷尼斯黑沙灘的玄武岩柱</b>｜🎬 A6＋📱 S23U 照片<br><span style="color:var(--muted);font-size:13.5px">由下往上慢慢搖到岩柱頂端；<b>遠離水邊</b>，這裡有瘋狗浪</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s27"><span><b>黑沙灘海浪慢動作</b>｜🎬 A6 4K 120fps<br><span style="color:var(--muted);font-size:13.5px">站在導遊指示的安全範圍內拍</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s28"><span><b>★ 斯科加瀑布正面的水霧（有太陽可能有彩虹）</b>｜🎬 A6／📱 S23U<br><span style="color:var(--muted);font-size:13.5px">先在瀑布下方拍，有陽光時找彩虹</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s29"><span><b>★ 爬 527 級階梯登頂</b>｜🎬 A6 運動延時（Hyperlapse）／🟡 GO 3<br><span style="color:var(--muted);font-size:13.5px">從底部開錄到頂端，最後會變成十幾秒的快轉，很有成就感</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s30"><span><b>晚上：Sky Lagoon 或岩漿秀</b>｜📱 S23U<br><span style="color:var(--muted);font-size:13.5px"><b>依現場規定</b>，有些區域不能拍；能拍就留一段當作冰島的最後一晚</span></span></label></li>
+  </ul>
+</div></section>
+
+<section id="d18"><div class="wrap">
+  <h2>11/18（三）· 結尾：離開冰島</h2>
+  <p class="lead">🛫 KEF 12:05 → LTN</p>
+  <ul class="chk">
+    <li><label><input type="checkbox" data-id="s31"><span><b>Flybus 窗外的清晨</b>｜📱 S23U<br><span style="color:var(--muted);font-size:13.5px">天還沒亮，拍窗外的路燈與雪地</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s32"><span><b>★ 起飛後窗外的冰川與海岸線</b>｜📱 S23U／🎬 A6<br><span style="color:var(--muted);font-size:13.5px">坐左側 A 窗才看得到冰川（座位還沒選的話記得選）</span></span></label></li>
+    <li><label><input type="checkbox" data-id="s33"><span><b>★ 「再見冰島」結尾自拍</b>｜🎬 A6 前螢幕／📱 S23U<br><span style="color:var(--muted);font-size:13.5px">和開場的「到冰島了」<b>前後呼應</b>，剪起來最完整</span></span></label></li>
+  </ul>
+</div></section>
+
+<section id="edit"><div class="wrap">
+  <h2>回程 CI82 上剪片</h2>
+  <p class="lead">十幾個小時的長程航班，<b>下飛機前完成</b>，回家就不會拖。</p>
+  <div class="tw"><table>
+    <tr><th class="nowrap">段落</th><th>放什麼</th><th class="nowrap">長度</th></tr>
+    <tr><td class="nowrap">開場</td><td>起飛夕陽 → 「到冰島了！」自拍</td><td class="nowrap">10 秒</td></tr>
+    <tr><td class="nowrap">第一幕</td><td>藍湖蒸氣、面膜、教堂俯瞰、城市燈光</td><td class="nowrap">20–30 秒</td></tr>
+    <tr><td class="nowrap">第二幕</td><td>岩壁步道、間歇泉慢動作、三座瀑布</td><td class="nowrap">30–40 秒</td></tr>
+    <tr><td class="nowrap">高潮</td><td>冰山、鑽石沙灘、冰爪第一步、<b>走進藍冰洞</b>、極光</td><td class="nowrap">40–50 秒</td></tr>
+    <tr><td class="nowrap">收尾</td><td>黑沙灘、瀑布登頂快轉、窗外冰川 → 「再見冰島」</td><td class="nowrap">20–30 秒</td></tr>
+  </table></div>
+  <ul>
+    <li><b>App：</b>CapCut 或 DJI Mimo（有自動剪輯和範本）。<b>音樂先在台灣下載好</b>，機上可能沒網路</li>
+    <li><b>先選音樂再剪</b>，畫面跟著節拍切換，看起來就很專業</li>
+    <li>保留 2–3 段<b>原音</b>（間歇泉、驚呼、冰爪），音樂在那幾秒調小聲</li>
+    <li>素材和手機都要有電：登機前把行動電源充飽</li>
+  </ul>
+  <div class="chk-actions"><button id="clearChk" type="button" class="btn">清除所有勾選</button></div>
+</div></section>
+
+<footer><div class="wrap">
+  冰島每日短片清單 · 隸屬「2026 英倫與冰島 12 天（第六版）」 ·
+  <a href="./aurora.html">極光拍攝</a> · <a href="./index.html">回行程主頁</a>
+</div></footer>
+
+<button id="top" type="button" aria-label="回到頂端">↑</button>
+
+<script>
+(function(){
+  /* ===== 主題：dark → light → night(紅光) ===== */
+  var ORDER=['dark','light','night'], ICON={dark:'🌙',light:'☀️',night:'🔴'};
+  var TC={dark:'#0b1020',light:'#f5f7fc',night:'#070000'};
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  var meta=document.querySelector('meta[name="theme-color"]');
+  function setTheme(t){
+    if(ORDER.indexOf(t)<0) t='dark';
+    root.setAttribute('data-theme',t);
+    if(btn) btn.textContent=ICON[t];
+    if(meta) meta.setAttribute('content',TC[t]);
+  }
+  var saved=null;
+  try{ saved=localStorage.getItem('eu6-theme'); }catch(e){}
+  setTheme(saved||'dark');
+  if(btn) btn.addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme');
+    var next=ORDER[(ORDER.indexOf(cur)+1)%ORDER.length];
+    setTheme(next);
+    try{ localStorage.setItem('eu6-theme',next); }catch(e){}
+  });
+
+  /* ===== 勾選清單（記在本機） ===== */
+  var KEY='eu6-shots-chk', state={};
+  try{ state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ state={}; }
+  var boxes=[].slice.call(document.querySelectorAll('.chk input[type=checkbox]'));
+  boxes.forEach(function(b){
+    if(state[b.dataset.id]) b.checked=true;
+    b.addEventListener('change',function(){
+      state[b.dataset.id]=b.checked;
+      try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){}
+    });
+  });
+  var clr=document.getElementById('clearChk');
+  if(clr) clr.addEventListener('click',function(){
+    boxes.forEach(function(b){ b.checked=false; });
+    state={}; try{ localStorage.removeItem(KEY); }catch(e){}
+  });
+
+  /* ===== 錨點導覽高亮 ===== */
+  var links=[].slice.call(document.querySelectorAll('#navs a'));
+  var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  if('IntersectionObserver' in window && secs.length){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        links.forEach(function(a){
+          a.classList.toggle('on', a.getAttribute('href')==='#'+e.target.id);
+        });
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    secs.forEach(function(s){ io.observe(s); });
+  }
+
+  /* ===== 回到頂端 ===== */
+  var top=document.getElementById('top');
+  if(top){
+    top.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+    window.addEventListener('scroll',function(){
+      top.classList.toggle('show', window.scrollY>420);
+    },{passive:true});
+  }
+})();
+</script>
+</body>
+</html>
