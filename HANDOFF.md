@@ -303,3 +303,4 @@
 - 🚗 **11/11 Uber 實查（南岸新地址）**：UberX £47.93、Comfort £50.97 → 建議 Comfort（行李空間）
 - 🎫 Thameslink 怎麼買、11/18 買 Off-Peak Return 兼做 11/19–20 的 2FOR1 車票、2FOR1 改 eVoucher（已寫進大交通與費用分頁）
 - 🆕 **10/12 地鐵小技巧＋極光叫醒**：大交通「刷卡三個坑」摺疊內新增「倫敦地鐵搭乘小技巧」（Citymapper／TfL Go、逐日尖峰檢查、機場線不在上限）；🔴 **更正 11/18 17:10「Piccadilly 線到 Oxford Circus」是錯的**（Piccadilly 不停 Oxford Circus）→ 改 Russell Sq→Holborn 換 Central 2 站，或走路 20–25 分；這是全程唯一碰到地鐵尖峰的一段。住宿卡＋aurora 出門前清單加極光叫醒：KONVIN 有（住客評論，停車場側＝極光側）、Geirland 要問、ASKA 不期待；KONVIN 問題清單加「停車場側房間＋叫醒」
+- ✅ **10/15 Bancone 11/19 改 17:30**（柯芬園店）：劇院安檢要排隊 → 18:30 離開、抓 15 分走到 Palace Theatre；交通博物館改 15:30–17:15。11/18 Bancone Soho 21:00 建議換掉（不必吃兩次，候選 Poppies 炸魚薯條），尚未定案
