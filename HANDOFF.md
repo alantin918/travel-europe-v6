@@ -306,3 +306,4 @@
 - ✅ **10/15 Bancone 11/19 改 17:30**（柯芬園店）：劇院安檢要排隊 → 18:30 離開、抓 15 分走到 Palace Theatre；交通博物館改 15:30–17:15。11/18 Bancone Soho 21:00 建議換掉（不必吃兩次，候選 Poppies 炸魚薯條），尚未定案
 - ✅ **10/16 11/12 加中午趴睡（保留 Horizon 22）**：09:30 出發、各段前移；12:15 One New Change 輕食 → 12:45–13:05 Guildhall Library 趴睡（備案 Royal Exchange）→ 走路到 Horizon 22 13:20（取消公車）；倫敦塔 15:30 New Armouries Café 休息 20 分
 - ✅ **10/16 更正 Horizon 22 開搶日 10/27→10/26（一）台北 18:00**（每週一釋出 14 天後那一整週；10/27 是週二）；Sky Garden 10/19（一）台北 17:00
+- ✅ **10/16 11/12 趴睡改 Royal Exchange**（Guildhall 繞路；12:35 沿 Cheapside 走到 Bank、12:45–13:10 點熱飲趴睡、走 5 分到 Horizon 22）；**11/19 劇前晚餐 Bancone 柯芬園店 → Wingstop Cambridge Circus**（138 Shaftesbury Ave，劇院正對面、櫃台點餐不用訂、17:30 前到；BrewDog 9/20 起停業到 2027 初）；**倫敦地圖補 5a One New Change／5b Royal Exchange／7a Lamb Tavern、Palace Theatre 加 Wingstop**，11/12 說明改全步行
