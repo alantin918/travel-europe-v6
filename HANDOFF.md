@@ -307,3 +307,4 @@
 - ✅ **10/16 11/12 加中午趴睡（保留 Horizon 22）**：09:30 出發、各段前移；12:15 One New Change 輕食 → 12:45–13:05 Guildhall Library 趴睡（備案 Royal Exchange）→ 走路到 Horizon 22 13:20（取消公車）；倫敦塔 15:30 New Armouries Café 休息 20 分
 - ✅ **10/16 更正 Horizon 22 開搶日 10/27→10/26（一）台北 18:00**（每週一釋出 14 天後那一整週；10/27 是週二）；Sky Garden 10/19（一）台北 17:00
 - ✅ **10/16 11/12 趴睡改 Royal Exchange**（Guildhall 繞路；12:35 沿 Cheapside 走到 Bank、12:45–13:10 點熱飲趴睡、走 5 分到 Horizon 22）；**11/19 劇前晚餐 Bancone 柯芬園店 → Wingstop Cambridge Circus**（138 Shaftesbury Ave，劇院正對面、櫃台點餐不用訂、17:30 前到；BrewDog 9/20 起停業到 2027 初）；**倫敦地圖補 5a One New Change／5b Royal Exchange／7a Lamb Tavern、Palace Theatre 加 Wingstop**，11/12 說明改全步行
+- ✅ **10/16 11/18 簡化**：放完行李只在國王十字（St Pancras 聖誕樹＋9¾ 月台 17:00–17:45 → Dishoom King's Cross 17:45（2 人只能訂 18:00 前；備案 Hoppers 任何時段可訂）→ Granary Square＋Coal Drops Yard → 19:45 回）；W1／福楠梅森／Hamleys／Bancone 全取消（福楠梅森可 11/20 Trafalgar 順路）；地圖 12–14 改國王十字。**版型修正**：`.sch>li>details.arc{grid-column:2}`（手機上 details 掉進時間欄被擠成直條）
