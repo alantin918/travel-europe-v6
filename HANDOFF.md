@@ -311,3 +311,5 @@
 - ✅ **10/16 Bancone 排到 11/20 午餐 13:00（柯芬園店 39 William IV St）**：原「悠閒午餐自由選」那格，離特拉法加廣場走 2 分；地圖 11/20 加 20a
 - ✅ **10/16 11/12 中午定案**：12:15 Café Below（St Mary-le-Bow 地窖，平日 7:30–14:30，取代 One New Change）→ 12:45–13:05 St Stephen Walbrook 教堂趴睡（週四約 10–16，備案 Royal Exchange）→ 走 8–9 分到 Horizon 22；地圖 5a／5b 同步
 - ✅ **10/16 藍湖／Sky Lagoon 銀飾提醒**：11/14 藍湖卡片＋泡湯打包清單加「銀戒指等首飾下水前拔下（矽／硫會讓銀發黑）」
+- ✅ **10/17 清理跨分頁 5 處舊資料殘留**：① `#ice` 冰島 12 餐表（11/13 晚改 KONVIN Take Off Bistro，11/14 改藍湖＋Pítan＋Icelandic Street Food） ② `#ice` 熔岩隧道段落的 11/14 動線同步 ③ `#stay` 距離表與 `#trans` 市內移動的 11/20 聖保羅／波羅市場移回 11/12、11/20 改 Bancone＋西敏圈、11/18 W1 改國王十字 ④ `#core` 聖誕市集表攝政街燈飾改未專程排、11/14 Kolaportið 標註已取消、11/21 升等標註已開票 ⑤ `#prep` 與 D5 的 eSIM 同步為 10/10 已買威訊 Orange 20GB
+
