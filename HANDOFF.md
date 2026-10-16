@@ -310,3 +310,4 @@
 - ✅ **10/16 11/18 簡化**：放完行李只在國王十字（St Pancras 聖誕樹＋9¾ 月台 17:00–17:45 → Dishoom King's Cross 17:45（2 人只能訂 18:00 前；備案 Hoppers 任何時段可訂）→ Granary Square＋Coal Drops Yard → 19:45 回）；W1／福楠梅森／Hamleys／Bancone 全取消（福楠梅森可 11/20 Trafalgar 順路）；地圖 12–14 改國王十字。**版型修正**：`.sch>li>details.arc{grid-column:2}`（手機上 details 掉進時間欄被擠成直條）
 - ✅ **10/16 Bancone 排到 11/20 午餐 13:00（柯芬園店 39 William IV St）**：原「悠閒午餐自由選」那格，離特拉法加廣場走 2 分；地圖 11/20 加 20a
 - ✅ **10/16 11/12 中午定案**：12:15 Café Below（St Mary-le-Bow 地窖，平日 7:30–14:30，取代 One New Change）→ 12:45–13:05 St Stephen Walbrook 教堂趴睡（週四約 10–16，備案 Royal Exchange）→ 走 8–9 分到 Horizon 22；地圖 5a／5b 同步
+- ✅ **10/16 藍湖／Sky Lagoon 銀飾提醒**：11/14 藍湖卡片＋泡湯打包清單加「銀戒指等首飾下水前拔下（矽／硫會讓銀發黑）」
