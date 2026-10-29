@@ -16,6 +16,7 @@
 **匯率** | USD 31.83 · GBP 43.43 · CNY 4.745 · **ISK 0.261**（規劃值；2026-09-11 即期 **0.2632**） |
 **回應語言** | 🔴 **繁體中文**。不要用 Agent tool / workflow / deep-research，除非使用者主動要求 |
 **改 HTML 前必做** | Python `html.parser`（含 SVG-aware VOID 集）標籤堆疊檢查 ＋ 每個 `<script>` 跑 `node --check`，全部 assert 過才寫檔。錨點替換一律 `R=[]; rep(a,b,n)` ＋ `assert h.count(a)==n`<br>💡 驗證腳本在 scratchpad/`chk.py`，可重建 |
+**Telegram 照片** | @AlanCIAN_gemma_bot（`~/gemma4-telegram-bot/bot.py`）**只存檔不分析**（2026-10-29）→ `~/歐洲旅行計劃書/photos/YYYY-MM-DD/photo_*.jpg`（有說明的寫進同資料夾 `captions.txt`）；最新照片：`ls -t ~/歐洲旅行計劃書/photos/*/*.jpg \| head`。旅途記帳：文字或照片說明以「帳 」開頭 → `receipts/日期/` ＋ `receipts/ledger.csv`（時間, 內容, 照片）。🔴 收據不可放進 web-v6（公開 repo） |
 **過期檔案** | ⚠️ `../travel_plan_v6.md` **從沒更新過、嚴重過期**，不要引用 |
 
 ### 🔴 改檔常踩的坑（本次 session 實際踩過）
