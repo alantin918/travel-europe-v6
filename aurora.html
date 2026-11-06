@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1020">
+<meta name="description" content="冰島極光拍攝現場流程：Action 6 × S23 Ultra 分工、參數速查、防風除霜電池對策">
+<title>冰島極光拍攝流程｜英倫與冰島 12 天</title>
+<style>
+:root{
+  --bg:#0b1020; --bg2:#101830; --card:rgba(255,255,255,.055); --card-solid:#141d38;
+  --border:rgba(255,255,255,.11); --border-strong:rgba(255,255,255,.2);
+  --text:#eef2ff; --muted:#a3b0d4; --dim:#7c89ad;
+  --accent:#6ea8ff; --accent2:#8be9c0; --warn:#ffd166; --hot:#ff8fa3;
+  --shadow:0 18px 50px rgba(0,0,0,.45);
+  --glow:radial-gradient(1200px 600px at 15% -10%, rgba(110,168,255,.22), transparent 60%),
+         radial-gradient(900px 500px at 95% 0%, rgba(139,233,192,.15), transparent 55%);
+}
+html[data-theme="light"]{
+  --bg:#f5f7fc; --bg2:#ffffff; --card:rgba(255,255,255,.78); --card-solid:#ffffff;
+  --border:rgba(15,30,70,.12); --border-strong:rgba(15,30,70,.22);
+  --text:#131a2e; --muted:#4a5878; --dim:#6b7794;
+  --accent:#2563eb; --accent2:#0f9b73; --warn:#b06f00; --hot:#c0264a;
+  --shadow:0 14px 38px rgba(20,40,90,.13);
+  --glow:radial-gradient(1100px 560px at 12% -12%, rgba(37,99,235,.13), transparent 60%),
+         radial-gradient(900px 500px at 96% 0%, rgba(15,155,115,.12), transparent 55%);
+}
+/* 紅光夜視模式：極光現場用，不破壞夜視力、不干擾旁人拍照 */
+html[data-theme="night"]{
+  --bg:#070000; --bg2:#0f0200; --card:rgba(255,80,40,.055); --card-solid:#160400;
+  --border:rgba(255,90,50,.18); --border-strong:rgba(255,110,60,.34);
+  --text:#ff8a63; --muted:#c9603f; --dim:#96442c;
+  --accent:#ff9166; --accent2:#ff7043; --warn:#ffa06b; --hot:#ff6b4a;
+  --shadow:none; --glow:none;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;color:var(--text);background:var(--bg);background-image:var(--glow);
+  background-attachment:fixed;
+  font-family:"PingFang TC","Noto Sans TC","Hiragino Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  line-height:1.75;letter-spacing:.01em;transition:background-color .35s ease,color .35s ease;
+}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+a{color:var(--accent)}
+h2{font-size:clamp(20px,4.4vw,27px);margin:0 0 4px;letter-spacing:-.01em}
+h3{font-size:clamp(15.5px,3vw,18px);margin:22px 0 10px}
+p{margin:8px 0}
+section{padding:clamp(22px,3.8vw,34px) 0;scroll-margin-top:104px}
+.lead{color:var(--muted);font-size:14.5px;margin:0 0 18px}
+
+/* 頂部列 */
+.topbar{border-bottom:1px solid var(--border)}
+.topbar-in{display:flex;align-items:center;gap:10px;height:54px}
+.brand{font-weight:800;font-size:15px;white-space:nowrap}
+.brand small{display:block;font-weight:500;font-size:11px;color:var(--dim);letter-spacing:.08em}
+.tb-spacer{margin-left:auto}
+.back{font-size:12.5px;color:var(--dim);text-decoration:none;white-space:nowrap}
+.back:hover{color:var(--text)}
+#themeBtn{
+  flex:0 0 auto;width:38px;height:38px;border-radius:12px;cursor:pointer;font-size:17px;line-height:1;
+  background:var(--card);border:1px solid var(--border);color:var(--text);transition:.2s
+}
+#themeBtn:hover{border-color:var(--border-strong);transform:translateY(-1px)}
+
+/* 錨點導覽 */
+.navbar{position:sticky;top:0;z-index:55;background:var(--bg);border-bottom:1px solid var(--border)}
+.navs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.navs::-webkit-scrollbar{display:none}
+.navs a{
+  flex:0 0 auto;padding:13px 12px;font-size:14px;color:var(--dim);text-decoration:none;
+  white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-1px;transition:.18s
+}
+.navs a:hover,.navs a.on{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* Hero */
+.hero{padding:clamp(20px,4vw,34px) 0 6px}
+.tag{
+  display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.12em;
+  padding:6px 14px;border-radius:999px;border:1px solid var(--border-strong);
+  background:var(--card);color:var(--accent2);font-weight:700
+}
+h1{font-size:clamp(26px,6vw,44px);line-height:1.2;margin:16px 0 8px;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:15px;max-width:60ch}
+
+/* 卡片 */
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:clamp(14px,2.6vw,20px);box-shadow:var(--shadow)
+}
+.grid{display:grid;gap:12px}
+@media(min-width:720px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+.k{font-size:12px;letter-spacing:.1em;color:var(--dim);font-weight:700;text-transform:uppercase}
+.big{font-size:clamp(22px,5vw,32px);font-weight:800;line-height:1.25;margin:6px 0 2px}
+
+/* 分工圖 */
+.split{display:grid;gap:12px}
+@media(min-width:720px){.split{grid-template-columns:1fr 1fr}}
+.dev{border-radius:16px;padding:clamp(14px,2.6vw,20px);border:1px solid var(--border-strong);background:var(--card)}
+.dev .name{font-size:17px;font-weight:800;margin-bottom:2px}
+.dev .role{font-size:13px;color:var(--accent2);font-weight:700;letter-spacing:.04em}
+.dev ul{margin:12px 0 0;padding-left:1.15em}
+.dev li{margin:5px 0;font-size:14.5px}
+
+/* 表格 */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px;border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:420px;background:var(--card)}
+th,td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-size:12.5px;letter-spacing:.06em;color:var(--dim);font-weight:700;background:var(--bg2);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td b{color:var(--accent2)}
+.nowrap{white-space:nowrap}
+
+/* 快門速查 */
+.shut{display:grid;gap:10px}
+@media(min-width:640px){.shut{grid-template-columns:repeat(3,1fr)}}
+.sh{border-radius:14px;border:1px solid var(--border-strong);background:var(--card);padding:16px;text-align:center}
+.sh .lv{font-size:12.5px;color:var(--dim);font-weight:700;letter-spacing:.08em}
+.sh .val{font-size:clamp(26px,6.5vw,36px);font-weight:800;margin:6px 0 2px;color:var(--accent)}
+.sh .why{font-size:13px;color:var(--muted)}
+
+/* 時間軸 */
+.tl{position:relative;margin:0;padding:0 0 0 26px;list-style:none}
+.tl:before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--border-strong)}
+.tl li{position:relative;margin:0 0 20px}
+.tl li:before{
+  content:"";position:absolute;left:-26px;top:7px;width:14px;height:14px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--accent)
+}
+.tl .when{font-size:12.5px;letter-spacing:.08em;color:var(--accent2);font-weight:700}
+.tl .what{font-size:16px;font-weight:700;margin:2px 0 6px}
+.tl ol,.tl ul{margin:6px 0 0;padding-left:1.2em}
+.tl li li{margin:4px 0;font-size:14.5px}
+
+/* 提示條 */
+.note{border-left:3px solid var(--warn);background:var(--card);border-radius:0 12px 12px 0;padding:12px 14px;margin:14px 0;font-size:14.5px}
+.note.hot{border-left-color:var(--hot)}
+.note.ok{border-left-color:var(--accent2)}
+.note b{color:var(--text)}
+
+/* 勾選清單 */
+.chk{list-style:none;margin:0;padding:0}
+.chk li{border-bottom:1px solid var(--border)}
+.chk li:last-child{border-bottom:0}
+.chk label{display:flex;gap:12px;align-items:flex-start;padding:12px 2px;cursor:pointer;font-size:15px}
+.chk input{
+  flex:0 0 auto;appearance:none;-webkit-appearance:none;width:24px;height:24px;margin:0;
+  border:2px solid var(--border-strong);border-radius:7px;background:transparent;cursor:pointer;
+  position:relative;transition:.15s
+}
+.chk input:checked{background:var(--accent2);border-color:var(--accent2)}
+.chk input:checked:after{
+  content:"";position:absolute;left:7px;top:3px;width:6px;height:12px;
+  border:solid #06120d;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)
+}
+.chk input:checked+span{color:var(--dim);text-decoration:line-through}
+.chk-actions{display:flex;gap:8px;margin-top:12px}
+.btn{
+  font-family:inherit;font-size:13px;padding:9px 15px;border-radius:11px;cursor:pointer;
+  background:var(--card);border:1px solid var(--border);color:var(--muted);transition:.18s
+}
+.btn:hover{border-color:var(--border-strong);color:var(--text)}
+
+/* 風速表 */
+.wind{display:grid;gap:10px}
+@media(min-width:640px){.wind{grid-template-columns:repeat(3,1fr)}}
+.wd{border-radius:14px;padding:14px;border:1px solid var(--border);background:var(--card)}
+.wd .sp{font-size:19px;font-weight:800}
+.wd.go .sp{color:var(--accent2)} .wd.care .sp{color:var(--warn)} .wd.stop .sp{color:var(--hot)}
+.wd .act{font-size:14px;color:var(--muted);margin-top:4px}
+
+footer{border-top:1px solid var(--border);padding:26px 0 44px;color:var(--dim);font-size:13px}
+
+/* 現場速查卡 */
+.qc{display:grid;gap:12px}
+@media(min-width:900px){.qc{grid-template-columns:repeat(3,1fr)}}
+.qcard{border-radius:16px;border:1px solid var(--border-strong);background:var(--card);padding:16px;box-shadow:var(--shadow)}
+.qcard .qr{font-size:11.5px;font-weight:800;color:var(--accent2);letter-spacing:.1em;text-transform:uppercase}
+.qcard .qt{font-size:17.5px;font-weight:800;margin:2px 0 0;line-height:1.3}
+.qcard .qn{font-size:12.5px;color:var(--dim);margin-top:3px}
+.qcard dl{margin:12px 0 0;display:grid;grid-template-columns:auto 1fr;gap:0}
+.qcard dt{font-size:12.5px;color:var(--dim);font-weight:700;padding:8px 10px 8px 0;border-top:1px solid var(--border);white-space:nowrap}
+.qcard dd{margin:0;font-size:15px;font-weight:700;padding:8px 0;border-top:1px solid var(--border);text-align:right;line-height:1.35}
+.qcard dl>dt:first-child,.qcard dl>dt:first-child+dd{border-top:0}
+.qcard dd em{font-style:normal;color:var(--accent);font-size:17.5px;font-weight:800}
+.qcard dd small{display:block;font-size:11.5px;font-weight:600;color:var(--dim)}
+.byclaude{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.1em;font-weight:800;
+  color:var(--accent);border:1px dashed var(--border-strong);border-radius:999px;padding:4px 11px;margin-bottom:8px}
+
+/* 回到頂端 */
+#top{
+  position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:60;
+  width:44px;height:44px;border-radius:14px;border:1px solid var(--border-strong);
+  background:var(--card-solid);color:var(--text);cursor:pointer;font-size:17px;
+  opacity:0;pointer-events:none;transition:.22s
+}
+#top.show{opacity:1;pointer-events:auto}
+
+@media print{
+  .topbar,.navbar,#top,#themeBtn{display:none}
+  body{background:#fff;color:#000}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap topbar-in">
+  <div class="brand">冰島極光拍攝<small>AURORA FIELD GUIDE</small></div>
+  <span class="tb-spacer"></span>
+  <a class="back" href="./shots.html">🎬 短片清單</a>
+  <a class="back" href="./index.html">← 行程主頁</a>
+  <button id="themeBtn" type="button" aria-label="切換顯示模式" title="夜間 / 日間 / 紅光夜視">🌙</button>
+</div></div>
+
+<nav class="navbar"><div class="wrap"><div class="navs" id="navs">
+  <a href="#split">分工</a>
+  <a href="#modes">拍攝模式</a>
+  <a href="#shutter">快門速查</a>
+  <a href="#setup">兩台設定</a>
+  <a href="#quickcard">速查卡</a>
+  <a href="#judge">今晚出不出門</a>
+  <a href="#flow">現場流程</a>
+  <a href="#wind">防風</a>
+  <a href="#frost">除霜</a>
+  <a href="#power">電池</a>
+  <a href="#gear">配件</a>
+  <a href="#time">時間分配</a>
+  <a href="#checklist">出門前清單</a>
+</div></div></nav>
+
+<header class="hero"><div class="wrap">
+  <span class="tag">🌌 11 月 · 冰島</span>
+  <h1>極光拍攝現場流程</h1>
+  <p class="sub">Action 6 跑 4K 縮時，S23 Ultra 拍單張長曝。參數先在旅館設好，現場只要專心防風、除霜、換電池。</p>
+</div></header>
+
+<section id="split"><div class="wrap">
+  <h2>兩台分工</h2>
+  <p class="lead"><b>淡極光</b>兩台都不能「即時錄影」——那是感光元件的物理限制，只能靠縮時。只有極光亮到在跳舞時，Action 6 的超級夜景才錄得到（見下方「拍攝模式」）。各用其長才對。</p>
+  <div class="split">
+    <div class="dev">
+      <div class="role">主力 · 影片</div>
+      <div class="name">DJI Action 6</div>
+      <ul>
+        <li><b>4K 星空縮時</b>（Night Lapse）</li>
+        <li>1/1.1 吋大底 ＋ <b>微距鏡頭解鎖 f/2.0 大光圈</b></li>
+        <li>極地防凍電池，零下暴雪絕不當機</li>
+        <li>架好後 <b>20～30 分鐘不用管</b></li>
+      </ul>
+    </div>
+    <div class="dev">
+      <div class="role">副力 · 照片</div>
+      <div class="name">Galaxy S23 Ultra</div>
+      <ul>
+        <li><b>單張長曝</b>（Pro / Expert RAW）</li>
+        <li>最長快門 <b>30 秒</b> + 運算堆疊降噪</li>
+        <li>感光元件較小，但運算補足 → <b>單張可能比 Luna 乾淨</b></li>
+        <li>拍完立刻能看、能傳</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note hot"><b>不要用 S23U 的「天文攝影」模式拍極光。</b>它曝光 4～10 分鐘，會把會動的極光糊成一片綠霧——那是拍星軌用的。用 <b>Pro 模式</b>。</div>
+  <div class="note ok"><b>Luna 跑縮時的那 20～30 分鐘，就是你用手機拍照的時間。</b>不用一直守著相機，也記得抬頭用眼睛看。</div>
+</div></section>
+
+<section id="modes"><div class="wrap">
+  <h2>拍攝模式怎麼選</h2>
+  <p class="lead">一句話：<b>Action 6 預設跑縮時，極光亮到在跳舞才切超級夜景；S23U 地面用 Pro、飛機上用夜間模式。</b>（2026-10-09 整理）</p>
+
+  <h3>🎞️ 縮時 vs 🎬 超級夜景（Action 6）</h3>
+  <div class="tw"><table>
+    <tr><th class="nowrap">項目</th><th>縮時（靜止延時）</th><th>超級夜景錄影</th></tr>
+    <tr><td class="nowrap">原理</td><td>每隔幾秒拍一張長曝，串成影片</td><td>即時錄影，每格約 1/24 秒</td></tr>
+    <tr><td class="nowrap">淡極光</td><td>✅ <b>拍得到</b>（肉眼看不清也能拍亮）</td><td>❌ 拍不到</td></tr>
+    <tr><td class="nowrap">跳舞極光</td><td>✅ 拍得到，但動作是<b>快轉</b></td><td>✅ <b>真實速度</b>，最震撼</td></tr>
+    <tr><td class="nowrap">畫質</td><td>較乾淨</td><td>雜訊多（ISO 要上萬）</td></tr>
+    <tr><td class="nowrap">聲音</td><td>無</td><td>有，錄得到現場驚呼</td></tr>
+    <tr><td class="nowrap">操作</td><td>架好放 20～30 分鐘</td><td>錄 1～2 分鐘即可</td></tr>
+  </table></div>
+  <div class="note ok"><b>現場切換規則：</b>預設跑縮時 → 極光突然變亮、像簾幕翻動（肉眼看得到綠色）→ <b>停縮時、切超級夜景錄 1～2 分鐘</b> → 再切回縮時。不確定夠不夠亮就<b>繼續縮時</b>，至少一定有素材。爆發通常只有 5～15 分鐘，兩組參數要先在旅館設好（機身能存自訂模式就各存一組）。</div>
+
+  <h3>🎬 超級夜景錄影設定（Action 6・不需微距鏡）</h3>
+  <div class="tw"><table>
+    <tr><th class="nowrap">項目</th><th>設定</th></tr>
+    <tr><td class="nowrap">模式</td><td><b>超級夜景錄影</b>（SuperNight）</td></tr>
+    <tr><td class="nowrap">光圈</td><td>f/2.0（此模式免配件即可選）</td></tr>
+    <tr><td class="nowrap">解析度</td><td><b>4K 24fps</b> — 幀率越低每格越亮</td></tr>
+    <tr><td class="nowrap">ISO</td><td><b>6400 起試</b> → 太暗再升 12800 → 最高 25600（此模式上限 51200）；越高雜訊越多，<b>能低就低</b>。⚠️ 此數值為推算，尚無 A6 即時極光實測紀錄</td></tr>
+    <tr><td class="nowrap">白平衡／對焦</td><td>手動 4000K／手動 ∞</td></tr>
+    <tr><td class="nowrap">防抖</td><td>上腳架時關閉</td></tr>
+    <tr><td class="nowrap">構圖</td><td>下方帶山、樹或人的剪影，比只拍天空生動</td></tr>
+  </table></div>
+
+  <h3>📱 S23U 用哪個模式</h3>
+  <div class="tw"><table>
+    <tr><th class="nowrap">場景</th><th>模式</th><th>原因</th></tr>
+    <tr><td class="nowrap">🏔️ 地面＋腳架</td><td><b>專業模式（Pro）</b>／Expert RAW</td><td>可手動 4～25 秒長曝，畫質最好</td></tr>
+    <tr><td class="nowrap">✈️ 飛機上</td><td><b>夜間模式</b></td><td>多張合成＋光學防手震，手持也不易糊</td></tr>
+    <tr><td class="nowrap">👫 人＋極光</td><td>專業模式，快門約 5 秒、閃光燈關</td><td>請人站著不動 3～5 秒，用另一支手機螢幕微光輕照臉</td></tr>
+    <tr><td class="nowrap">🎞️ 極光影片</td><td><b>超慢速縮時</b>（Hyperlapse）＋腳架</td><td>沒有 A6 時的極光影片做法，見下方「S23U 夜間縮時」</td></tr>
+    <tr><td class="nowrap">❌ 不要用</td><td>天文攝影模式</td><td>曝光好幾分鐘，極光會糊成一片</td></tr>
+  </table></div>
+
+  <h3>🎞️ S23U 夜間縮時（沒有 A6 時的極光影片）</h3>
+  <p class="lead" style="margin-bottom:10px">2026-10-12 新增。起因：有人用 iPhone 15 Pro Max 的「縮時攝影」拍出極光影片（照片用夜間模式＋曝光 +2）。S23U 的對應功能是相機裡的<b>超慢速縮時</b>，放在腳架上、天夠暗時有<b>星軌</b>選項（Samsung 稱 Astro Hyperlapse）。</p>
+  <div class="tw"><table>
+    <tr><th class="nowrap">項目</th><th>設定</th></tr>
+    <tr><td class="nowrap">位置</td><td>相機 →「更多」→ <b>超慢速縮時</b></td></tr>
+    <tr><td class="nowrap">解析度</td><td>UHD（4K）</td></tr>
+    <tr><td class="nowrap">速度</td><td><b>×300</b>（夜空模式，每格曝光較長，淡極光才拍得到）；極光很亮、動得快時可改 <b>×32</b> 或自動，動作比較自然</td></tr>
+    <tr><td class="nowrap">星軌效果</td><td>🔑 <b>先關掉</b> —— 星軌會把每一格疊加，極光容易糊成一片；兩種都試，以台灣實測為準</td></tr>
+    <tr><td class="nowrap">時長</td><td>可設計時器自動停；×300 時 <b>30 分鐘 ≈ 6 秒影片</b>，要拍久一點</td></tr>
+    <tr><td class="nowrap">穩定</td><td><b>一定要腳架</b>，按下去之後不要碰</td></tr>
+    <tr><td class="nowrap">電力</td><td>接行動電源；手機放暖暖包旁邊，零下很快掉電</td></tr>
+  </table></div>
+  <div class="note hot"><b>限制：全部是自動曝光</b> —— 亮度與顏色可能一格一格跳（閃爍），極光太淡時也可能拍不出來；也不能像 A6 那樣手動固定快門、ISO、白平衡。<b>而且手機拿去跑縮時，這段時間就不能用它拍照片</b>（只有一支 S23U 時，要在「照片」與「縮時」之間選一個）。</div>
+  <div class="note ok"><b>出發前實測（決定買不買 A6 的依據）：</b>找有星星的晚上，S23U 上腳架跑 10–15 分鐘超慢速縮時（星軌關、×300），再用夜間模式＋曝光 +1～+2 拍幾張。星空乾淨不閃 → 極光影片 S23U 能顧；很暗、很糊或一直閃 → A6 的手動縮時才有價值。</div>
+  <div class="note"><b>兩台同時拍要兩支腳架</b>——Action 6 跑縮時 20～30 分鐘不能碰，S23U 要有自己的腳架。</div>
+
+  <h3>✈️ 飛機上（11/13 LTN→KEF・8F 右側朝北）</h3>
+  <div class="tw"><table>
+    <tr><th class="nowrap">項目</th><th>飛機上</th><th>地面</th></tr>
+    <tr><td class="nowrap">雲</td><td>🏆 在雲層上，不怕厚雲</td><td>雲厚就沒了</td></tr>
+    <tr><td class="nowrap">曝光</td><td>飛機會晃，最多 1～3 秒</td><td>🏆 腳架 10～25 秒</td></tr>
+    <tr><td class="nowrap">畫質</td><td>雙層窗刮痕、機艙反光</td><td>🏆 乾淨</td></tr>
+    <tr><td class="nowrap">縮時</td><td>幾乎做不到</td><td>🏆 可以</td></tr>
+  </table></div>
+  <ul>
+    <li><b>主力 S23U 夜間模式</b>：主鏡頭 f/1.7、視角窄，不易拍到窗框與反光</li>
+    <li><b>副力 Action 6 超級夜景</b>：只在極光很亮時用；超廣角要<b>鏡頭貼近窗戶</b>，否則會拍到窗框</li>
+    <li>起飛前：S23U 先切夜間模式、<b>螢幕亮度調最低</b>、擦窗戶內側、準備<b>深色外套</b></li>
+    <li>拍攝：<b>外套罩住頭和手機、邊緣壓住窗框</b>擋掉機艙光（成敗關鍵）；手機<b>墊布再靠窗</b>，不要硬貼玻璃（震動會傳過來）</li>
+    <li>對準<b>窗戶中央</b>（邊緣較彎、刮痕多）；按快門後撐住不動 3～5 秒；亂流時多拍幾張</li>
+    <li>可禮貌詢問空服員夜間航段能否調暗客艙燈（不一定會答應）</li>
+  </ul>
+  <div class="note ok"><b>飛機上是「確定看到」，地面才是「拍出作品」。</b>厚雲的晚上，這段航程反而可能是最穩的極光機會。</div>
+</div></section>
+
+<section id="shutter"><div class="wrap">
+  <h2>快門速查</h2>
+  <p class="lead">現場只需要判斷一件事：<b>極光動得快不快</b>。</p>
+  <div class="shut">
+    <div class="sh"><div class="lv">強 · 像簾幕舞動</div><div class="val">4–6 秒</div><div class="why">動得快，快門短才能凍結紋理</div></div>
+    <div class="sh"><div class="lv">中等 · 緩慢流動</div><div class="val">20–25 秒</div><div class="why">最常用的區間</div></div>
+    <div class="sh"><div class="lv">微弱 · 像淡淡的雲</div><div class="val">20–25 秒</div><div class="why">拉長曝光才夠亮</div></div>
+  </div>
+  <div class="note">ISO 一律先設 <b>1600～3200</b>；拍幾張後看直方圖，過亮就縮快門、不要先動 ISO。</div>
+</div></section>
+
+<section id="setup"><div class="wrap">
+  <h2>兩台設定</h2>
+  <p class="lead">全部在<b>旅館有光有暖氣時</b>設定完成。黑暗中戴手套調參數是地獄。</p>
+
+  <h3>DJI Action 6 · 縮時 (需掛上微距鏡頭)</h3>
+  <div class="tw"><table>
+    <tr><th class="nowrap">項目</th><th>設定</th></tr>
+    <tr><td class="nowrap">模式</td><td><b>Night Lapse</b>（靜止延時）</td></tr>
+    <tr><td class="nowrap">快門</td><td>4～25 秒（極光越快、快門越短）</td></tr>
+    <tr><td class="nowrap">ISO</td><td>1600～3200</td></tr>
+    <tr><td class="nowrap">白平衡</td><td><b>手動 3500～4000K</b> — 自動會偏綠偏紫</td></tr>
+    <tr><td class="nowrap">對焦</td><td><b>手動 ∞（無限遠）</b> — 最重要，自動對焦在黑暗中會亂跑</td></tr>
+    <tr><td class="nowrap">間隔</td><td><b>絕對大於快門 3~5 秒</b>（防存檔當機）</td></tr>
+    <tr><td class="nowrap">總時長</td><td>至少 15～30 分鐘才有好素材</td></tr>
+    <tr><td class="nowrap">輸出</td><td>4K / RAW</td></tr>
+  </table></div>
+  <div class="note hot"><b>設定大絕招：</b>務必裝上原廠「微距鏡頭配件」，才能在 M 手動模式下強制解鎖 f/2.0 最大光圈，且千萬不要用 Auto 模式 (快門會被鎖在 1 秒)。</div>
+
+  <h3>Galaxy S23 Ultra · 單張</h3>
+  <div class="tw"><table>
+    <tr><th class="nowrap">項目</th><th>設定</th></tr>
+    <tr><td class="nowrap">App</td><td><b>Expert RAW</b>（Galaxy Store 下載）或內建 <b>Pro 模式</b></td></tr>
+    <tr><td class="nowrap">快門</td><td>依上方速查（1～15 秒）</td></tr>
+    <tr><td class="nowrap">ISO</td><td>1600～3200</td></tr>
+    <tr><td class="nowrap">白平衡</td><td>手動 3500～4000K</td></tr>
+    <tr><td class="nowrap">對焦</td><td><b>手動 ∞</b></td></tr>
+    <tr><td class="nowrap">格式</td><td><b>RAW + JPEG</b> — RAW 後期救援空間大很多</td></tr>
+    <tr><td class="nowrap">穩定</td><td><b>2 秒以上一定要腳架</b>，手持會糊</td></tr>
+  </table></div>
+</div></section>
+
+<section id="quickcard"><div class="wrap">
+  <h2>現場速查卡</h2>
+  <p class="lead">極光一出現就沒空翻手冊——這三張卡直接照抄。建議先切到右上角 🔴 <b>紅光夜視模式</b>再看，不會破壞夜視力。</p>
+
+  <div class="note">
+    <span class="byclaude">⚙️ CLAUDE 評估</span>
+    <span class="byclaude" style="color:var(--accent2)">⚙️ GEMINI 3.1 PRO 評估</span><br>
+    下方三張速查卡由 <b>Claude</b> 依 <b>DJI 官方《Osmo Action 6 光圈模式》文件</b>、Action 6 官方規格，
+    以及一組<b>網友實測的 DJI Pocket 3 極光縮時參數</b>推算換算而成。
+    <b>Gemini 3.1 Pro</b> 另提出一套走「長曝光 ＋ 低 ISO」路線的參數，綜合國外實測與網友心得推演。
+    <b>兩套立場並列於下，刻意不做合併</b>——現場依極光動得快不快自行選用（見「兩派參數立場」）。<br>
+    兩者<b>皆非 DJI 官方建議值</b>，極光強度每晚差異極大，<b>務必以現場試拍結果為準</b>——出發前請先在台灣找有星星的夜晚試跑一次。
+  </div>
+
+  <div class="qc">
+
+    <div class="qcard">
+      <div class="qr">卡 1 · 畫質主力</div>
+      <div class="qt">📱 S23 Ultra</div>
+      <div class="qn">極光縮時 ＋ 單張長曝</div>
+      <dl>
+        <dt>模式</dt><dd>Pro 模式<small>不要用「天文攝影」</small></dd>
+        <dt>快門</dt><dd><em>4–8 秒</em></dd>
+        <dt>ISO</dt><dd>1600–3200<small>固定，不要自動</small></dd>
+        <dt>白平衡</dt><dd><em>4000K</em><small>手動固定</small></dd>
+        <dt>對焦</dt><dd><em>手動 ∞</em></dd>
+        <dt>間隔</dt><dd>快門 ＋1 秒<small>例：曝 5s → 間隔 6s</small></dd>
+        <dt>鏡頭</dt><dd>主鏡頭<small>不要用超廣角</small></dd>
+        <dt>格式</dt><dd>RAW ＋ JPEG</dd>
+        <dt>時長</dt><dd>25–30 分<small>約 300 張 → 10 秒成片</small></dd>
+      </dl>
+    </div>
+
+    <div class="qcard">
+      <div class="qr">卡 2 · 立場 A · CLAUDE</div>
+      <div class="qt">🎬 Action 6 · 縮時</div>
+      <div class="qn">靜止延時（Night Lapse）· 短間隔派</div>
+      <dl>
+        <dt>模式</dt><dd>靜止延時</dd>
+        <dt>光圈</dt><dd><em>f/2.8</em><small>裝微距鏡才可選 f/2.0</small></dd>
+        <dt>快門</dt><dd><em>4–5 秒</em><small>極光越快、快門越短</small></dd>
+        <dt>間隔</dt><dd><em>6–7 秒</em><small>必須大於快門，留 2 秒寫入緩衝</small></dd>
+        <dt>ISO</dt><dd>3200–6400<small>先固定 3200 試拍</small></dd>
+        <dt>白平衡</dt><dd><em>4000–4800K</em><small>手動固定</small></dd>
+        <dt>EV</dt><dd>+0.3 ~ +0.7</dd>
+        <dt>銳利度</dt><dd><em>−1（低）</em><small>機內銳化會放大夜拍雜訊</small></dd>
+        <dt>輸出</dt><dd><em>4K 4:3 · 24fps</em><small>方形大底吃更多天地；24fps 片長多 25%</small></dd>
+        <dt>防抖</dt><dd>關閉<small>上腳架不需要</small></dd>
+        <dt>時長</dt><dd>25–30 分<small>約 260 張 → 11 秒成片</small></dd>
+      </dl>
+    </div>
+
+    <div class="qcard">
+      <div class="qr">卡 3 · 有現場聲音</div>
+      <div class="qt">🎬 Action 6 · 即時影片</div>
+      <div class="qn">超級夜景錄影 SuperNight</div>
+      <dl>
+        <dt>模式</dt><dd>超級夜景錄影</dd>
+        <dt>光圈</dt><dd><em>f/2.0</em><small>此模式免配件即可選 ✅</small></dd>
+        <dt>解析度</dt><dd><em>4K 24fps</em><small>幀率越低每格越亮</small></dd>
+        <dt>ISO</dt><dd>6400 起試<small>太暗再升，最高 25600（上限 51200）</small></dd>
+        <dt>白平衡</dt><dd><em>4000K</em><small>手動固定</small></dd>
+        <dt>防抖</dt><dd>上腳架時關閉</dd>
+        <dt>時長</dt><dd>1–2 分鐘</dd>
+        <dt>前提</dt><dd>極光要夠強<small>肉眼看得到綠色才拍得到</small></dd>
+      </dl>
+    </div>
+
+  </div>
+
+
+  <h3>兩派參數立場（各自成立，未合併）</h3>
+  <p class="lead">同一台 Action 6，兩套截然不同的縮時思路。<b>沒有誰對誰錯——取決於當晚極光動得快不快。</b></p>
+  <div class="tw"><table>
+    <tr><th class="nowrap">項目</th><th>立場 A · Claude<br><span style="color:var(--dim);font-weight:400">短間隔派</span></th><th>立場 B · Gemini 3.1 Pro<br><span style="color:var(--dim);font-weight:400">長曝光派</span></th></tr>
+    <tr><td class="nowrap">快門</td><td><b>4–5 秒</b></td><td><b>15 秒</b>（快則 5–10s）</td></tr>
+    <tr><td class="nowrap">間隔</td><td><b>6–7 秒</b><small style="display:block;color:var(--dim)">快門 ＋2 秒緩衝</small></td><td><b>20 秒</b><small style="display:block;color:var(--dim)">鐵律：大於快門 3~5 秒</small></td></tr>
+    <tr><td class="nowrap">ISO</td><td>3200–6400</td><td><b>800–1600</b></td></tr>
+    <tr><td class="nowrap">光圈</td><td>f/2.8 <span style="color:var(--dim)">（沒微距鏡也能跑）</span></td><td>f/2.0 <span style="color:var(--dim)">（須先買微距鏡）</span></td></tr>
+    <tr><td class="nowrap">白平衡</td><td>4000–4800K</td><td>3500–4000K</td></tr>
+    <tr><td class="nowrap">銳利度</td><td colspan="2" style="text-align:center"><b>−1（低）· 兩派共識</b></td></tr>
+    <tr><td class="nowrap">進光量</td><td>基準</td><td><b>多約 1.1 檔</b>（≈2 倍）</td></tr>
+    <tr><td class="nowrap">加速倍率</td><td><b>144×</b></td><td><b>600×</b></td></tr>
+    <tr><td class="nowrap">拍 30 分成片</td><td><b>約 11 秒</b> ✅</td><td><b>約 3 秒</b> ⚠️</td></tr>
+  </table></div>
+
+  <div class="split" style="margin-top:14px">
+    <div class="dev">
+      <div class="role">立場 A · CLAUDE</div>
+      <div class="name">短間隔 · 保留紋理</div>
+      <ul>
+        <li>✅ 極光舞動的<b>絲狀紋理不會糊</b></li>
+        <li>✅ 拍 30 分就有 10 秒成片，<b>一晚能拍好幾組</b></li>
+        <li>✅ <b>沒買微距鏡也能跑</b>（f/2.8）</li>
+        <li>⚠️ ISO 較高，<b>雜訊比較明顯</b></li>
+      </ul>
+    </div>
+    <div class="dev">
+      <div class="role">立場 B · GEMINI 3.1 PRO</div>
+      <div class="name">長曝光 · 畫質優先</div>
+      <ul>
+        <li>✅ 低 ISO，<b>畫面乾淨很多</b></li>
+        <li>✅ 弱極光也能拍亮</li>
+        <li>⚠️ 極光快速舞動時<b>會糊成一片綠霧</b></li>
+        <li>🔴 <b>成片極短</b>——想要 10 秒影片得拍 100 分鐘</li>
+        <li>🔴 <b>必須先買微距鏡</b>才有 f/2.0</li>
+        <li>🔴 沒微距鏡時 ISO 得<b>加倍到 1600–3200</b>，低 ISO 優勢直接減半</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>現場怎麼選</h3>
+  <div class="note hot"><b>預設一律先用【立場 A】。</b>唯有以下三個條件<b>同時成立</b>才換立場 B：①已買微距鏡（有 f/2.0）②極光是<b>緩慢飄移</b>型 ③還有 <b>60 分鐘以上</b>可耗在同一機位。缺一不可。</div>
+  <div class="tw"><table>
+    <tr><th>肉眼看到的極光</th><th class="nowrap">選哪一派</th><th>理由</th></tr>
+    <tr><td><b>明顯舞動</b>、像簾幕翻騰</td><td class="nowrap"><b>立場 A</b></td><td>長曝會把紋理糊掉</td></tr>
+    <tr><td><b>緩慢飄移</b>、像靜止的光帶</td><td class="nowrap"><b>立場 B</b></td><td>不會糊，畫質更乾淨</td></tr>
+    <tr><td><b>很淡</b>、幾乎看不見</td><td class="nowrap"><b>立場 B</b></td><td>但 ISO 要拉到 3200</td></tr>
+    <tr><td><b>不確定</b> / 只有一次機會</td><td class="nowrap"><b>立場 A</b></td><td>保底——至少一定拿得到完整成片</td></tr>
+  </table></div>
+  <div class="note ok"><b>時間夠的話兩派各跑一次。</b>先用立場 A 拍 20 分鐘<b>保底</b>，確定成片到手後，再換立場 B 拍一段<b>拚畫質</b>。</div>
+
+  <h3>間隔 ↔ 成片長度對照（30fps 輸出）</h3>
+  <div class="tw"><table>
+    <tr><th class="nowrap">想要成片</th><th class="nowrap">間隔 2 秒</th><th class="nowrap">間隔 3 秒</th><th class="nowrap">間隔 5 秒</th></tr>
+    <tr><td class="nowrap">10 秒</td><td class="nowrap">拍 10 分</td><td class="nowrap">拍 15 分</td><td class="nowrap">拍 25 分</td></tr>
+    <tr><td class="nowrap">15 秒</td><td class="nowrap">拍 15 分</td><td class="nowrap">拍 22 分</td><td class="nowrap">拍 37 分</td></tr>
+    <tr><td class="nowrap"><b>20 秒</b>（建議）</td><td class="nowrap"><b>拍 20 分</b></td><td class="nowrap"><b>拍 30 分</b></td><td class="nowrap">拍 50 分</td></tr>
+    <tr><td class="nowrap">加速倍率</td><td class="nowrap"><b>60×</b></td><td class="nowrap"><b>90×</b></td><td class="nowrap">150×</td></tr>
+  </table></div>
+  <div class="note ok"><b>極光縮時的甜蜜點是間隔 2～4 秒。</b>太長（5 秒以上）極光會跑得像閃電，反而不自然。</div>
+  <div class="note"><b>省力技：輸出改 24fps。</b>同樣張數片長直接多 25%（240 張：30fps＝8 秒、<b>24fps＝10 秒</b>），而且更有電影感。</div>
+
+  <h3>參考來源：網友實測的 Pocket 3 參數</h3>
+  <div class="tw"><table>
+    <tr><th class="nowrap">項目</th><th>原始設定</th><th>Claude 解讀</th></tr>
+    <tr><td class="nowrap">輸出</td><td>4K 30fps</td><td>標準</td></tr>
+    <tr><td class="nowrap">間隔</td><td><b>2 秒</b></td><td>✅ 60× 加速，流動感自然</td></tr>
+    <tr><td class="nowrap">時長</td><td>5 分鐘</td><td>⚠️ <b>只出 5 秒影片，太短</b>，建議拉到 15–20 分</td></tr>
+    <tr><td class="nowrap">EV</td><td>+0.7</td><td>✅ 刻意拍亮，讓極光更明顯</td></tr>
+    <tr><td class="nowrap">ISO</td><td>50–6400（自動範圍）</td><td>⚠️ 能應付亮度變化，但<b>每張不同 → 有閃爍風險</b></td></tr>
+    <tr><td class="nowrap">白平衡</td><td><b>4800K 固定</b></td><td>✅ <b>最關鍵的一項</b>，防止顏色跳動</td></tr>
+  </table></div>
+  <div class="note"><b>為什麼 Action 6 要把間隔拉長？</b>Pocket 3 是 <b>1 吋</b>感光元件，Action 6 是 <b>1/1.1 吋</b>，受光面積較小，需要更長的單格曝光才夠亮。</div>
+
+  <h3>三條鐵則</h3>
+  <div class="note hot"><b>① 白平衡一定要手動固定。</b>自動白平衡會讓極光一格綠、一格藍，整段影片閃爍——這是縮時最常見也最致命的失敗。</div>
+  <div class="note hot"><b>② 對焦一定要手動 ∞。</b>自動對焦在黑暗中找不到對比會來回拉，每一格焦點都不一樣。</div>
+  <div class="note hot"><b>③ 開拍後絕對不要碰腳架。</b>碰一下那一格就跳掉，成片會出現明顯抖動。要按手機快門請用藍牙遙控。</div>
+</div></section>
+
+<section id="judge"><div class="wrap">
+  <h2>今晚出不出門：雲 ＞ KP ＞ 月光</h2>
+  <p class="lead">一句話：<b>先看雲，再看 KP，月光幾乎不用管。</b>雲太厚，KP 再高也看不到；冰島緯度高，<b>KP 2–3 就值得出去等</b>。（2026-10-21 整理）</p>
+
+  <h3>☁️ ① 雲量：最重要</h3>
+  <div class="note hot"><b>到 <a href="https://en.vedur.is/weather/forecasts/aurora/" target="_blank" rel="noopener">vedur.is 極光預報</a> 看雲量地圖：白色＝晴、綠色＝有雲。</b>找住處附近是白色的時段。冰島的雲移動很快，<b>有時等 30 分鐘就散了</b>。</div>
+
+  <h3>🧲 ② KP 值：極光有多強（0–9）</h3>
+  <div class="tw"><table>
+    <tr><th class="nowrap">KP</th><th>在冰島看起來</th></tr>
+    <tr><td class="nowrap">0–1</td><td>很弱，可能只是一抹淡淡的光（手機拍得出來）</td></tr>
+    <tr><td class="nowrap"><b>2–3</b></td><td>✅ <b>冰島就夠看了</b>，11 月常見的程度</td></tr>
+    <tr><td class="nowrap"><b>4–5</b></td><td>⭐ 很亮，會在天空跳舞</td></tr>
+    <tr><td class="nowrap">6+</td><td>🤩 大爆發，滿天都是</td></tr>
+  </table></div>
+  <div class="note">📱 <b>My Aurora Forecast</b>（KP 推播）・<b>SpaceWeatherLive</b>（即時太陽風；<b>Bz 轉負</b>代表容易爆發）・<b>Hello Aurora</b>（附近有人看到會通知）。<br>🌞 2026 是<b>太陽第 25 週期極大期（2024/10）後的下降期</b>，活動仍強 —— 歷史上很多超強極光風暴都發生在高峰後一兩年。</div>
+
+  <h3>🌙 ③ 月光：影響很小</h3>
+  <div class="tw"><table>
+    <tr><th class="nowrap">日期</th><th class="nowrap">月亮亮度</th><th>影響</th></tr>
+    <tr><td class="nowrap">11/13</td><td class="nowrap">約 16%（眉月）</td><td>✅ 幾乎沒影響</td></tr>
+    <tr><td class="nowrap">11/14</td><td class="nowrap">約 25%</td><td>✅ 幾乎沒影響</td></tr>
+    <tr><td class="nowrap">11/15</td><td class="nowrap">約 35%</td><td>✅ 影響很小</td></tr>
+    <tr><td class="nowrap">11/16</td><td class="nowrap">約 45%</td><td>🟡 小</td></tr>
+    <tr><td class="nowrap">11/17</td><td class="nowrap">約 56%（上弦）</td><td>🟡 小</td></tr>
+  </table></div>
+  <div class="note ok">新月後的上弦月期間：月亮傍晚在天上、前半夜下山，<b>越晚看干擾越少</b>。一點月光反而好拍 —— 雪地、山、冰山會被照亮，照片更有層次。</div>
+
+  <h3>🎯 每晚的判斷流程</h3>
+  <ol>
+    <li><b>17:00 看 vedur.is 雲量地圖</b> → 附近是白色（晴）嗎？</li>
+    <li><b>看 KP</b> → 2 以上就值得出去等</li>
+    <li><b>離開光害</b>：走到住處外比較暗的地方，等 20–30 分鐘讓眼睛適應黑暗（頭燈用紅光）</li>
+    <li>📱 <b>手機開夜景模式拍一張</b>：肉眼看起來像灰白色的雲，拍出來是<b>綠色</b>就是極光 ✨</li>
+  </ol>
+  <div class="note">⏰ <b>最佳時段約 21:00–01:00</b>，但 11 月 17:00 後就夠黑，有機會隨時抬頭看。🌌 <b>11/15、11/16 住 Hotel Geirland 是光害最低的兩晚</b>。</div>
+</div></section>
+
+<section id="flow"><div class="wrap">
+  <h2>現場流程</h2>
+  <ol class="tl">
+    <li>
+      <div class="when">出門前 · 旅館</div>
+      <div class="what">把黑暗中做不了的事全部做完</div>
+      <ul>
+        <li>兩台電池充滿 ＋ <b>Action 6 微距鏡頭配件</b> ＋ 行動電源</li>
+        <li>記憶卡清空（縮時很吃空間）</li>
+        <li><b>所有參數設定完成</b>，手動對焦 ∞ 先對著窗外遠處設好</li>
+        <li>暖暖包 ×4（相機 2、口袋 2）</li>
+        <li><b>紅光手電筒／頭燈</b> — 白光會毀掉夜視力和旁人的照片</li>
+        <li>麂皮布 / 除霜貼</li>
+        <li>查極光預報：KP 值 ＋ 雲量圖（<a href="https://en.vedur.is/weather/forecasts/aurora/" target="_blank" rel="noopener">vedur.is</a>）</li>
+        <li>🔔 <b>請櫃檯極光叫醒</b>：KONVIN（11/13）<b>有</b>，房間停車場側最好看；Geirland（11/15–16）<b>要問</b>；ASKA Holt 市區自助入住，<b>不期待</b></li>
+        <li>📱 App 通知打開：<b>My Aurora Forecast</b>（KP 推播）＋ <b>Hello Aurora</b>（附近有人看到會通知）</li>
+      </ul>
+    </li>
+    <li>
+      <div class="when">抵達現場 · 極光還沒來</div>
+      <div class="what">架好、壓穩、先開始跑</div>
+      <ol>
+        <li><b>先找避風處</b>：大石後方、車輛下風側、地形凹處</li>
+        <li>架 TT91，<b>桿身縮到最短（約 30cm）</b> — 重心低最穩</li>
+        <li><b>撿石頭壓四腳</b> — 冰島到處是玄武岩</li>
+        <li>相機<b>朝北</b>，構圖留前景（山、石、水面倒影）</li>
+        <li>試拍一張，確認曝光與對焦</li>
+        <li><b>開始縮時</b> — 就算極光還沒來，星空縮時也有價值</li>
+        <li>暖暖包貼機身側面（<b>不要貼鏡頭</b>）</li>
+      </ol>
+    </li>
+    <li>
+      <div class="when">極光出現 · 高峰只有幾分鐘到十幾分鐘</div>
+      <div class="what">Luna 不要動，你去拍照</div>
+      <ul>
+        <li><b>Action 6 繼續跑，絕對不要動它</b></li>
+        <li>S23U 開始拍單張，依極光強度調快門</li>
+        <li><b>每 5 分鐘擦一次鏡頭</b>（兩台都要）</li>
+        <li>拍幾張後看一眼直方圖，過亮就縮快門</li>
+        <li><b>記得抬頭用眼睛看</b> — 別整晚都在看螢幕 😌</li>
+      </ul>
+    </li>
+    <li>
+      <div class="when">收工 · 這步最容易出錯</div>
+      <div class="what">冷相機絕對不要直接進暖房</div>
+      <ul>
+        <li>先把相機<b>裝進收納包並拉緊</b>，在包裡慢慢回溫</li>
+        <li>進室內後<b>至少等 30～60 分鐘</b>再開包</li>
+        <li>或放進<b>密封袋</b>（可加乾燥劑）再進室內</li>
+      </ul>
+      <div class="note hot">冷機直接進溫暖車內或旅館 → <b>嚴重結露，水氣會進機身</b>。這是最常見也最傷相機的錯誤。</div>
+    </li>
+  </ol>
+</div></section>
+
+<section id="wind"><div class="wrap">
+  <h2>防風</h2>
+  <p class="lead">冰島冬季常態 10～20 m/s，陣風可達 30 m/s＋。租車公司普遍提供「風損車門保險」——連車門都吹得壞。</p>
+  <div class="wind">
+    <div class="wd go"><div class="sp">&lt; 8 m/s</div><div class="act">TT91 ＋ 石頭壓腳，可以放心跑縮時</div></div>
+    <div class="wd care"><div class="sp">8–15 m/s</div><div class="act">只在避風處架，<b>人不要走開</b></div></div>
+    <div class="wd stop"><div class="sp">&gt; 15 m/s</div><div class="act"><b>放棄縮時</b>，改用 S23U 手持拍照</div></div>
+  </div>
+  <div class="note"><b>TT91 只有 330g，加上相機共 563g。</b>強風下任何 500g 級的腳架都站不住，這是物理問題不是器材問題。</div>
+  <h3>五個實際做法</h3>
+  <div class="tw"><table>
+    <tr><th>做法</th><th class="nowrap">成本</th><th class="nowrap">效果</th></tr>
+    <tr><td><b>用現地石頭壓四腳</b></td><td class="nowrap">免費</td><td class="nowrap">★★★</td></tr>
+    <tr><td><b>桿身只伸到 60cm 以內</b>（重心低就穩）</td><td class="nowrap">免費</td><td class="nowrap">★★★</td></tr>
+    <tr><td><b>找避風處</b>：大石後、車輛下風側、地形凹處</td><td class="nowrap">免費</td><td class="nowrap">★★★</td></tr>
+    <tr><td>彈力繩把相機包／水瓶綁在桿身<b>中下段</b></td><td class="nowrap">幾十元</td><td class="nowrap">★★★</td></tr>
+    <tr><td>S 掛鉤 ＋ 網袋綁在桿上當配重點</td><td class="nowrap">幾十元</td><td class="nowrap">★★</td></tr>
+  </table></div>
+  <div class="note hot"><b>配重要掛低不掛高。</b>掛在桿身上半段會讓重心變高，反而更容易倒。</div>
+  <div class="note ok"><b>觀念轉換：</b>別想用腳架對抗冰島的風。Action 6 的電子防抖極強——風景錄影直接手持，腳架留給合照和短時固定機位。</div>
+</div></section>
+
+<section id="frost"><div class="wrap">
+  <h2>除霜</h2>
+  <p class="lead">低溫下鏡頭起霜是必然，不是故障。</p>
+  <div class="tw"><table>
+    <tr><th>對策</th><th>說明</th></tr>
+    <tr><td class="nowrap"><b>除霜貼</b></td><td>暖暖包型，貼在鏡頭<b>周圍</b>，不要遮住鏡頭</td></tr>
+    <tr><td class="nowrap"><b>麂皮布</b></td><td><b>每 5 分鐘擦一次</b>，比事後補救有效</td></tr>
+    <tr><td class="nowrap"><b>呼吸方向</b></td><td>相機不要對著自己呼氣的方向 — <b>呼氣是霜的最大來源</b></td></tr>
+    <tr><td class="nowrap"><b>溫度適應</b></td><td>從車裡拿出來後<b>先放外面 5～10 分鐘</b>再開拍</td></tr>
+  </table></div>
+</div></section>
+
+<section id="power"><div class="wrap">
+  <h2>電池</h2>
+  <div class="tw"><table>
+    <tr><th>事實</th><th>對策</th></tr>
+    <tr><td>0°C 以下續航<b>砍半以上</b></td><td>使用<b>極地防凍電池</b> ＋ 備用電池放口袋</td></tr>
+    <tr><td>電池冷了會「假沒電」</td><td><b>放進內層口袋回溫，常常就能再用</b></td></tr>
+    <tr><td>手機掉電更快</td><td><b>S23U 貼身放</b>，只在拍的時候拿出來</td></tr>
+    <tr><td>縮時長時間錄</td><td>暖暖包貼機身側面；記憶卡建議 <b>256GB</b></td></tr>
+  </table></div>
+</div></section>
+
+<section id="gear"><div class="wrap">
+  <h2>Action 6 配件清單</h2>
+  <p class="lead">2026-10-06 整理，預算為台灣市價估算。<b>套裝選暢拍</b>：冰島低溫很吃電，3 顆原廠電池 ＋ 充電收納盒才夠用。</p>
+  <div class="tw"><table>
+    <tr><th>品項</th><th>買嗎</th><th>預算（NT$）</th><th>說明</th></tr>
+    <tr><td><b>暢拍套裝</b><br>（主機＋原廠電池 ×3＋電池收納盒＋1.5m 延長桿）</td><td>✅</td><td><b>約 15,000</b><br><span style="opacity:.7">定價 18,890</span></td><td>蝦皮特價約 <b>NT$15,000</b>（定價 18,890）。🔴 <b>只買「聯強／台灣公司貨」</b>，寫平輸、水貨、陸版的台灣不保固</td></tr>
+    <tr><td><b>microSD 256GB</b>（主卡）</td><td>✅ 必買</td><td>700–1,100</td><td>套裝<b>沒附</b>。要有 <b>V30／U3／A2</b>（Samsung PRO Plus、SanDisk Extreme）。4K 約每分鐘 0.7–1 GB</td></tr>
+    <tr><td><b>microSD 128GB</b>（備用）</td><td>✅</td><td>350–500</td><td>記憶卡會壞 —— 兩張比一張大卡安全。<b>每晚把影片備份到手機</b></td></tr>
+    <tr><td><b>脖掛 或 胸前固定架</b>（二選一）</td><td>✅</td><td>200–400<br><span style="opacity:.7">原廠較貴</span></td><td>冰川、藍冰洞戴冰爪要<b>空出雙手</b>。脖掛好穿脫，胸架比較穩</td></tr>
+    <tr><td><b>手腕繩／防丟繩</b></td><td>✅ 必買</td><td>100–300</td><td>戴手套容易滑手；掉進冰縫、瀑布或藍湖就找不回來</td></tr>
+    <tr><td><b>防霧片</b></td><td>✅</td><td>100–200</td><td>上下車溫差大，鏡頭內側容易起霧</td></tr>
+    <tr><td><b>浮力手柄</b></td><td>✅</td><td>150–400</td><td>🔑 <b>藍湖最多人用的拍法</b>：相機掉下去會<b>自己浮起來</b>，配手腕繩雙重保險</td></tr>
+    <tr><td><b>擦鏡布／麂皮布</b></td><td>✅ 手上有就好</td><td>0–100</td><td>藍湖熱蒸氣、上下車溫差都會讓鏡頭起霧</td></tr>
+    <tr><td><b>防水殼</b></td><td>❌</td><td>—</td><td>機身本身防水 <b>20 m</b>；藍湖只拍水面上，用不到</td></tr>
+    <tr><td colspan="2"><b>配件小計</b>（不含相機）</td><td><b>約 1,600–3,000</b></td><td>以上配件價格為一般市價估算，以實際賣場為準</td></tr>
+    <tr><td colspan="2"><b>總預算</b></td><td><b>約 16,600–18,000</b></td><td>暢拍套裝 15,000 ＋ 配件</td></tr>
+  </table></div>
+  <div class="note hot"><b>藍湖：不要讓機身直接泡進水裡。</b>DJI 官方使用須知明寫「<b>不要在溫泉中使用，或接觸腐蝕性液體</b>」—— 藍湖是含矽泥與鹽分的地熱溫泉（約 37–40°C）。<br>
+  ✅ <b>大家的拍法</b>：裝在<b>浮力手柄 ＋ 手腕繩</b>上，<b>只拍水面上</b>（水是乳白色，水下什麼都拍不到）<br>
+  ✅ <b>起霧</b>：熱蒸氣很重，拍之前用擦鏡布擦一下<br>
+  ✅ <b>不小心掉進去</b>：馬上撿起來，到淋浴間<b>用清水沖整台</b>，回旅館打開電池蓋把膠條擦乾淨 —— 短暫碰水不會壞（防水 20 m、藍湖約 1–1.5 m 深）<br>
+  🔴 <b>藍湖的水是乳白色、看不到底 —— 掉下去就找不回來，手腕繩一定要綁</b></div>
+  <div class="note"><b>規格備忘：</b>機身防水 20 m（裝防水殼 60 m）・工作溫度 <b>−20～45°C</b>・不要從高處跳進水裡（瞬間水壓會讓水滲入）。</div>
+</div></section>
+
+<section id="time"><div class="wrap">
+  <h2>時間分配</h2>
+  <div class="grid g3">
+    <div class="card"><div class="k">日落</div><div class="big">16:30</div><div class="lead" style="margin:0">11 月冰島</div></div>
+    <div class="card"><div class="k">極光活躍</div><div class="big">21:00–01:00</div><div class="lead" style="margin:0">統計上的高峰時段</div></div>
+    <div class="card"><div class="k">日出</div><div class="big">09:30</div><div class="lead" style="margin:0">暗的時間很長，機會多</div></div>
+  </div>
+  <h3>四個建議</h3>
+  <div class="tw"><table>
+    <tr><th>建議</th><th>原因</th></tr>
+    <tr><td><b>白天先去勘景</b></td><td>看好構圖與停車位置 — 黑暗中找地點很危險</td></tr>
+    <tr><td><b>一個地點待 1～2 小時</b></td><td>不要一直換地方，移動就是錯過</td></tr>
+    <tr><td><b>帶熱飲、坐得住</b></td><td>極光是等出來的</td></tr>
+    <tr><td><b>縮時一次跑 20～30 分鐘</b></td><td>這段時間用 S23U 拍照或休息</td></tr>
+  </table></div>
+</div></section>
+
+<section id="checklist"><div class="wrap">
+  <h2>出門前清單</h2>
+  <p class="lead">可以直接點選打勾，會記在這台裝置上。</p>
+  <ul class="chk" id="chk">
+    <li><label><input type="checkbox" data-id="c1"><span>Action 6 電池滿 ＋ <b>微距鏡頭配件</b></span></label></li>
+    <li><label><input type="checkbox" data-id="c2"><span>S23 Ultra 充滿 ＋ 行動電源</span></label></li>
+    <li><label><input type="checkbox" data-id="c3"><span>記憶卡清空（縮時很吃空間）</span></label></li>
+    <li><label><input type="checkbox" data-id="c4"><span><b>兩台參數全部設定完成</b>（模式／快門／ISO／WB）</span></label></li>
+    <li><label><input type="checkbox" data-id="c5"><span><b>手動對焦 ∞ 已設定並確認</b></span></label></li>
+    <li><label><input type="checkbox" data-id="c6"><span>暖暖包 ×4（相機 2、口袋 2）</span></label></li>
+    <li><label><input type="checkbox" data-id="c7"><span><b>紅光手電筒／頭燈</b></span></label></li>
+    <li><label><input type="checkbox" data-id="c8"><span>麂皮布 ／ 除霜貼</span></label></li>
+    <li><label><input type="checkbox" data-id="c9"><span>TT91 延長桿 ＋ <b>快拆底座</b></span></label></li>
+    <li><label><input type="checkbox" data-id="c10"><span>CPL 濾鏡（白天用，夜拍要<b>拆掉</b>）</span></label></li>
+    <li><label><input type="checkbox" data-id="c11"><span>螢幕頸掛／胸掛（厚外套時比錶帶好用）</span></label></li>
+    <li><label><input type="checkbox" data-id="c12"><span>密封袋（收工回溫防結露）</span></label></li>
+    <li><label><input type="checkbox" data-id="c13"><span>查 KP 值 ＋ 雲量圖</span></label></li>
+    <li><label><input type="checkbox" data-id="c14"><span>手套（<b>薄內層</b>＋厚外層，內層才能操作）</span></label></li>
+    <li><label><input type="checkbox" data-id="c15"><span>熱飲、行動糧</span></label></li>
+    <li><label><input type="checkbox" data-id="c16"><span><b>備用記憶卡</b>（128GB）＋ 前一晚影片已備份</span></label></li>
+    <li><label><input type="checkbox" data-id="c17"><span><b>手腕繩已綁上</b>（戴手套最容易滑手）</span></label></li>
+  </ul>
+  <div class="chk-actions">
+    <button class="btn" id="clearChk" type="button">全部清空</button>
+  </div>
+  <div class="note hot"><b>夜拍記得把 CPL 拆掉。</b>偏光鏡會吃掉 1～2 格光，極光已經很暗了，戴著只會更難拍。</div>
+</div></section>
+
+<footer><div class="wrap">
+  冰島極光拍攝現場流程 · 隸屬「2026 英倫與冰島 12 天（第六版）」 ·
+  <a href="./index.html">回行程主頁</a>
+  <br><span style="color:var(--dim);font-size:12px">右上角按鈕可切換：🌙 夜間 → ☀️ 日間 → 🔴 紅光夜視（現場用，不破壞夜視力）</span>
+</div></footer>
+
+<button id="top" type="button" aria-label="回到頂端">↑</button>
+
+<script>
+(function(){
+  /* ===== 主題：dark → light → night(紅光) ===== */
+  var ORDER=['dark','light','night'], ICON={dark:'🌙',light:'☀️',night:'🔴'};
+  var TC={dark:'#0b1020',light:'#f5f7fc',night:'#070000'};
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  var meta=document.querySelector('meta[name="theme-color"]');
+  function setTheme(t){
+    if(ORDER.indexOf(t)<0) t='dark';
+    root.setAttribute('data-theme',t);
+    if(btn) btn.textContent=ICON[t];
+    if(meta) meta.setAttribute('content',TC[t]);
+  }
+  var saved=null;
+  try{ saved=localStorage.getItem('eu6-theme'); }catch(e){}
+  setTheme(saved||'dark');
+  if(btn) btn.addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme');
+    var next=ORDER[(ORDER.indexOf(cur)+1)%ORDER.length];
+    setTheme(next);
+    try{ localStorage.setItem('eu6-theme',next); }catch(e){}
+  });
+
+  /* ===== 勾選清單（記在本機） ===== */
+  var KEY='eu6-aurora-chk', state={};
+  try{ state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ state={}; }
+  var boxes=[].slice.call(document.querySelectorAll('#chk input[type=checkbox]'));
+  boxes.forEach(function(b){
+    if(state[b.dataset.id]) b.checked=true;
+    b.addEventListener('change',function(){
+      state[b.dataset.id]=b.checked;
+      try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){}
+    });
+  });
+  var clr=document.getElementById('clearChk');
+  if(clr) clr.addEventListener('click',function(){
+    boxes.forEach(function(b){ b.checked=false; });
+    state={}; try{ localStorage.removeItem(KEY); }catch(e){}
+  });
+
+  /* ===== 錨點導覽高亮 ===== */
+  var links=[].slice.call(document.querySelectorAll('#navs a'));
+  var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  if('IntersectionObserver' in window && secs.length){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        links.forEach(function(a){
+          a.classList.toggle('on', a.getAttribute('href')==='#'+e.target.id);
+        });
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    secs.forEach(function(s){ io.observe(s); });
+  }
+
+  /* ===== 回到頂端 ===== */
+  var top=document.getElementById('top');
+  if(top){
+    top.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+    window.addEventListener('scroll',function(){
+      top.classList.toggle('show', window.scrollY>420);
+    },{passive:true});
+  }
+})();
+</script>
+</body>
+</html>
